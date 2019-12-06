@@ -1,13 +1,16 @@
-FROM gopowerteam/web-service-image:latest
+# 编译阶段
+FROM node:12.3.1-slim as builder
 
-ADD . /usr/opt/react-service
-WORKDIR /usr/opt/react-service
+ADD . /builder
+WORKDIR /builder
 
 RUN yarn config set registry https://registry.npm.taobao.org/ \
   && yarn \
-  && npm run build \
-  && rm -rf src node_modules \
-  && rm -rf /usr/opt/web-service/public/* \
-  && mv /usr/opt/react-service/build/* /usr/opt/web-service/public/
+  && npm run build
 
-WORKDIR /usr/opt/web-service
+# 运行阶段
+FROM gopowerteam/web-service-image:latest
+
+COPY --from=builder /builder/build/ /app/public/
+
+
