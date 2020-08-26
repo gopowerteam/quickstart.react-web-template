@@ -1,61 +1,23 @@
 import React, { Component } from 'react'
-import { Input } from 'antd'
 import styled from 'styled-components'
-import { Consumer } from 'reto'
-import { RouterStore } from '../../../store/router.store'
+import { Button } from 'antd'
 
 const components = {
     Wrapper: styled.section`
-        -webkit-app-region: drag;
+        padding: 0 20px;
     `,
-    HistoryWrap: styled.div`
-        flex-basis: 200px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        & > i {
-            padding: 10px;
-            cursor: pointer;
-        }
-        .disabled {
-            color: #c5c5c5;
-        }
-    `,
-    MenuWrap: styled.div`
-        flex: 1;
-        display: flex;
-        flex-wrap: nowrap;
-    `,
-    ToolBarWrap: styled.div`
-        flex-basis: 150px;
-        display: flex;
-        justify-content: flex-end;
+    LogoContainer: styled.div`
         padding: 0 10px;
-        & > i {
-            padding: 0 8px;
-        }
     `,
-    HeaderMenuItem: styled.div`
-        padding: 0 15px;
-        color: #7f7f7f;
-        cursor: pointer;
-        &:hover {
-            color: #000000;
-        }
-        &.actived {
-            color: #000000;
-            font-weight: bold;
-        }
+    UserContainer: styled.div`
+        padding: 0 20px;
     `,
-    SearchWrap: styled.div`
-        flex-basis: 150px;
-        input {
-            border-radius: 20px;
-            height: 27px;
-            background: #f1f1f1;
-        }
-        .ant-input-group-addon {
-            border-radius: 20px;
+    ActionContainer: styled.div`
+        padding: 0 20px;
+        .action-button {
+            background-color: ${props => props.theme.header.button.background};
+            color: ${props => props.theme.header.button.color};
+            border: none;
         }
     `
 }
@@ -74,9 +36,34 @@ export default class Header extends Component<{}, HeaderState> {
 
     public render() {
         return (
-            <components.Wrapper className="full-absolute flex-row align-items-center">
-                123
+            <components.Wrapper className="full-absolute flex-row justify-content-between align-items-center">
+                {this.renderLogoContainer()}
+                <div className="flex-row flex-nowrap align-items-center">
+                    {this.renderUserContainer()}
+                    {this.renderActionContainer()}
+                </div>
             </components.Wrapper>
+        )
+    }
+
+    private renderLogoContainer() {
+        return <components.LogoContainer>logo</components.LogoContainer>
+    }
+
+    private renderUserContainer() {
+        return (
+            <components.UserContainer>
+                <div>Ash Zeng</div>
+                <div>LastLogin 11/05/2020 12:25</div>
+            </components.UserContainer>
+        )
+    }
+
+    private renderActionContainer() {
+        return (
+            <components.ActionContainer>
+                <Button className="action-button">Log Off</Button>
+            </components.ActionContainer>
         )
     }
 }

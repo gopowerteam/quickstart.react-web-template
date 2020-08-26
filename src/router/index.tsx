@@ -15,7 +15,7 @@ function RouterGenerate(route) {
         <Route
             path={route.path}
             render={props => (
-                <route.layout>
+                <route.layout {...props}>
                     <route.component {...props} routes={route.routes} />
                 </route.layout>
             )}

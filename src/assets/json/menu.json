@@ -1,0 +1,45 @@
+[
+    {
+        "name": "menu",
+        "title": "Menu",
+        "children": [
+            {
+                "name": "dashboard",
+                "title": "Dashboard",
+                "path": "/dashboard"
+            },
+            {
+                "name": "api demand",
+                "title": "Api Demand",
+                "children": [
+                    {
+                        "name": "api demand-1",
+                        "title": "Api Demand-1",
+                        "path": "/api/page1"
+                    },
+                    {
+                        "name": "api demand-2",
+                        "title": "Api Demand-2",
+                        "path": "/api/page2"
+                    }
+                ]
+            },
+            {
+                "name": "api demand-secord",
+                "title": "Api Demand-secord",
+                "children": [
+                    {
+                        "name": "api demand-3",
+                        "title": "Api Demand-3",
+                        "path": "/api/page3"
+                    },
+                    {
+                        "name": "api demand-4",
+                        "title": "Api Demand-4",
+                        "path": "/api/page4"
+                    }
+                ]
+            }
+        ]
+    }
+]

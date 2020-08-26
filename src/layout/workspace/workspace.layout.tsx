@@ -1,23 +1,32 @@
 import React, { Component, Props } from 'react'
 import styled from 'styled-components'
 import Header from './components/header.component'
-import SideMenu from './components/side-menu.component'
-import { Router } from '~/router'
+import Footer from './components/footer.component'
+import Navigate from './components/navigate.component'
+import { RouteComponentProps } from 'react-router-dom'
 
 const components = {
-    HeaderWrap: styled.div`
-        flex-basis: 50px;
-        height: 50px;
-        min-height: 50px;
-        position: relative;
-        background-color: #f7f7f7;
+    LayoutWrapper: styled.section`
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
     `,
-    SideMenuWrap: styled.div`
-        flex-basis: 200px;
-        width: 200px;
+    HeaderWrap: styled.div`
+        flex-basis: 60px;
+        height: 60px;
+        min-height: 60px;
+        position: relative;
+        background-color: ${props => props.theme.header.background};
+        color: ${props => props.theme.header.color};
+    `,
+    NagivateWrap: styled.div`
+        flex-basis: 40px;
+        height: 40px;
+        min-height: 40px;
         overflow: auto;
         position: relative;
-        background-color: #ededed;
+        background-color: ${props => props.theme.nagivate.background};
+        color: ${props => props.theme.nagivate.color};
     `,
     FooterWrap: styled.div`
         flex-basis: 50px;
@@ -25,12 +34,10 @@ const components = {
         min-height: 50px;
         position: relative;
     `,
-    ContentWrap: styled.section`
+    ContentWrap: styled.div`
         flex: 1;
+        background: red;
         position: relative;
-    `,
-    Content: styled.main`
-        overflow: auto;
     `
 }
 
@@ -47,9 +54,22 @@ const styles = (
     }
 })
 
-export default class WorkspaceLayout extends Component {
+interface WorkspaceLayoutProps {}
+interface WorkspaceLayoutState {}
+
+export default class WorkspaceLayout extends Component<
+    RouteComponentProps<WorkspaceLayoutProps>,
+    WorkspaceLayoutState
+> {
     public render() {
-        return <components.Content>{this.props.children}</components.Content>
+        return (
+            <components.LayoutWrapper className="full-absolute">
+                {this.layoutHeader()}
+                {this.layoutMenu()}
+                {this.lauyoutContent()}
+                {this.lauyoutFooter()}
+            </components.LayoutWrapper>
+        )
     }
 
     public layoutHeader() {
@@ -60,18 +80,18 @@ export default class WorkspaceLayout extends Component {
         )
     }
 
-    public layoutSideMenu() {
+    public layoutMenu() {
         return (
-            <components.SideMenuWrap>
-                <SideMenu></SideMenu>
-            </components.SideMenuWrap>
+            <components.NagivateWrap>
+                <Navigate {...this.props}></Navigate>
+            </components.NagivateWrap>
         )
     }
 
     public lauyoutFooter() {
         return (
             <components.FooterWrap>
-                {/* <Footer></Footer> */}
+                <Footer></Footer>
             </components.FooterWrap>
         )
     }
@@ -79,9 +99,7 @@ export default class WorkspaceLayout extends Component {
     public lauyoutContent() {
         return (
             <components.ContentWrap>
-                <components.Content className="full-absolute">
-                    {this.props.children}
-                </components.Content>
+                {this.props.children}
             </components.ContentWrap>
         )
     }
