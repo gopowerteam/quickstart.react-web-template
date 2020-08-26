@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Button } from 'antd'
-
+import { Avatar } from 'antd'
+import { UserOutlined } from '@ant-design/icons'
 const components = {
     Wrapper: styled.section`
         padding: 0 20px;
@@ -47,7 +48,11 @@ export default class Header extends Component<{}, HeaderState> {
     }
 
     private renderLogoContainer() {
-        return <components.LogoContainer>logo</components.LogoContainer>
+        return (
+            <components.LogoContainer>
+                <Avatar shape="square" size="large" icon={<UserOutlined />} />
+            </components.LogoContainer>
+        )
     }
 
     private renderUserContainer() {

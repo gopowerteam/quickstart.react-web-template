@@ -1,45 +1,85 @@
-[
-    {
-        "name": "menu",
-        "title": "Menu",
-        "children": [
-            {
-                "name": "dashboard",
-                "title": "Dashboard",
-                "path": "/dashboard"
-            },
-            {
-                "name": "api demand",
-                "title": "Api Demand",
-                "children": [
-                    {
-                        "name": "api demand-1",
-                        "title": "Api Demand-1",
-                        "path": "/api/page1"
-                    },
-                    {
-                        "name": "api demand-2",
-                        "title": "Api Demand-2",
-                        "path": "/api/page2"
-                    }
-                ]
-            },
-            {
-                "name": "api demand-secord",
-                "title": "Api Demand-secord",
-                "children": [
-                    {
-                        "name": "api demand-3",
-                        "title": "Api Demand-3",
-                        "path": "/api/page3"
-                    },
-                    {
-                        "name": "api demand-4",
-                        "title": "Api Demand-4",
-                        "path": "/api/page4"
-                    }
-                ]
-            }
-        ]
-    }
-]
+[{
+    "name": "menu",
+    "title": "Menu",
+    "children": [{
+            "name": "dashboard",
+            "title": "Dashboard",
+            "path": "/dashboard"
+        },
+
+
+        {
+            "name": "API Demand",
+            "title": "API Demand",
+            "children": [{
+                    "name": "API Demand Request List",
+                    "title": "API Demand Request List",
+                    "path": "/api/api-demand-request-list"
+                },
+                {
+                    "name": "Raise API Demand Request",
+                    "title": "Raise API Demand Request",
+                    "path": "/api/demand-request-form"
+                }
+            ]
+        },
+
+
+        {
+            "name": "API Review",
+            "title": "API Review",
+            "children": [{
+                "name": "API Review Request List",
+                "title": "API Review Request List",
+                "path": "/api/api-review-request-list"
+            }]
+        },
+
+        {
+            "name": "API Catalogue",
+            "title": "API Catalogue",
+            "children": [{
+                "name": "API List",
+                "title": "API List",
+                "path": "/api/api-list"
+            }]
+        },
+
+
+        {
+            "name": "Tools",
+            "title": "Tools",
+            "children": [{
+                    "name": "IWS Code Generator",
+                    "title": "IWS Code Generator",
+                    "path": "/api/iws-code-generator"
+                },
+                {
+                    "name": "Mule Code Generator",
+                    "title": "Mule Code Generator",
+                    "path": "/api/mule-code-generator"
+                },
+                {
+                    "name": "raml Generator",
+                    "title": "raml Generator",
+                    "path": "/api/raml-generator"
+                }
+            ]
+        }, {
+            "name": "Others",
+            "title": "Others",
+            "children": [{
+                    "name": "other1",
+                    "title": "other1",
+                    "path": "/api/page3"
+                },
+                {
+                    "name": "other2",
+                    "title": "other2",
+                    "path": "/api/page4"
+                }
+            ]
+        }
+
+    ]
+}]
