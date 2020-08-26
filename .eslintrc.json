@@ -1,0 +1,29 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true,
+        "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "react/prop-types": "off"
+    }
+}
