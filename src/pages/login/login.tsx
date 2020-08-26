@@ -1,8 +1,21 @@
 import React, { Component, Props } from 'react'
 import styled from 'styled-components'
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button, Space } from 'antd'
 import { RouteComponentProps } from 'react-router-dom'
+import { Row, Col } from 'antd'
 
+const styles = (
+    props?: Props<any>
+): { [key: string]: React.CSSProperties } => ({
+    autoFlex: {
+        flex: 1,
+        position: 'relative'
+    },
+    logo: {
+        width: '177px',
+        height: '38px'
+    }
+})
 const components = {
     Wrapper: styled.section`
         background-image: url('/images/login-bg.png');
@@ -11,17 +24,42 @@ const components = {
         left: 0;
         right: 0;
         bottom: 0;
-        color: #fff;
+        color: #e5e5e5;
+        background-size: 100% auto;
+        background-repeat: no-reapt;
+        display: flex;
+        flex-direction: column;
+    `,
+    HeaderContainer: styled.section`
+        display: flex;
+        align-items: center;
+        height: 60px;
+        width: 100%;
+        flex-basis: 60px;
+        color: rgba(255, 255, 255, 0.87);
+        background-color: rgba(255, 255, 255, 0.87);
+        background-size: 100% auto;
+    `,
+    FooterContainer: styled.section`
+        height: 64px;
+        flex-basis: 64px;
+        background-color: rgba(64, 64, 64, 0.86);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        text-align: center;
+    `,
+    FormContainer: styled.section`
+        flex: 1;
         display: flex;
         align-items: center;
         justify-content: center;
     `,
-    FormContainer: styled.section`
+    FormWrapper: styled.section`
         color: #000;
         width: 500px;
         height: 320px;
         background-color: #fff;
-        border-radius: 10px;
         .form-header {
             border-bottom: solid 3px rgba(0, 0, 0, 0.3);
             font-size: 20px;
@@ -60,59 +98,91 @@ export default class Login extends Component<
     }
 
     public render() {
-        return <components.Wrapper>{this.renderForm()}</components.Wrapper>
+        return (
+            <components.Wrapper>
+                {this.renderHeader()}
+                {this.renderForm()}
+                {this.renderFooter()}
+            </components.Wrapper>
+        )
+    }
+
+    public renderHeader() {
+        return (
+            <components.HeaderContainer>
+                <img
+                    alt=""
+                    src={require('~/assets/images/hsbc-logo.png')}
+                ></img>
+            </components.HeaderContainer>
+        )
+    }
+
+    public renderFooter() {
+        return (
+            <components.FooterContainer className="flex-row align-items-center">
+                <div className="flex-basis-3">Trems to use</div>
+                <div className="flex-basis-3">Hyperlink Policy</div>
+                <div className="flex-basis-6">
+                    ©Copyright. HSBC Bank Company Limited 2020. All rights
+                    reserved.
+                </div>
+            </components.FooterContainer>
+        )
     }
 
     public renderForm() {
         return (
             <components.FormContainer>
-                <div className="form-header">Login</div>
-                <Form
-                    size="large"
-                    labelCol={{ span: 6 }}
-                    className="form-content"
-                    name="login-form"
-                    initialValues={{ remember: true }}
-                    onFinish={data => this.onSubmit(data)}
-                >
-                    <Form.Item
-                        label="User ID"
-                        name="username"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your user ID!'
-                            }
-                        ]}
+                <components.FormWrapper>
+                    <div className="form-header">Login</div>
+                    <Form
+                        size="large"
+                        labelCol={{ span: 6 }}
+                        className="form-content"
+                        name="login-form"
+                        initialValues={{ remember: true }}
+                        onFinish={data => this.onSubmit(data)}
                     >
-                        <Input className="form-input" />
-                    </Form.Item>
+                        <Form.Item
+                            label="User ID"
+                            name="username"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Please input your user ID!'
+                                }
+                            ]}
+                        >
+                            <Input className="form-input" />
+                        </Form.Item>
 
-                    <Form.Item
-                        label="Password"
-                        name="password"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your password!'
-                            }
-                        ]}
-                    >
-                        <Input.Password className="form-input" />
-                    </Form.Item>
+                        <Form.Item
+                            label="Password"
+                            name="password"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Please input your password!'
+                                }
+                            ]}
+                        >
+                            <Input.Password className="form-input" />
+                        </Form.Item>
 
-                    <Form.Item>
-                        <div className="flex-row justify-content-center">
-                            <Button
-                                type="primary"
-                                htmlType="submit"
-                                className="submit-button"
-                            >
-                                Sign In
-                            </Button>
-                        </div>
-                    </Form.Item>
-                </Form>
+                        <Form.Item>
+                            <div className="flex-row justify-content-center">
+                                <Button
+                                    type="primary"
+                                    htmlType="submit"
+                                    className="submit-button"
+                                >
+                                    Sign In
+                                </Button>
+                            </div>
+                        </Form.Item>
+                    </Form>
+                </components.FormWrapper>
             </components.FormContainer>
         )
     }
