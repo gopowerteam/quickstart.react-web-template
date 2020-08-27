@@ -9,7 +9,9 @@ const components = {
     PageContainer: styled(PageContainer)``
 }
 
-interface APIDemandRequestListState {}
+interface APIDemandRequestListState {
+    selectedRowKeys: any[]
+}
 
 interface APIDemandRequestListProps {}
 
@@ -17,6 +19,13 @@ export default class APIDemandRequestList extends Component<
     RouteComponentProps<APIDemandRequestListProps>,
     APIDemandRequestListState
 > {
+    constructor(props) {
+        super(props)
+        this.state = {
+            selectedRowKeys: []
+        }
+    }
+
     private dataSource = [
         {
             key: '1',
@@ -43,9 +52,6 @@ export default class APIDemandRequestList extends Component<
             tags: ['cool', 'teacher']
         }
     ]
-    constructor(props) {
-        super(props)
-    }
     // UniqueOrderRef
     // EntryCreationDate
     // OrderRecordDate
@@ -84,9 +90,15 @@ export default class APIDemandRequestList extends Component<
     // Target Overall Delivery
     // OverallDeliveryRAG Status
     public render() {
+        const { selectedRowKeys } = this.state
         return (
-            <components.PageContainer title="Review Request Form">
-                <DataTable dataSource={this.dataSource}>
+            <components.PageContainer title="API Demand Request List">
+                <DataTable
+                    dataSource={this.dataSource}
+                    rowSelection={{
+                        selectedRowKeys
+                    }}
+                >
                     <Column
                         title="UniqueOrderRef"
                         dataIndex="UniqueOrderRef"
