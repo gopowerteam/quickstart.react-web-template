@@ -15,9 +15,11 @@ interface ComponentProp {
     dataSource: any[]
     pageService?: PageService
     rowSelection?: TableRowSelection<Record<string, any>>
+    height?: string
 }
 
 export default class DataTabke extends React.Component<ComponentProp> {
+    private defaultHeight = '10000px'
     public render() {
         return (
             <components.Wrapper>
@@ -33,10 +35,14 @@ export default class DataTabke extends React.Component<ComponentProp> {
     }
 
     public renderTableContainer() {
-        const { dataSource, rowSelection } = this.props
+        const { dataSource, rowSelection, height } = this.props
+
         return (
             <components.TabContainer>
                 <Table
+                    scroll={{
+                        x: true
+                    }}
                     rowSelection={rowSelection}
                     dataSource={dataSource}
                     pagination={false}
