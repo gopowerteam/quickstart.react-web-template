@@ -50,7 +50,7 @@ export default class Page1 extends Component<
     public render() {
         return (
             <components.PageContainer>
-                <DataTable dataSource={this.dataSource}>
+                <DataTable rowKey="key" dataSource={this.dataSource}>
                     <Column title="Age" dataIndex="age" key="age" />
                     <Column title="Address" dataIndex="address" key="address" />
 

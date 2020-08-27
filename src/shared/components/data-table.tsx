@@ -12,6 +12,7 @@ const components = {
 }
 
 interface ComponentProp {
+    rowKey: string
     dataSource: any[]
     pageService?: PageService
     rowSelection?: TableRowSelection<Record<string, any>>
@@ -35,11 +36,12 @@ export default class DataTabke extends React.Component<ComponentProp> {
     }
 
     public renderTableContainer() {
-        const { dataSource, rowSelection, height } = this.props
+        const { dataSource, rowSelection, height, rowKey } = this.props
 
         return (
             <components.TabContainer>
                 <Table
+                    rowKey={rowKey}
                     scroll={{
                         x: true
                     }}

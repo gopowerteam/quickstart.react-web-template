@@ -43,10 +43,10 @@ export default class LabelContainer extends React.Component<ComponentProp> {
 
         const column = this.props.column || this.default.column
 
-        return React.Children.map(this.props.children, child => {
+        return React.Children.map(this.props.children, (child, index) => {
             if (React.isValidElement(child)) {
                 return (
-                    <Col span={24 / column}>
+                    <Col span={24 / column} key={index}>
                         {React.cloneElement(child, { labelSpan, labelWidth })}
                     </Col>
                 )
