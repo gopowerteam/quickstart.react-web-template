@@ -28,7 +28,11 @@ export default class Dashboard extends Component<
         return (
             <components.PageContainer title="Dashboard">
                 <CardContainer title="data-from-demo">
-                    <DataForm name="demo-form">
+                    <DataForm
+                        name="demo-form"
+                        labelCol={{ span: 5 }}
+                        labelAlign="left"
+                    >
                         <Form.Item name="email" label="E-mail1">
                             <Input />
                         </Form.Item>
