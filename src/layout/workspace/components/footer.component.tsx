@@ -6,7 +6,7 @@ const components = {
         height: 100px;
         flex-basis: 100px;
     `,
-    FooterFirst: styled.section`
+    LinkContainer: styled.section`
         height: 50px;
         flex-basis: 50px;
         background-color: #253038;
@@ -18,7 +18,7 @@ const components = {
         font-family: Univers Next;
         padding: 0 10px;
     `,
-    FooterSecond: styled.section`
+    FooterContainer: styled.section`
         height: 50px;
         flex-basis: 50px;
         background-color: #1d262c;
@@ -45,37 +45,37 @@ export default class Footer extends Component {
     public render() {
         return (
             <components.ComponentWrap>
-                {this.renderFooterFirst()}
-                {this.renderFooterSecond()}
+                {this.renderLinkContainer()}
+                {this.renderFooterContainer()}
             </components.ComponentWrap>
         )
     }
-    public renderFooterFirst() {
+    public renderLinkContainer() {
         return (
-            <components.FooterFirst className="flex-row align-items-center">
+            <components.LinkContainer className="flex-row align-items-center">
                 <div style={styles().split}></div>
-                <div className="flex-basis-2">Online security</div>
+                <div className="flex-span-2">Online security</div>
                 <div style={styles().split}></div>
-                <div className="flex-basis-2">HSBC Global</div>
+                <div className="flex-span-2">HSBC Global</div>
                 <div style={styles().split}></div>
-                <div className="flex-basis-2">Customer support</div>
-                <div className="flex-basis-6"> </div>
-            </components.FooterFirst>
+                <div className="flex-span-2">Customer support</div>
+                <div className="flex-span-6"> </div>
+            </components.LinkContainer>
         )
     }
-    public renderFooterSecond() {
+    public renderFooterContainer() {
         return (
-            <components.FooterSecond className="flex-row align-items-center">
-                <div className="flex-basis-2">Terms & Conditions of use</div>
-                <div className="flex-basis-2">
+            <components.FooterContainer className="flex-row align-items-center">
+                <div className="flex-span-2">Terms & Conditions of use</div>
+                <div className="flex-span-2">
                     Privacy and data protection statement
                 </div>
-                <div className="flex-basis-2">
+                <div className="flex-span-2">
                     HSBCnet condition of national language use
                 </div>
-                <div className="flex-basis-3">沪ICP备15029387号</div>
-                <div className="flex-basis-3">© HSBC Bank plc 2018</div>
-            </components.FooterSecond>
+                <div className="flex-span-3">沪ICP备15029387号</div>
+                <div className="flex-span-3">© HSBC Bank plc 2018</div>
+            </components.FooterContainer>
         )
     }
 }

@@ -19,7 +19,12 @@ const components = {
         padding: 0 50px;
         font-size: 26px;
     `,
-    ContentContainer: styled.div``
+    ContentContainer: styled.div`
+        display: flex;
+        justify-content: center;
+        padding: 0 40px;
+        position: relative;
+    `
 }
 
 interface ComponentProp {
