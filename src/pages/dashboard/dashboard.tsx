@@ -4,9 +4,14 @@ import PageContainer from '~/shared/components/page-container'
 import { RouteComponentProps } from 'react-router-dom'
 import CardContainer from '~/shared/components/card-container'
 import DataForm from '~/shared/components/data-form'
-import { Form, Input } from 'antd'
+import { Form, Input, message } from 'antd'
 import LabelContainer from '~/shared/components/label-contaoner'
 import LabelItem from '~/shared/components/label-item'
+import StepContainer from '~/shared/components/step-container'
+import StepItem from '~/shared/components/step-item'
+import Step1 from './components/step-demo/step-1'
+import Step2 from './components/step-demo/step-2'
+import Step3 from './components/step-demo/step-3'
 
 const components = {
     PageContainer: styled(PageContainer)``
@@ -62,7 +67,19 @@ export default class Dashboard extends Component<
                         <LabelItem label="字段标题">测试内容</LabelItem>
                     </LabelContainer>
                 </CardContainer>
+                <CardContainer title="steps-container-demo">
+                    <StepContainer onSubmit={data => this.onSubmit(data)}>
+                        <StepItem title="第一步" component={Step1}></StepItem>
+                        <StepItem title="第二步" component={Step2}></StepItem>
+                        <StepItem title="第三步" component={Step3}></StepItem>
+                    </StepContainer>
+                </CardContainer>
             </components.PageContainer>
         )
+    }
+
+    private onSubmit(data) {
+        console.log(123)
+        message.success('提交成功')
     }
 }

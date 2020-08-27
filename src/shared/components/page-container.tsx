@@ -32,7 +32,6 @@ const components = {
         bottom: 100px;
         left: 0;
         overflow: auto;
-        background: red;
     `
 }
 
