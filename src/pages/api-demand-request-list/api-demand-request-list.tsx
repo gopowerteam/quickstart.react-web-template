@@ -4,7 +4,9 @@ import PageContainer from '~/shared/components/page-container'
 import { RouteComponentProps } from 'react-router-dom'
 import DataTable from '~/shared/components/data-table'
 import Column from 'antd/lib/table/Column'
-import { Space } from 'antd'
+import CardContainer from '~/shared/components/card-container'
+import DataForm from '~/shared/components/data-form'
+import { Form, Input, Select, DatePicker } from 'antd'
 const components = {
     PageContainer: styled(PageContainer)``
 }
@@ -69,180 +71,370 @@ export default class APIDemandRequestList extends Component<
     ]
     public render() {
         const { selectedRowKeys } = this.state
+        const { Option } = Select
+
         return (
             <components.PageContainer title="API Demand Request List">
-                <DataTable
-                    dataSource={this.dataSource}
-                    rowSelection={{
-                        selectedRowKeys
-                    }}
-                >
-                    <Column
-                        title="UniqueOrderRef"
-                        dataIndex="UniqueOrderRef"
-                        key="UniqueOrderRef"
-                    />
-                    <Column
-                        title="EntryCreationDate"
-                        dataIndex="EntryCreationDate"
-                        key="EntryCreationDate"
-                    />
-                    <Column
-                        title="OrderRecordDate"
-                        dataIndex="OrderRecordDate"
-                        key="OrderRecordDate"
-                    />
-                    <Column
-                        title="DemandName"
-                        dataIndex="DemandName"
-                        key="DemandName"
-                    />
-                    <Column
-                        title="SAPIName"
-                        dataIndex="SAPIName"
-                        key="SAPIName"
-                    />
-                    <Column title="Country" dataIndex="Country" key="Country" />
-                    <Column
-                        title="Back-endSystem"
-                        dataIndex="BackEndSystem"
-                        key="BackEndSystem"
-                    />
-                    <Column title="Channel" dataIndex="Channel" key="Channel" />
-                    <Column
-                        title="RequestorContact"
-                        dataIndex="RequestorContact"
-                        key="RequestorContact"
-                    />
-                    <Column
-                        title="OSSOverallContact"
-                        dataIndex="OSSOverallContact"
-                        key="OSSOverallContact"
-                    />
-                    <Column
-                        title="Core Banking System Contact"
-                        dataIndex="CoreBankingSystemContact"
-                        key="CoreBankingSystemContact"
-                    />
-                    <Column title="GB/GF" dataIndex="GBGF" key="GBGF" />
-                    <Column
-                        title="Multi-Country"
-                        dataIndex="MultiCountry"
-                        key="MultiCountry"
-                    />
-                    <Column
-                        title="API lifecycle Stage"
-                        dataIndex="APIlifecycleStage"
-                        key="APIlifecycleStage"
-                    />
-                    <Column
-                        title="Target Live Date"
-                        dataIndex="TargetLiveDate"
-                        key="TargetLiveDate"
-                    />
-                    <Column
-                        title="Total OSS L0 Estimates"
-                        dataIndex="TotalOSSL0Estimates"
-                        key="TotalOSSL0Estimates"
-                    />
-                    <Column
-                        title="OSS API L0 Estimates"
-                        dataIndex="OSSAPIL0Estimates"
-                        key="OSSAPIL0Estimates"
-                    />
-                    <Column
-                        title="CBSystemL0 Estimates"
-                        dataIndex="CBSystemL0Estimates"
-                        key="CBSystemL0Estimates"
-                    />
-                    <Column
-                        title="GPDM Interlock & BPID"
-                        dataIndex="GPDMInterlockBPID"
-                        key="GPDMInterlockBPID"
-                    />
-                    <Column
-                        title="Demand Governance"
-                        dataIndex="DemandGovernance"
-                        key="DemandGovernance"
-                    />
-                    <Column
-                        title="Platfrom"
-                        dataIndex="Platfrom"
-                        key="Platfrom"
-                    />
-                    <Column
-                        title="API Type"
-                        dataIndex="APIType"
-                        key="APIType"
-                    />
-                    <Column
-                        title="Functional Domain"
-                        dataIndex="FunctionalDomain"
-                        key="FunctionalDomain"
-                    />
-                    <Column title="Feature" dataIndex="Feature" key="Feature" />
-                    <Column title="Service" dataIndex="Service" key="Service" />
-                    <Column
-                        title="Channel Agnostic"
-                        dataIndex="ChannelAgnostic"
-                        key="ChannelAgnostic"
-                    />
-                    <Column
-                        title="Demand Classification"
-                        dataIndex="DemandClassification"
-                        key="DemandClassification"
-                    />
-                    <Column
-                        title="Reusability Score"
-                        dataIndex="ReusabilityScore"
-                        key="ReusabilityScore"
-                    />
-                    <Column
-                        title="SAPI Ref Number"
-                        dataIndex="SAPIRefNumber"
-                        key="SAPIRefNumber"
-                    />
-                    <Column
-                        title="Old SAPI Ref Number"
-                        dataIndex="OldSAPIRefNumber"
-                        key="OldSAPIRefNumber"
-                    />
-                    <Column
-                        title="Design Review Approval"
-                        dataIndex="DesignReviewApproval"
-                        key="DesignReviewApproval"
-                    />
-                    <Column
-                        title="Design Approval"
-                        dataIndex="DesignApproval"
-                        key="DesignApproval"
-                    />
-                    <Column
-                        title="Final Approval"
-                        dataIndex="FinalApproval"
-                        key="FinalApproval"
-                    />
-                    <Column
-                        title="Target Date OF Next Milestone"
-                        dataIndex="TargetDateOFNextMilestone"
-                        key="TargetDateOFNextMilestone"
-                    />
-                    <Column
-                        title="Next Miletone RAG Status"
-                        dataIndex="NextMiletoneRAGStatus"
-                        key="NextMiletoneRAGStatus"
-                    />
-                    <Column
-                        title="Target Overall Delivery"
-                        dataIndex="TargetOverallDelivery"
-                        key="TargetOverallDelivery"
-                    />
-                    <Column
-                        title="OverallDeliveryRAG Status"
-                        dataIndex="OverallDeliveryRAGStatus"
-                        key="OverallDeliveryRAGStatus"
-                    />
-                    {/* 
+                <CardContainer title="Search">
+                    <DataForm
+                        name="demo-form"
+                        column={4}
+                        labelCol={{ span: 8 }}
+                        labelAlign="left"
+                    >
+                        <Form.Item
+                            name="DemandClassification"
+                            label="Demand Classification"
+                        >
+                            <Select defaultValue="New" style={{ width: 280 }}>
+                                <Option value="New">New</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item name="BackendSystem" label="Back-end System">
+                            <Select defaultValue="HUB" style={{ width: 280 }}>
+                                <Option value="HUB">HUB</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            name="DemandApproveStatus"
+                            label="Demand Approve Status"
+                        >
+                            <Select
+                                defaultValue="Approve"
+                                style={{ width: 280 }}
+                            >
+                                <Option value="Approve">Approve</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            name="DemandApproveDate"
+                            label="Demand Approve Date"
+                        >
+                            <DatePicker
+                                style={{ width: 280 }}
+                                renderExtraFooter={() => 'extra footer'}
+                            />
+                        </Form.Item>
+                        <Form.Item name="DemandName" label="Demand Name">
+                            <Input style={{ width: 280 }} />
+                        </Form.Item>
+                        <Form.Item name="Channel" label="Channel">
+                            <Select defaultValue="CMB" style={{ width: 280 }}>
+                                <Option value="CMB">CMB</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            name="DesignReviewApproval"
+                            label="Design Review Approval"
+                        >
+                            <Select defaultValue="CMB" style={{ width: 280 }}>
+                                <Option value="Approve">Approve</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            name="DesignReviewApprovalDate"
+                            label="Design Review Approval Date"
+                        >
+                            <DatePicker style={{ width: 280 }} />
+                        </Form.Item>
+                        <Form.Item name="SAPIName" label="SAPI Name">
+                            <Input style={{ width: 280 }} />
+                        </Form.Item>
+
+                        <Form.Item name="GBGF" label="GB/GF">
+                            <Select defaultValue="RBWM" style={{ width: 280 }}>
+                                <Option value="RBWM">RBWM</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            name="DesignApproval"
+                            label="Design Approval"
+                        >
+                            <Select
+                                defaultValue="Approve"
+                                style={{ width: 280 }}
+                            >
+                                <Option value="Approve">Approve</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            name="DesignApproveDate"
+                            label="Design Approve Date"
+                        >
+                            <DatePicker style={{ width: 280 }} />
+                        </Form.Item>
+                        <Form.Item
+                            name="RequestorContact"
+                            label="Requestor Contact"
+                        >
+                            <Input style={{ width: 280 }} />
+                        </Form.Item>
+                        <Form.Item
+                            name="APIlifecycleStage"
+                            label="API lifecycle Stage"
+                        >
+                            <Select
+                                defaultValue="Production"
+                                style={{ width: 280 }}
+                            >
+                                <Option value="Production">Production</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item name="Platfrom" label="Platfrom">
+                            <Select defaultValue="DTP" style={{ width: 280 }}>
+                                <Option value="DTP">DTP</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            name="TargetLiveDate"
+                            label="Target Live Date"
+                        >
+                            <DatePicker style={{ width: 280 }} />
+                        </Form.Item>
+                        <Form.Item name="SAPIRefNumber" label="SAPI Ref Number">
+                            <Input style={{ width: 280 }} />
+                        </Form.Item>
+                        <Form.Item
+                            name="CoreBankingSystemContact"
+                            label="Core Banking System Contact"
+                        >
+                            <Select
+                                defaultValue="Cameron Williamson"
+                                style={{ width: 280 }}
+                            >
+                                <Option value="Cameron Williamson">
+                                    Cameron Williamson
+                                </Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item name="Contry" label="Contry">
+                            <Select
+                                defaultValue="Georgia"
+                                style={{ width: 280 }}
+                            >
+                                <Option value="Georgia">Georgia</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item></Form.Item>
+                        <Form.Item
+                            name="OldSAPIRefNumber"
+                            label="Old SAPI Ref Number"
+                        >
+                            <Input style={{ width: 280 }} />
+                        </Form.Item>
+
+                        <Form.Item
+                            name="OSSOverallContact"
+                            label="OSS Overall Contact"
+                        >
+                            <Select
+                                defaultValue="Cameron Williamson"
+                                style={{ width: 280 }}
+                            >
+                                <Option value="Cameron Williamson">
+                                    Cameron Williamson
+                                </Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item name="APIType" label="API Type">
+                            <Select
+                                defaultValue="TRUE SAPI"
+                                style={{ width: 280 }}
+                            >
+                                <Option value="TRUE SAPI">TRUE SAPI</Option>
+                            </Select>
+                        </Form.Item>
+                    </DataForm>
+                </CardContainer>
+                <CardContainer title="API Demand Request List">
+                    <DataTable
+                        dataSource={this.dataSource}
+                        rowSelection={{
+                            selectedRowKeys
+                        }}
+                    >
+                        <Column
+                            title="UniqueOrderRef"
+                            dataIndex="UniqueOrderRef"
+                            key="UniqueOrderRef"
+                        />
+                        <Column
+                            title="EntryCreationDate"
+                            dataIndex="EntryCreationDate"
+                            key="EntryCreationDate"
+                        />
+                        <Column
+                            title="OrderRecordDate"
+                            dataIndex="OrderRecordDate"
+                            key="OrderRecordDate"
+                        />
+                        <Column
+                            title="DemandName"
+                            dataIndex="DemandName"
+                            key="DemandName"
+                        />
+                        <Column
+                            title="SAPIName"
+                            dataIndex="SAPIName"
+                            key="SAPIName"
+                        />
+                        <Column
+                            title="Country"
+                            dataIndex="Country"
+                            key="Country"
+                        />
+                        <Column
+                            title="Back-endSystem"
+                            dataIndex="BackEndSystem"
+                            key="BackEndSystem"
+                        />
+                        <Column
+                            title="Channel"
+                            dataIndex="Channel"
+                            key="Channel"
+                        />
+                        <Column
+                            title="RequestorContact"
+                            dataIndex="RequestorContact"
+                            key="RequestorContact"
+                        />
+                        <Column
+                            title="OSSOverallContact"
+                            dataIndex="OSSOverallContact"
+                            key="OSSOverallContact"
+                        />
+                        <Column
+                            title="Core Banking System Contact"
+                            dataIndex="CoreBankingSystemContact"
+                            key="CoreBankingSystemContact"
+                        />
+                        <Column title="GB/GF" dataIndex="GBGF" key="GBGF" />
+                        <Column
+                            title="Multi-Country"
+                            dataIndex="MultiCountry"
+                            key="MultiCountry"
+                        />
+                        <Column
+                            title="API lifecycle Stage"
+                            dataIndex="APIlifecycleStage"
+                            key="APIlifecycleStage"
+                        />
+                        <Column
+                            title="Target Live Date"
+                            dataIndex="TargetLiveDate"
+                            key="TargetLiveDate"
+                        />
+                        <Column
+                            title="Total OSS L0 Estimates"
+                            dataIndex="TotalOSSL0Estimates"
+                            key="TotalOSSL0Estimates"
+                        />
+                        <Column
+                            title="OSS API L0 Estimates"
+                            dataIndex="OSSAPIL0Estimates"
+                            key="OSSAPIL0Estimates"
+                        />
+                        <Column
+                            title="CBSystemL0 Estimates"
+                            dataIndex="CBSystemL0Estimates"
+                            key="CBSystemL0Estimates"
+                        />
+                        <Column
+                            title="GPDM Interlock & BPID"
+                            dataIndex="GPDMInterlockBPID"
+                            key="GPDMInterlockBPID"
+                        />
+                        <Column
+                            title="Demand Governance"
+                            dataIndex="DemandGovernance"
+                            key="DemandGovernance"
+                        />
+                        <Column
+                            title="Platfrom"
+                            dataIndex="Platfrom"
+                            key="Platfrom"
+                        />
+                        <Column
+                            title="API Type"
+                            dataIndex="APIType"
+                            key="APIType"
+                        />
+                        <Column
+                            title="Functional Domain"
+                            dataIndex="FunctionalDomain"
+                            key="FunctionalDomain"
+                        />
+                        <Column
+                            title="Feature"
+                            dataIndex="Feature"
+                            key="Feature"
+                        />
+                        <Column
+                            title="Service"
+                            dataIndex="Service"
+                            key="Service"
+                        />
+                        <Column
+                            title="Channel Agnostic"
+                            dataIndex="ChannelAgnostic"
+                            key="ChannelAgnostic"
+                        />
+                        <Column
+                            title="Demand Classification"
+                            dataIndex="DemandClassification"
+                            key="DemandClassification"
+                        />
+                        <Column
+                            title="Reusability Score"
+                            dataIndex="ReusabilityScore"
+                            key="ReusabilityScore"
+                        />
+                        <Column
+                            title="SAPI Ref Number"
+                            dataIndex="SAPIRefNumber"
+                            key="SAPIRefNumber"
+                        />
+                        <Column
+                            title="Old SAPI Ref Number"
+                            dataIndex="OldSAPIRefNumber"
+                            key="OldSAPIRefNumber"
+                        />
+                        <Column
+                            title="Design Review Approval"
+                            dataIndex="DesignReviewApproval"
+                            key="DesignReviewApproval"
+                        />
+                        <Column
+                            title="Design Approval"
+                            dataIndex="DesignApproval"
+                            key="DesignApproval"
+                        />
+                        <Column
+                            title="Final Approval"
+                            dataIndex="FinalApproval"
+                            key="FinalApproval"
+                        />
+                        <Column
+                            title="Target Date OF Next Milestone"
+                            dataIndex="TargetDateOFNextMilestone"
+                            key="TargetDateOFNextMilestone"
+                        />
+                        <Column
+                            title="Next Miletone RAG Status"
+                            dataIndex="NextMiletoneRAGStatus"
+                            key="NextMiletoneRAGStatus"
+                        />
+                        <Column
+                            title="Target Overall Delivery"
+                            dataIndex="TargetOverallDelivery"
+                            key="TargetOverallDelivery"
+                        />
+                        <Column
+                            title="OverallDeliveryRAG Status"
+                            dataIndex="OverallDeliveryRAGStatus"
+                            key="OverallDeliveryRAGStatus"
+                        />
+                        {/* 
                     <Column
                         title="Unique Order Ref"
                         dataIndex="age"
@@ -280,7 +472,8 @@ export default class APIDemandRequestList extends Component<
                             </Space>
                         )}
                     /> */}
-                </DataTable>
+                    </DataTable>
+                </CardContainer>
             </components.PageContainer>
         )
     }
