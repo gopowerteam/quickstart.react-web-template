@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Button, Table, Pagination } from 'antd'
 import { PageService } from '~/core/services/page.service'
-import { TableRowSelection } from 'antd/lib/table/interface'
 
 const components = {
     Wrapper: styled.section``,
@@ -14,10 +13,9 @@ const components = {
 interface ComponentProp {
     dataSource: any[]
     pageService?: PageService
-    rowSelection?: TableRowSelection<Record<string, any>>
 }
 
-export default class DataTabke extends React.Component<ComponentProp> {
+export default class DataForm extends React.Component<ComponentProp> {
     public render() {
         return (
             <components.Wrapper>
