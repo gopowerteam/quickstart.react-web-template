@@ -19,12 +19,14 @@ interface ComponentProp {
     labelCol?: ColProps
     wrapperCol?: ColProps
     labelAlign?: FormLabelAlign
+    colon?: boolean
 }
 
 export default class DataForm extends React.Component<ComponentProp> {
     private default = {
         column: 3,
-        gutter: 24
+        gutter: 24,
+        colon: false
     }
 
     public render() {
@@ -43,10 +45,11 @@ export default class DataForm extends React.Component<ComponentProp> {
     public renderFormContainer() {
         const { labelCol, wrapperCol, labelAlign } = this.props
         const gutter = this.props.gutter || this.default.gutter
-
+        const colon = this.props.colon || this.default.colon
         return (
             <components.FormContainer>
                 <Form
+                    colon={colon}
                     name="advanced_search"
                     className="ant-advanced-search-form"
                     labelCol={labelCol}
