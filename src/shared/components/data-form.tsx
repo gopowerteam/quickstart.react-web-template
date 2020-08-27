@@ -1,27 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Table, Pagination } from 'antd'
+import { Button, Table, Pagination, Form, Row, Col } from 'antd'
 import { PageService } from '~/core/services/page.service'
 
 const components = {
     Wrapper: styled.section``,
-    TabContainer: styled.div``,
+    FormContainer: styled.div``,
     PageinationContainer: styled.div``,
     ActionContainer: styled.div``
 }
 
 interface ComponentProp {
-    dataSource: any[]
-    pageService?: PageService
+    name: string
+    column?: number
+    gutter?: number
 }
 
 export default class DataForm extends React.Component<ComponentProp> {
+    private default = {
+        column: 3,
+        gutter: 24
+    }
+
     public render() {
         return (
             <components.Wrapper>
+                {this.renderFormContainer()}
                 {this.renderActionContainer()}
-                {this.renderTableContainer()}
-                {this.renderPaginationContainer()}
             </components.Wrapper>
         )
     }
@@ -30,33 +35,36 @@ export default class DataForm extends React.Component<ComponentProp> {
         return <components.ActionContainer></components.ActionContainer>
     }
 
-    public renderTableContainer() {
+    public renderFormContainer() {
+        const gutter = this.props.gutter || this.default.gutter
+
         return (
-            <components.TabContainer>
-                <Table
-                    dataSource={this.props.dataSource}
-                    pagination={{
-                        position: []
-                    }}
+            <components.FormContainer>
+                <Form
+                    name="advanced_search"
+                    className="ant-advanced-search-form"
                 >
-                    {this.props.children}
-                </Table>
-            </components.TabContainer>
+                    <Row justify="start" gutter={gutter}>
+                        {this.getFormItems()}
+                    </Row>
+                </Form>
+            </components.FormContainer>
         )
     }
 
-    public renderPaginationContainer() {
-        return (
-            <components.PageinationContainer>
-                <Pagination
-                    showSizeChanger
-                    onShowSizeChange={size => this.onShowSizeChange(size)}
-                    defaultCurrent={1}
-                    total={this.props.dataSource.length}
-                />
-            </components.PageinationContainer>
-        )
-    }
+    private getFormItems() {
+        const children = this.props.children
+            ? this.props.children instanceof Array
+                ? this.props.children
+                : [this.props.children]
+            : []
 
-    private onShowSizeChange(size) {}
+        const column = this.props.column || this.default.column
+
+        return children.map((item, index) => (
+            <Col span={24 / column} key={index}>
+                {item}
+            </Col>
+        ))
+    }
 }
