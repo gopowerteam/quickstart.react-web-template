@@ -9,6 +9,8 @@ const components = {
         right: 0;
         bottom: 0;
         left: 0;
+        display: flex;
+        flex-direction: column;
     `,
     HeaderContainer: styled.div`
         background-color: ${props =>
@@ -20,10 +22,17 @@ const components = {
         font-size: 26px;
     `,
     ContentContainer: styled.div`
-        display: flex;
-        justify-content: center;
-        padding: 0 40px;
+        flex: 1;
         position: relative;
+    `,
+    Content: styled.div`
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 100px;
+        left: 0;
+        overflow: auto;
+        background: red;
     `
 }
 
@@ -50,7 +59,7 @@ export default class PageContainer extends React.Component<ComponentProp> {
     public renderContent() {
         return (
             <components.ContentContainer>
-                {this.props.children}
+                <components.Content> {this.props.children}</components.Content>
             </components.ContentContainer>
         )
     }
