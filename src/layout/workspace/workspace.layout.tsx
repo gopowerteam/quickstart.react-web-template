@@ -29,9 +29,9 @@ const components = {
         color: ${props => props.theme.nagivate.color};
     `,
     FooterWrap: styled.div`
-        flex-basis: 50px;
-        height: 50px;
-        min-height: 50px;
+        flex-basis: 100px;
+        height: 100px;
+        min-height: 100px;
         position: relative;
     `,
     ContentWrap: styled.div`
