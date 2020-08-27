@@ -7,7 +7,12 @@ import { FormLabelAlign } from 'antd/lib/form/interface'
 
 const components = {
     Wrapper: styled.section``,
-    FormContainer: styled.div``,
+    FormContainer: styled.div`
+        label {
+            word-break: break-word;
+            white-space: pre-wrap;
+        }
+    `,
     PageinationContainer: styled.div``,
     ActionContainer: styled.div``
 }
