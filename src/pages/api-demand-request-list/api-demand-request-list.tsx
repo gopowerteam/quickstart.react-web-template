@@ -28,67 +28,45 @@ export default class APIDemandRequestList extends Component<
 
     private dataSource = [
         {
-            key: '1',
-            firstName: 'John',
-            lastName: 'Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park',
-            tags: ['nice', 'developer']
-        },
-        {
-            key: '2',
-            firstName: 'Jim',
-            lastName: 'Green',
-            age: 42,
-            address: 'London No. 1 Lake Park',
-            tags: ['loser']
-        },
-        {
-            key: '3',
-            firstName: 'Joe',
-            lastName: 'Black',
-            age: 32,
-            address: 'Sidney No. 1 Lake Park',
-            tags: ['cool', 'teacher']
+            UniqueOrderRef: '',
+            EntryCreationDate: '8/2/19',
+            OrderRecordDate: '8/2/19',
+            DemandName: 'Annette Black',
+            SAPIName: 'Sarfin Inc.',
+            Country: 'Bahrain',
+            BackEndSystem: 'HUB',
+            Channel: 'CMB',
+            RequestorContact: 'Theresa Webb',
+            OSSOverallContact: 'Cameron Williamson',
+            CoreBankingSystemContact: 'Wade Warren',
+            GBGF: 'RBWM',
+            MultiCountry: 'Y',
+            APILifecycleStage: 'Production',
+            TargetLiveDate: '6/21/19',
+            TotalOSSL0Estimates: '13.5',
+            OSSAPIL0Estimates: '13.5',
+            CBSystemL0Estimates: '13.5',
+            GPDMInterlockBPID: '903570',
+            DemandGovernance: '8/15/17',
+            Platfrom: 'DTP',
+            APIType: 'TRUE SAPI',
+            FunctionalDomain: 'Customer',
+            Feature: 'Customer Maintenacne',
+            Service: 'Customer Creation and Service',
+            ChannelAgnostic: 'Customer & Staff Channel  Agnostic',
+            DemandClassification: 'New',
+            ReusabilityScore: '100',
+            SAPIRefNumber: 'CBIL-49560',
+            OldSAPIRefNumber: 'CBIL-49560',
+            DesignReviewApproval: '11/7/16',
+            DesignApproval: '11/7/16',
+            FinalApproval: '-',
+            TargetDateOFNextMilestone: '8/2/19',
+            NextMiletoneRAGStatus: '1/28/17',
+            TargetOverallDelivery: '5/27/15',
+            OverallDeliveryRAGStatus: '10/6/13'
         }
     ]
-    // UniqueOrderRef
-    // EntryCreationDate
-    // OrderRecordDate
-    // DemandName
-    // SAPIName
-    // Country
-    // Back-endSystem
-    // Channel
-    // RequestorContact
-    // OSSOverallContact
-    // Core Banking System Contact
-    // GB/GF
-    // Multi-Country
-    // API lifecycle Stage
-    // Target Live Date
-    // Total OSS L0 Estimates
-    // OSS API L0 Estimates
-    // CBSystemL0 Estimates
-    // GPDM Interlock & BPID
-    // Demand Governance
-    // Platfrom
-    // API Type
-    // Functional Domain
-    // Feature
-    // Service
-    // Channel Agnostic
-    // Demand Classification
-    // Reusability Score
-    // SAPI Ref Number
-    // Old SAPI Ref Number
-    // Design Review Approval
-    // Design Approval
-    // Final Approval
-    // Target Date OF Next Milestone
-    // Next Miletone RAG Status
-    // Target Overall Delivery
-    // OverallDeliveryRAG Status
     public render() {
         const { selectedRowKeys } = this.state
         return (
@@ -127,8 +105,8 @@ export default class APIDemandRequestList extends Component<
                     <Column title="Country" dataIndex="Country" key="Country" />
                     <Column
                         title="Back-endSystem"
-                        dataIndex="Back-endSystem"
-                        key="Back-endSystem"
+                        dataIndex="BackEndSystem"
+                        key="BackEndSystem"
                     />
                     <Column title="Channel" dataIndex="Channel" key="Channel" />
                     <Column
@@ -143,49 +121,49 @@ export default class APIDemandRequestList extends Component<
                     />
                     <Column
                         title="Core Banking System Contact"
-                        dataIndex="Core Banking System Contact"
-                        key="Core Banking System Contact"
+                        dataIndex="CoreBankingSystemContact"
+                        key="CoreBankingSystemContact"
                     />
-                    <Column title="GB/GF" dataIndex="GB/GF" key="GB/GF" />
+                    <Column title="GB/GF" dataIndex="GBGF" key="GBGF" />
                     <Column
                         title="Multi-Country"
-                        dataIndex="Multi-Country"
-                        key="Multi-Country"
+                        dataIndex="MultiCountry"
+                        key="MultiCountry"
                     />
                     <Column
                         title="API lifecycle Stage"
-                        dataIndex="API lifecycle Stage"
-                        key="API lifecycle Stage"
+                        dataIndex="APIlifecycleStage"
+                        key="APIlifecycleStage"
                     />
                     <Column
                         title="Target Live Date"
-                        dataIndex="Target Live Date"
-                        key="Target Live Date"
+                        dataIndex="TargetLiveDate"
+                        key="TargetLiveDate"
                     />
                     <Column
                         title="Total OSS L0 Estimates"
-                        dataIndex="Total OSS L0 Estimates"
-                        key="Total OSS L0 Estimates"
+                        dataIndex="TotalOSSL0Estimates"
+                        key="TotalOSSL0Estimates"
                     />
                     <Column
                         title="OSS API L0 Estimates"
-                        dataIndex="OSS API L0 Estimates"
-                        key="OSS API L0 Estimates"
+                        dataIndex="OSSAPIL0Estimates"
+                        key="OSSAPIL0Estimates"
                     />
                     <Column
                         title="CBSystemL0 Estimates"
-                        dataIndex="CBSystemL0 Estimates"
-                        key="CBSystemL0 Estimates"
+                        dataIndex="CBSystemL0Estimates"
+                        key="CBSystemL0Estimates"
                     />
                     <Column
                         title="GPDM Interlock & BPID"
-                        dataIndex="GPDM Interlock & BPID"
-                        key="GPDM Interlock & BPID"
+                        dataIndex="GPDMInterlockBPID"
+                        key="GPDMInterlockBPID"
                     />
                     <Column
                         title="Demand Governance"
-                        dataIndex="Demand Governance"
-                        key="Demand Governance"
+                        dataIndex="DemandGovernance"
+                        key="DemandGovernance"
                     />
                     <Column
                         title="Platfrom"
@@ -194,75 +172,75 @@ export default class APIDemandRequestList extends Component<
                     />
                     <Column
                         title="API Type"
-                        dataIndex="API Type"
-                        key="API Type"
+                        dataIndex="APIType"
+                        key="APIType"
                     />
                     <Column
                         title="Functional Domain"
-                        dataIndex="Functional Domain"
-                        key="Functional Domain"
+                        dataIndex="FunctionalDomain"
+                        key="FunctionalDomain"
                     />
                     <Column title="Feature" dataIndex="Feature" key="Feature" />
                     <Column title="Service" dataIndex="Service" key="Service" />
                     <Column
                         title="Channel Agnostic"
-                        dataIndex="Channel Agnostic"
-                        key="Channel Agnostic"
+                        dataIndex="ChannelAgnostic"
+                        key="ChannelAgnostic"
                     />
                     <Column
                         title="Demand Classification"
-                        dataIndex="Demand Classification"
-                        key="Demand Classification"
+                        dataIndex="DemandClassification"
+                        key="DemandClassification"
                     />
                     <Column
                         title="Reusability Score"
-                        dataIndex="Reusability Score"
-                        key="Reusability Score"
+                        dataIndex="ReusabilityScore"
+                        key="ReusabilityScore"
                     />
                     <Column
                         title="SAPI Ref Number"
-                        dataIndex="SAPI Ref Number"
-                        key="SAPI Ref Number"
+                        dataIndex="SAPIRefNumber"
+                        key="SAPIRefNumber"
                     />
                     <Column
                         title="Old SAPI Ref Number"
-                        dataIndex="Old SAPI Ref Number"
-                        key="Old SAPI Ref Number"
+                        dataIndex="OldSAPIRefNumber"
+                        key="OldSAPIRefNumber"
                     />
                     <Column
                         title="Design Review Approval"
-                        dataIndex="Design Review Approval"
-                        key="Design Review Approval"
+                        dataIndex="DesignReviewApproval"
+                        key="DesignReviewApproval"
                     />
                     <Column
                         title="Design Approval"
-                        dataIndex="Design Approval"
-                        key="Design Approval"
+                        dataIndex="DesignApproval"
+                        key="DesignApproval"
                     />
                     <Column
                         title="Final Approval"
-                        dataIndex="Final Approval"
-                        key="Final Approval"
+                        dataIndex="FinalApproval"
+                        key="FinalApproval"
                     />
                     <Column
                         title="Target Date OF Next Milestone"
-                        dataIndex="Target Date OF Next Milestone"
-                        key="Target Date OF Next Milestone"
+                        dataIndex="TargetDateOFNextMilestone"
+                        key="TargetDateOFNextMilestone"
                     />
                     <Column
                         title="Next Miletone RAG Status"
-                        dataIndex="Next Miletone RAG Status"
-                        key="Next Miletone RAG Status"
+                        dataIndex="NextMiletoneRAGStatus"
+                        key="NextMiletoneRAGStatus"
                     />
                     <Column
                         title="Target Overall Delivery"
-                        dataIndex="Target Overall Delivery"
-                        key="Target Overall Delivery"
+                        dataIndex="TargetOverallDelivery"
+                        key="TargetOverallDelivery"
                     />
                     <Column
                         title="OverallDeliveryRAG Status"
-                        dataIndex="OverallDeliveryRAG Status"
-                        key="OverallDeliveryRAG Status"
+                        dataIndex="OverallDeliveryRAGStatus"
+                        key="OverallDeliveryRAGStatus"
                     />
                     {/* 
                     <Column
