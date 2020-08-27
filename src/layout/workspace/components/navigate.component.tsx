@@ -34,7 +34,8 @@ export default class Navigate extends Component<
                     style={{
                         borderBottom: 'none',
                         height: '40px',
-                        lineHeight: '40px'
+                        lineHeight: '40px',
+                        fontSize: '14px'
                     }}
                     onClick={item => this.onNagivate(item)}
                     selectedKeys={[current]}

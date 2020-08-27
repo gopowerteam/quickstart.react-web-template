@@ -18,8 +18,9 @@ export default {
         color: '#fff'
     },
     pageContainer: {
-        title: {
-            background: '#32404A'
+        header: {
+            background: '#32404A',
+            color: '#fff'
         }
     }
 }

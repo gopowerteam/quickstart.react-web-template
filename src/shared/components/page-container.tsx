@@ -9,13 +9,44 @@ const components = {
         right: 0;
         bottom: 0;
         left: 0;
-    `
+    `,
+    HeaderContainer: styled.div`
+        background-color: ${props =>
+            props.theme.pageContainer.header.background};
+        color: ${props => props.theme.pageContainer.header.color};
+        height: 60px;
+        line-height: 60px;
+        padding: 0 50px;
+        font-size: 26px;
+    `,
+    ContentContainer: styled.div``
 }
 
-interface ComponentProp {}
+interface ComponentProp {
+    title?: string
+}
 
 export default class PageContainer extends React.Component<ComponentProp> {
     public render() {
-        return <components.Wrapper>{this.props.children}</components.Wrapper>
+        return (
+            <components.Wrapper>
+                {this.renderHeader()}
+                {this.renderContent()}
+            </components.Wrapper>
+        )
+    }
+
+    public renderHeader() {
+        const { title } = this.props
+
+        return <components.HeaderContainer>{title}</components.HeaderContainer>
+    }
+
+    public renderContent() {
+        return (
+            <components.ContentContainer>
+                {this.props.children}
+            </components.ContentContainer>
+        )
     }
 }
