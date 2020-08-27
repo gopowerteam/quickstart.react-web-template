@@ -33,13 +33,13 @@ export default class DataTabke extends React.Component<ComponentProp> {
     }
 
     public renderTableContainer() {
+        const { dataSource, rowSelection } = this.props
         return (
             <components.TabContainer>
                 <Table
-                    dataSource={this.props.dataSource}
-                    pagination={{
-                        position: []
-                    }}
+                    rowSelection={rowSelection}
+                    dataSource={dataSource}
+                    pagination={false}
                 >
                     {this.props.children}
                 </Table>
@@ -48,13 +48,14 @@ export default class DataTabke extends React.Component<ComponentProp> {
     }
 
     public renderPaginationContainer() {
+        const { dataSource } = this.props
         return (
             <components.PageinationContainer>
                 <Pagination
                     showSizeChanger
                     onShowSizeChange={size => this.onShowSizeChange(size)}
                     defaultCurrent={1}
-                    total={this.props.dataSource.length}
+                    total={dataSource.length}
                 />
             </components.PageinationContainer>
         )
