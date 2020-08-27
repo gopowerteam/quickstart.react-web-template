@@ -11,6 +11,7 @@ const components = {
         label {
             word-break: break-word;
             white-space: pre-wrap;
+            height: 35px;
         }
     `,
     PageinationContainer: styled.div``,
