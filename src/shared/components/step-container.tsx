@@ -4,6 +4,7 @@ import { Steps, Button } from 'antd'
 import { Observable } from 'rxjs'
 import StepItem from './step-item'
 import { StepComponent } from '~/core/interfaces/setp.interface'
+
 const components = {
     Wrapper: styled.section``,
     StepsContainer: styled.div`
@@ -59,7 +60,13 @@ export default class StepContainer extends React.Component<
         const { currentStep } = this.state
         return (
             <components.StepsContainer>
-                <Steps current={currentStep}>{this.getStepItems()}</Steps>
+                <Steps
+                    type="navigation"
+                    className="site-navigation-steps"
+                    current={currentStep}
+                >
+                    {this.getStepItems()}
+                </Steps>
             </components.StepsContainer>
         )
     }
@@ -89,12 +96,12 @@ export default class StepContainer extends React.Component<
             <components.ActionContainer>
                 {!isFirstStep && (
                     <Button type="primary" onClick={() => this.onPreStep()}>
-                        上一步
+                        Previous
                     </Button>
                 )}
                 {!isLastStep && (
                     <Button type="primary" onClick={() => this.onNextStep()}>
-                        下一步
+                        Next
                     </Button>
                 )}
                 {isLastStep && (
@@ -102,7 +109,7 @@ export default class StepContainer extends React.Component<
                         type="primary"
                         onClick={() => this.onNextStep(true)}
                     >
-                        提交
+                        Submit
                     </Button>
                 )}
             </components.ActionContainer>

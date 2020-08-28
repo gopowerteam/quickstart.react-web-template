@@ -2,12 +2,17 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PageContainer from '~/shared/components/page-container'
 import { RouteComponentProps } from 'react-router-dom'
-import { Steps } from 'antd'
+import StepContainer from '~/shared/components/step-container'
+import StepItem from '~/shared/components/step-item'
+import AddBasicInfomation from './components/step-form/add-basic-infomation'
+import AddDetailInfomation from './components/step-form/add-detail-information'
+import AddEstimationInfomation from './components/step-form/add-estimation-information'
+import CardContainer from '~/shared/components/card-container'
+import { Form, Input, message } from 'antd'
 
 const components = {
     PageContainer: styled(PageContainer)``
 }
-const { Step } = Steps
 
 interface DemandRequestFormState {}
 
@@ -23,23 +28,27 @@ export default class DemandRequestForm extends Component<
 
     public render() {
         return (
-            <components.PageContainer>
-                <Steps current={1} percent={60}>
-                    <Step
-                        title="Finished"
-                        description="This is a description."
-                    />
-                    <Step
-                        title="In Progress"
-                        subTitle="Left 00:00:08"
-                        description="This is a description."
-                    />
-                    <Step
-                        title="Waiting"
-                        description="This is a description."
-                    />
-                </Steps>
+            <components.PageContainer title="Demand Request Form">
+                <CardContainer title="Demand Request Form">
+                    <StepContainer onSubmit={data => this.onSubmit(data)}>
+                        <StepItem
+                            title="Add Basic Infomation"
+                            component={AddBasicInfomation}
+                        ></StepItem>
+                        <StepItem
+                            title="Add Detail Information"
+                            component={AddDetailInfomation}
+                        ></StepItem>
+                        <StepItem
+                            title="Add Estimation Infomation"
+                            component={AddEstimationInfomation}
+                        ></StepItem>
+                    </StepContainer>
+                </CardContainer>
             </components.PageContainer>
         )
+    }
+    private onSubmit(data) {
+        message.success('SUCCESS')
     }
 }
