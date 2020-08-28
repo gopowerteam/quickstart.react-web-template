@@ -1,10 +1,18 @@
-import React from 'react'
+import React, {
+    useEffect,
+    useContext,
+    useRef,
+    useState,
+    useDebugValue
+} from 'react'
 
-import { RouterProvider } from './router.store'
-import { MenuProvider } from './menu.store'
-import { AuthStoreProvider } from './auth.store'
+import { UserStoreProvider, UserStore } from './user.store'
+import { getStoreContext, StoreV, Store } from 'reto/store'
+import { Container } from 'reto/container'
+import { Presist } from './plugins/persist'
 
-const providers: any[] = [RouterProvider, MenuProvider, AuthStoreProvider]
+const providers: any[] = [UserStoreProvider]
+const stores: any[] = [UserStore]
 
 const ProvidersComposer = props =>
     props.providers.reduceRight(
@@ -12,10 +20,8 @@ const ProvidersComposer = props =>
         props.children
     )
 
-export const Provider = props => {
-    return (
-        <ProvidersComposer providers={providers}>
-            {props.children}
-        </ProvidersComposer>
-    )
-}
+export const Provider = props => (
+    <ProvidersComposer providers={providers}>
+        <Presist stores={stores}>{props.children}</Presist>
+    </ProvidersComposer>
+)
