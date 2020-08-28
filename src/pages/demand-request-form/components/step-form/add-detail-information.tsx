@@ -69,6 +69,97 @@ export default class AddDetailInformation
                                 </Select.Option>
                             </Select>
                         </Form.Item>
+                        <Form.Item
+                            name="Region"
+                            label="Region*"
+                            initialValue="China"
+                        >
+                            <Select>
+                                <Select.Option value="China">
+                                    China
+                                </Select.Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            name="BackendSystem"
+                            label="Backend System*"
+                            initialValue="HUB"
+                        >
+                            <Select>
+                                <Select.Option value="HUB">HUB</Select.Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            name="Channels"
+                            label="Channels*"
+                            initialValue="ACD"
+                        >
+                            <Select>
+                                <Select.Option value="ACD">ACD</Select.Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item name="Consumer" label="Consumer*">
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            name="GBGF"
+                            label="GB/GF*"
+                            initialValue="GFRF"
+                        >
+                            <Select>
+                                <Select.Option value="GFRF">GFRF</Select.Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            name="CBAPIContact"
+                            label="CB API Contact*"
+                            initialValue="Ash Zeng"
+                        >
+                            <Select>
+                                <Select.Option value="Ash Zeng">
+                                    Ash Zeng
+                                </Select.Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            name="CoreBankingSystemContact"
+                            label="Core Banking System Contact*"
+                            initialValue="Vivian Li"
+                        >
+                            <Select>
+                                <Select.Option value="Vivian Li">
+                                    Vivian Li
+                                </Select.Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item
+                            name="TargetLiveDate"
+                            label="Target Live Date*"
+                        >
+                            <DatePicker />
+                        </Form.Item>
+                        <Form.Item name="BPID" label="BPID*">
+                            <Input />
+                        </Form.Item>
+                    </DataForm>
+                </CardContainer>
+                <CardContainer title="Estimation Information">
+                    <DataForm
+                        name="demo-form"
+                        column={1}
+                        labelCol={{ span: 8 }}
+                        labelAlign="left"
+                    >
+                        <Form.Item
+                            name="MuleAPIL0Estimates"
+                            label="Mule API L0 Estimates*"
+                            initialValue="$"
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item name="APIName" label="API Name*">
+                            <Input />
+                        </Form.Item>
                     </DataForm>
                 </CardContainer>
             </components.Wrapper>
