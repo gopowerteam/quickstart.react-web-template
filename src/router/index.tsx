@@ -1,12 +1,23 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { routes } from './routes'
+import { UserStore } from '~/store/user.store'
+import { useStore } from 'reto'
 
 function RouterGenerate(route) {
     if (route.redirect) {
         return (
             <Route path={route.path}>
                 <Redirect push to={route.redirect}></Redirect>
+            </Route>
+        )
+    }
+
+    console.log(route)
+    if (route.auth && !route.token) {
+        return (
+            <Route path={route.path}>
+                <Redirect push to="/login"></Redirect>
             </Route>
         )
     }
@@ -24,10 +35,12 @@ function RouterGenerate(route) {
 }
 
 function RouterContainer() {
+    const userStore = useStore(UserStore)
+    const token = userStore.state.token
     return (
         <Switch>
             {routes.map((route, index) => (
-                <RouterGenerate key={index} {...route} />
+                <RouterGenerate key={index} {...route} token={token} />
             ))}
         </Switch>
     )

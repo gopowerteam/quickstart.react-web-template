@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Form, Input, Button, Space } from 'antd'
 import { RouteComponentProps } from 'react-router-dom'
 import { Row, Col } from 'antd'
+import { Consumer } from 'reto'
+import { UserStore } from '~/store/user.store'
 
 const styles = (
     props?: Props<any>
@@ -134,60 +136,73 @@ export default class Login extends Component<
     public renderForm() {
         return (
             <components.FormContainer>
-                <components.FormWrapper>
-                    <div className="form-header">Login</div>
-                    <Form
-                        size="large"
-                        labelCol={{ span: 6 }}
-                        className="form-content"
-                        name="login-form"
-                        initialValues={{ remember: true }}
-                        onFinish={data => this.onSubmit(data)}
-                    >
-                        <Form.Item
-                            label="User ID"
-                            name="username"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your user ID!'
+                <Consumer of={UserStore}>
+                    {userStore => (
+                        <components.FormWrapper>
+                            <div className="form-header">Login</div>
+                            <Form
+                                size="large"
+                                labelCol={{ span: 6 }}
+                                className="form-content"
+                                name="login-form"
+                                initialValues={{ remember: true }}
+                                onFinish={data =>
+                                    this.onSubmit(data, userStore)
                                 }
-                            ]}
-                        >
-                            <Input className="form-input" />
-                        </Form.Item>
-
-                        <Form.Item
-                            label="Password"
-                            name="password"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your password!'
-                                }
-                            ]}
-                        >
-                            <Input.Password className="form-input" />
-                        </Form.Item>
-
-                        <Form.Item>
-                            <div className="flex-row justify-content-center">
-                                <Button
-                                    type="primary"
-                                    htmlType="submit"
-                                    className="submit-button"
+                            >
+                                <Form.Item
+                                    label="User ID"
+                                    name="username"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message:
+                                                'Please input your user ID!'
+                                        }
+                                    ]}
                                 >
-                                    Sign In
-                                </Button>
-                            </div>
-                        </Form.Item>
-                    </Form>
-                </components.FormWrapper>
+                                    <Input className="form-input" />
+                                </Form.Item>
+
+                                <Form.Item
+                                    label="Password"
+                                    name="password"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message:
+                                                'Please input your password!'
+                                        }
+                                    ]}
+                                >
+                                    <Input.Password className="form-input" />
+                                </Form.Item>
+
+                                <Form.Item>
+                                    <div className="flex-row justify-content-center">
+                                        <Button
+                                            type="primary"
+                                            htmlType="submit"
+                                            className="submit-button"
+                                        >
+                                            Sign In
+                                        </Button>
+                                    </div>
+                                </Form.Item>
+                            </Form>
+                        </components.FormWrapper>
+                    )}
+                </Consumer>
             </components.FormContainer>
         )
     }
 
-    private onSubmit(data) {
+    private onSubmit(data, { login }) {
+        // 存储用户的登录信息
+        login({
+            token: Math.random().toString(32)
+        })
+        // 进入系统首页
         this.props.history.push('/dashboard')
     }
 }
