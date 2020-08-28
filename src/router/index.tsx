@@ -13,7 +13,6 @@ function RouterGenerate(route) {
         )
     }
 
-    console.log(route)
     if (route.auth && !route.token) {
         return (
             <Route path={route.path}>
