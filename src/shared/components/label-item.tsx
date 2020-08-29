@@ -30,6 +30,7 @@ interface ComponentProp {
     label?: string
     labelSpan?: number
     labelWidth?: number
+    colon?: boolean
 }
 
 export default class LabelItem extends React.Component<ComponentProp> {
@@ -43,22 +44,24 @@ export default class LabelItem extends React.Component<ComponentProp> {
     }
 
     public renderLabelContainer() {
-        const { label, labelSpan, labelWidth } = this.props
-
+        const { label, labelSpan, labelWidth, colon } = this.props
         const style = labelWidth
             ? styles({ width: labelWidth }).labelWidth
             : styles({ width: labelSpan }).labelSpan
-
         return (
-            <components.LabelContainer style={style}>
+            <components.LabelContainer
+                className="flex-row align-items-center"
+                style={style}
+            >
                 {label}
+                {colon && ':'}
             </components.LabelContainer>
         )
     }
 
     public renderContentContainer() {
         return (
-            <components.ContentContainer>
+            <components.ContentContainer className="flex-row align-items-center">
                 {this.props.children}
             </components.ContentContainer>
         )

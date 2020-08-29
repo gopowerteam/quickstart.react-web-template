@@ -6,8 +6,9 @@ import DataTable from '~/shared/components/data-table'
 import Column from 'antd/lib/table/Column'
 import CardContainer from '~/shared/components/card-container'
 import DataForm from '~/shared/components/data-form'
-import { Form, Input, Select, DatePicker } from 'antd'
+import { Form, Input, Select, DatePicker, Button } from 'antd'
 import dataSource from '~/assets/mock/api-data.json'
+import LabelContainer from '~/shared/components/label-contaoner'
 const components = {
     PageContainer: styled(PageContainer)``
 }
@@ -237,6 +238,7 @@ export default class APIDemandRequestList extends Component<
                     rowSelection={{
                         selectedRowKeys
                     }}
+                    actions={this.renderTableAction()}
                 >
                     <Column
                         title="UniqueOrderRef"
@@ -462,6 +464,25 @@ export default class APIDemandRequestList extends Component<
                     />
                 </DataTable>
             </CardContainer>
+        )
+    }
+
+    private renderTableAction() {
+        return (
+            <LabelContainer column={3} colon>
+                <LabelContainer.Item label="Demand Action" labelWidth={120}>
+                    <Button type="primary" danger>
+                        Approve
+                    </Button>
+                    <Button>Reject</Button>
+                </LabelContainer.Item>
+                <LabelContainer.Item label="Design Action" labelWidth={120}>
+                    <Button type="primary" danger>
+                        Approve
+                    </Button>
+                    <Button>Reject</Button>
+                </LabelContainer.Item>
+            </LabelContainer>
         )
     }
 }

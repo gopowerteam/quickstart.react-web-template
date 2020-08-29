@@ -8,7 +8,12 @@ const components = {
     Wrapper: styled.section``,
     TabContainer: styled.div``,
     PageinationContainer: styled.div``,
-    ActionContainer: styled.div``
+    ActionContainer: styled.div`
+        padding: 10px 0;
+        .ant-btn {
+            margin-right: 15px;
+        }
+    `
 }
 
 interface ComponentProp {
@@ -17,22 +22,34 @@ interface ComponentProp {
     pageService?: PageService
     rowSelection?: TableRowSelection<Record<string, any>>
     height?: string
+    actions?: React.ReactNode
+    actionPosition?: 'top' | 'bottom'
 }
 
 export default class DataTabke extends React.Component<ComponentProp> {
-    private defaultHeight = '10000px'
+    private default = {
+        height: 100,
+        actionPosition: 'bottom'
+    }
     public render() {
+        const actionPosition =
+            this.props.actionPosition || this.default.actionPosition
         return (
             <components.Wrapper>
-                {this.renderActionContainer()}
+                {actionPosition === 'top' && this.renderActionContainer()}
                 {this.renderTableContainer()}
                 {this.renderPaginationContainer()}
+                {actionPosition === 'bottom' && this.renderActionContainer()}
             </components.Wrapper>
         )
     }
 
     public renderActionContainer() {
-        return <components.ActionContainer></components.ActionContainer>
+        return (
+            <components.ActionContainer>
+                {this.props.actions}
+            </components.ActionContainer>
+        )
     }
 
     public renderTableContainer() {
