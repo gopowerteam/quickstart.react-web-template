@@ -242,32 +242,43 @@ export default class APIDemandRequestList extends Component<
                         title="UniqueOrderRef"
                         dataIndex="UniqueOrderRef"
                         key="UniqueOrderRef"
+                        width="130px"
                     />
                     <Column
                         title="EntryCreationDate"
                         dataIndex="EntryCreationDate"
                         key="EntryCreationDate"
+                        width="135px"
                     />
                     <Column
                         title="OrderRecordDate"
                         dataIndex="OrderRecordDate"
                         key="OrderRecordDate"
+                        width="135px"
                     />
                     <Column
                         title="DemandName"
                         dataIndex="DemandName"
                         key="DemandName"
+                        width="135px"
                     />
                     <Column
                         title="SAPIName"
                         dataIndex="SAPIName"
                         key="SAPIName"
+                        width="135px"
                     />
-                    <Column title="Country" dataIndex="Country" key="Country" />
+                    <Column
+                        title="Country"
+                        dataIndex="Country"
+                        key="Country"
+                        width="135px"
+                    />
                     <Column
                         title="Back-endSystem"
                         dataIndex="BackEndSystem"
                         key="BackEndSystem"
+                        width="135px"
                     />
                     <Column title="Channel" dataIndex="Channel" key="Channel" />
                     <Column
