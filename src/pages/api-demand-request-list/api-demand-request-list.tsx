@@ -9,6 +9,7 @@ import DataForm from '~/shared/components/data-form'
 import { Form, Input, Select, DatePicker, Button } from 'antd'
 import dataSource from '~/assets/mock/api-data.json'
 import LabelContainer from '~/shared/components/label-contaoner'
+import ColumnGroup from 'antd/lib/table/ColumnGroup'
 const components = {
     PageContainer: styled(PageContainer)``
 }
@@ -265,228 +266,235 @@ export default class APIDemandRequestList extends Component<
                     }}
                     actions={this.renderTableAction()}
                 >
-                    <Column
-                        title="UniqueOrderRef"
-                        dataIndex="UniqueOrderRef"
-                        key="UniqueOrderRef"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="EntryCreationDate"
-                        dataIndex="EntryCreationDate"
-                        key="EntryCreationDate"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="OrderRecordDate"
-                        dataIndex="OrderRecordDate"
-                        key="OrderRecordDate"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="DemandName"
-                        dataIndex="DemandName"
-                        key="DemandName"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="SAPIName"
-                        dataIndex="SAPIName"
-                        key="SAPIName"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Country"
-                        dataIndex="Country"
-                        key="Country"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Back-endSystem"
-                        dataIndex="BackEndSystem"
-                        key="BackEndSystem"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Channel"
-                        dataIndex="Channel"
-                        key="Channel"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="RequestorContact"
-                        dataIndex="RequestorContact"
-                        key="RequestorContact"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="OSSOverallContact"
-                        dataIndex="OSSOverallContact"
-                        key="OSSOverallContact"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Core Banking System Contact"
-                        dataIndex="CoreBankingSystemContact"
-                        key="CoreBankingSystemContact"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="GB/GF"
-                        dataIndex="GBGF"
-                        key="GBGF"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Multi-Country"
-                        dataIndex="MultiCountry"
-                        key="MultiCountry"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="API lifecycle Stage"
-                        dataIndex="APIlifecycleStage"
-                        key="APIlifecycleStage"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Target Live Date"
-                        dataIndex="TargetLiveDate"
-                        key="TargetLiveDate"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Total OSS L0 Estimates"
-                        dataIndex="TotalOSSL0Estimates"
-                        key="TotalOSSL0Estimates"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="OSS API L0 Estimates"
-                        dataIndex="OSSAPIL0Estimates"
-                        key="OSSAPIL0Estimates"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="CBSystemL0 Estimates"
-                        dataIndex="CBSystemL0Estimates"
-                        key="CBSystemL0Estimates"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="GPDM Interlock & BPID"
-                        dataIndex="GPDMInterlockBPID"
-                        key="GPDMInterlockBPID"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Demand Governance"
-                        dataIndex="DemandGovernance"
-                        key="DemandGovernance"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Platfrom"
-                        dataIndex="Platfrom"
-                        key="Platfrom"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="API Type"
-                        dataIndex="APIType"
-                        key="APIType"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Functional Domain"
-                        dataIndex="FunctionalDomain"
-                        key="FunctionalDomain"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Feature"
-                        dataIndex="Feature"
-                        key="Feature"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Service"
-                        dataIndex="Service"
-                        key="Service"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Channel Agnostic"
-                        dataIndex="ChannelAgnostic"
-                        key="ChannelAgnostic"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Demand Classification"
-                        dataIndex="DemandClassification"
-                        key="DemandClassification"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Reusability Score"
-                        dataIndex="ReusabilityScore"
-                        key="ReusabilityScore"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="SAPI Ref Number"
-                        dataIndex="SAPIRefNumber"
-                        key="SAPIRefNumber"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Old SAPI Ref Number"
-                        dataIndex="OldSAPIRefNumber"
-                        key="OldSAPIRefNumber"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Design Review Approval"
-                        dataIndex="DesignReviewApproval"
-                        key="DesignReviewApproval"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Design Approval"
-                        dataIndex="DesignApproval"
-                        key="DesignApproval"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Final Approval"
-                        dataIndex="FinalApproval"
-                        key="FinalApproval"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Target Date OF Next Milestone"
-                        dataIndex="TargetDateOFNextMilestone"
-                        key="TargetDateOFNextMilestone"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Next Miletone RAG Status"
-                        dataIndex="NextMiletoneRAGStatus"
-                        key="NextMiletoneRAGStatus"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="Target Overall Delivery"
-                        dataIndex="TargetOverallDelivery"
-                        key="TargetOverallDelivery"
-                        ellipsis={true}
-                    />
-                    <Column
-                        title="OverallDeliveryRAG Status"
-                        dataIndex="OverallDeliveryRAGStatus"
-                        key="OverallDeliveryRAGStatus"
-                        ellipsis={true}
-                    />
+                    <ColumnGroup title="Demand Governance">
+                        <Column
+                            title="UniqueOrderRef"
+                            dataIndex="UniqueOrderRef"
+                            key="UniqueOrderRef"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="EntryCreationDate"
+                            dataIndex="EntryCreationDate"
+                            key="EntryCreationDate"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="OrderRecordDate"
+                            dataIndex="OrderRecordDate"
+                            key="OrderRecordDate"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="DemandName"
+                            dataIndex="DemandName"
+                            key="DemandName"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="SAPIName"
+                            dataIndex="SAPIName"
+                            key="SAPIName"
+                            ellipsis={true}
+                            sorter
+                        />
+                        <Column
+                            title="Country"
+                            dataIndex="Country"
+                            key="Country"
+                            ellipsis={true}
+                            sorter
+                        />
+                        <Column
+                            title="Back-endSystem"
+                            dataIndex="BackEndSystem"
+                            key="BackEndSystem"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Channel"
+                            dataIndex="Channel"
+                            key="Channel"
+                            ellipsis={true}
+                        />
+
+                        <Column
+                            title="RequestorContact"
+                            dataIndex="RequestorContact"
+                            key="RequestorContact"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="OSSOverallContact"
+                            dataIndex="OSSOverallContact"
+                            key="OSSOverallContact"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Core Banking System Contact"
+                            dataIndex="CoreBankingSystemContact"
+                            key="CoreBankingSystemContact"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="GB/GF"
+                            dataIndex="GBGF"
+                            key="GBGF"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Multi-Country"
+                            dataIndex="MultiCountry"
+                            key="MultiCountry"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="API lifecycle Stage"
+                            dataIndex="APIlifecycleStage"
+                            key="APIlifecycleStage"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Target Live Date"
+                            dataIndex="TargetLiveDate"
+                            key="TargetLiveDate"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Total OSS L0 Estimates"
+                            dataIndex="TotalOSSL0Estimates"
+                            key="TotalOSSL0Estimates"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="OSS API L0 Estimates"
+                            dataIndex="OSSAPIL0Estimates"
+                            key="OSSAPIL0Estimates"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="CBSystemL0 Estimates"
+                            dataIndex="CBSystemL0Estimates"
+                            key="CBSystemL0Estimates"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="GPDM Interlock & BPID"
+                            dataIndex="GPDMInterlockBPID"
+                            key="GPDMInterlockBPID"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Demand Governance"
+                            dataIndex="DemandGovernance"
+                            key="DemandGovernance"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Platfrom"
+                            dataIndex="Platfrom"
+                            key="Platfrom"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="API Type"
+                            dataIndex="APIType"
+                            key="APIType"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Functional Domain"
+                            dataIndex="FunctionalDomain"
+                            key="FunctionalDomain"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Feature"
+                            dataIndex="Feature"
+                            key="Feature"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Service"
+                            dataIndex="Service"
+                            key="Service"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Channel Agnostic"
+                            dataIndex="ChannelAgnostic"
+                            key="ChannelAgnostic"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Demand Classification"
+                            dataIndex="DemandClassification"
+                            key="DemandClassification"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Reusability Score"
+                            dataIndex="ReusabilityScore"
+                            key="ReusabilityScore"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="SAPI Ref Number"
+                            dataIndex="SAPIRefNumber"
+                            key="SAPIRefNumber"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Old SAPI Ref Number"
+                            dataIndex="OldSAPIRefNumber"
+                            key="OldSAPIRefNumber"
+                            ellipsis={true}
+                        />
+                    </ColumnGroup>
+                    <ColumnGroup title="Design Governance">
+                        <Column
+                            title="Design Review Approval"
+                            dataIndex="DesignReviewApproval"
+                            key="DesignReviewApproval"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Design Approval"
+                            dataIndex="DesignApproval"
+                            key="DesignApproval"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Final Approval"
+                            dataIndex="FinalApproval"
+                            key="FinalApproval"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Target Date OF Next Milestone"
+                            dataIndex="TargetDateOFNextMilestone"
+                            key="TargetDateOFNextMilestone"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Next Miletone RAG Status"
+                            dataIndex="NextMiletoneRAGStatus"
+                            key="NextMiletoneRAGStatus"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Target Overall Delivery"
+                            dataIndex="TargetOverallDelivery"
+                            key="TargetOverallDelivery"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="OverallDeliveryRAG Status"
+                            dataIndex="OverallDeliveryRAGStatus"
+                            key="OverallDeliveryRAGStatus"
+                            ellipsis={true}
+                        />
+                    </ColumnGroup>
                 </DataTable>
             </CardContainer>
         )

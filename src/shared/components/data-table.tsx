@@ -66,6 +66,7 @@ export default class DataTabke extends React.Component<ComponentProp> {
                     dataSource={dataSource}
                     pagination={false}
                     size="small"
+                    bordered
                 >
                     {this.props.children}
                 </Table>
