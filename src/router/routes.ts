@@ -7,6 +7,7 @@ import Page1 from '~/pages/page1/page1'
 import APIDemandRequestList from '~/pages/api-demand-request-list/api-demand-request-list'
 import DemandRequestForm from '~/pages/demand-request-form/demand-request-form'
 import APIReviewRequestList from '~/pages/api-review-request-list/api-review-request-list'
+import ReviewRequestForm from '~/pages/review-request-form/review-request-form'
 
 export const routes = [
     { path: '/', exact: true, redirect: '/login' },
@@ -49,6 +50,13 @@ export const routes = [
         path: '/api/api-review-request-list',
         exact: true,
         component: APIReviewRequestList,
+        layout: WorkspaceLayout,
+        auth: true
+    },
+    {
+        path: '/api/review-request-form',
+        exact: true,
+        component: ReviewRequestForm,
         layout: WorkspaceLayout,
         auth: true
     }

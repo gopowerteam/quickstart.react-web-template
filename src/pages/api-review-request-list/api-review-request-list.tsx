@@ -6,7 +6,8 @@ import DataTable from '~/shared/components/data-table'
 import Column from 'antd/lib/table/Column'
 import CardContainer from '~/shared/components/card-container'
 import DataForm from '~/shared/components/data-form'
-import { Form, Input, Select, DatePicker } from 'antd'
+import { Form, Input, Select, DatePicker, Button } from 'antd'
+import LabelContainer from '~/shared/components/label-contaoner'
 const components = {
     PageContainer: styled(PageContainer)``
 }
@@ -152,35 +153,36 @@ export default class APIReviewRequestList extends Component<
                         column={2}
                         labelCol={{ span: 6 }}
                         labelAlign="left"
+                        actions={this.renderFormAction()}
                     >
-                        <Form.Item
+                        <DataForm.Item
                             name="TRUESAPIID"
                             label="TRUE SAPI ID"
                             initialValue="31981901"
                         >
                             <Input />
-                        </Form.Item>
-                        <Form.Item
+                        </DataForm.Item>
+                        <DataForm.Item
                             name="RequestContact"
                             label="Request Contact"
                             initialValue="Annette Black"
                         >
                             <Input />
-                        </Form.Item>
-                        <Form.Item
+                        </DataForm.Item>
+                        <DataForm.Item
                             name="TRUESAPIName"
                             label="TRUE SAPI Name"
                             initialValue="Customer Address"
                         >
                             <Input />
-                        </Form.Item>
-                        <Form.Item
+                        </DataForm.Item>
+                        <DataForm.Item
                             name="ConsumerProject"
                             label="Consumer Project"
                         >
                             <Input />
-                        </Form.Item>
-                        <Form.Item
+                        </DataForm.Item>
+                        <DataForm.Item
                             name="DemandClassification"
                             label="Demand Classification"
                             initialValue="Approve"
@@ -188,55 +190,65 @@ export default class APIReviewRequestList extends Component<
                             <Select>
                                 <Option value="Approve">Approve</Option>
                             </Select>
-                        </Form.Item>
-                        <Form.Item name="SubmitDate" label="Submit Date">
+                        </DataForm.Item>
+                        <DataForm.Item
+                            name="SubmitDate"
+                            label="Submit Date"
+                            collapse
+                        >
                             <DatePicker />
-                        </Form.Item>
-                        <Form.Item
+                        </DataForm.Item>
+                        <DataForm.Item
                             name="DemandApproveStatus"
                             label="Demand Approve Status"
                             initialValue="Approve"
+                            collapse
                         >
                             <Select>
                                 <Option value="Approve">Approve</Option>
                             </Select>
-                        </Form.Item>
-                        <Form.Item
+                        </DataForm.Item>
+                        <DataForm.Item
                             name="DemandApproveDate"
                             label="Demand Approve Date"
+                            collapse
                         >
                             <DatePicker />
-                        </Form.Item>
-                        <Form.Item
+                        </DataForm.Item>
+                        <DataForm.Item
                             name="DesignReviewApproval"
                             label="Design Review Approval"
                             initialValue="Approve"
+                            collapse
                         >
                             <Select>
                                 <Option value="Approve">Approve</Option>
                             </Select>
-                        </Form.Item>
-                        <Form.Item
+                        </DataForm.Item>
+                        <DataForm.Item
                             name="DesignReviewApprovalDate"
                             label="Design Review Approval Date"
+                            collapse
                         >
                             <DatePicker />
-                        </Form.Item>
-                        <Form.Item
+                        </DataForm.Item>
+                        <DataForm.Item
                             name="DesignApproval"
                             label="Design Approval"
                             initialValue="Approve"
+                            collapse
                         >
                             <Select>
                                 <Option value="Approve">Approve</Option>
                             </Select>
-                        </Form.Item>
-                        <Form.Item
+                        </DataForm.Item>
+                        <DataForm.Item
                             name="DesignApproveDate"
                             label="Design Approve Date"
+                            collapse
                         >
                             <DatePicker />
-                        </Form.Item>
+                        </DataForm.Item>
                     </DataForm>
                 </CardContainer>
                 <CardContainer title="API Review Request List">
@@ -246,6 +258,7 @@ export default class APIReviewRequestList extends Component<
                         rowSelection={{
                             selectedRowKeys
                         }}
+                        actions={this.renderTableAction()}
                     >
                         <Column
                             title="TRUE SAPI ID"
@@ -334,6 +347,41 @@ export default class APIReviewRequestList extends Component<
                     </DataTable>
                 </CardContainer>
             </components.PageContainer>
+        )
+    }
+    private renderFormAction() {
+        return (
+            <>
+                <Button type="primary" danger>
+                    Search
+                </Button>
+            </>
+        )
+    }
+    private renderTableAction() {
+        return (
+            <LabelContainer column={3} colon>
+                <LabelContainer.Item label="RDR Action" labelWidth={120}>
+                    <Button type="primary" danger>
+                        Approve
+                    </Button>
+                    <Button>Reject</Button>
+                </LabelContainer.Item>
+                <div></div>
+                <div></div>
+                <LabelContainer.Item label="GBDR Action" labelWidth={120}>
+                    <Button type="primary" danger>
+                        Approve
+                    </Button>
+                    <Button>Reject</Button>
+                </LabelContainer.Item>
+                <LabelContainer.Item label="GTDR Action" labelWidth={120}>
+                    <Button type="primary" danger>
+                        Approve
+                    </Button>
+                    <Button>Reject</Button>
+                </LabelContainer.Item>
+            </LabelContainer>
         )
     }
 }
