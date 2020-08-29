@@ -8,6 +8,7 @@ import APIDemandRequestList from '~/pages/api-demand-request-list/api-demand-req
 import DemandRequestForm from '~/pages/demand-request-form/demand-request-form'
 import APIReviewRequestList from '~/pages/api-review-request-list/api-review-request-list'
 import ReviewRequestForm from '~/pages/review-request-form/review-request-form'
+import DemandRequestFormDetail from '~/pages/demand-request-form/demand-request-form-detail'
 
 export const routes = [
     { path: '/', exact: true, redirect: '/login' },
@@ -57,6 +58,13 @@ export const routes = [
         path: '/api/review-request-form',
         exact: true,
         component: ReviewRequestForm,
+        layout: WorkspaceLayout,
+        auth: true
+    },
+    {
+        path: '/api/demand-request-form-detail',
+        exact: true,
+        component: DemandRequestFormDetail,
         layout: WorkspaceLayout,
         auth: true
     }

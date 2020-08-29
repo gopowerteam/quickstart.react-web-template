@@ -32,10 +32,8 @@ export default class DemandRequestFormDetail extends Component<
     public render() {
         return (
             <components.PageContainer title="Demand Request Detail">
-                {this.renderPageHeader()}
-
                 <CardContainer title="Demand Governance">
-                    <LabelContainer column={2} labelSpan={3}>
+                    <LabelContainer column={2} labelSpan={8}>
                         <LabelItem label="Unique Order Ref">SAPI-001</LabelItem>
                         <LabelItem label="Entry Creation Date">
                             05/11/2020
@@ -43,7 +41,7 @@ export default class DemandRequestFormDetail extends Component<
                     </LabelContainer>
                     <DataForm
                         name="demo-form"
-                        column={1}
+                        column={2}
                         labelCol={{ span: 8 }}
                         labelAlign="left"
                     >
