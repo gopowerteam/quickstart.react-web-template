@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'HSBCIcon-Font';
+    src: url('/fonts/HSBCIcon-Font.woff');
+}
+
+@font-face {
+    font-family: 'HSBCIcon-Font-Extension';
+    src: url('/fonts/HSBCIcon-Font-Extension.woff');
+}
+
 html,
 body,
 #root,
@@ -5,6 +15,9 @@ body,
     height: 100%;
     width: 100%;
     overflow: hidden;
+    font-family: 'HSBCIcon-Font', 'HSBCIcon-Font-Extension', 'Segoe UI', Roboto,
+        'Helvetica Neue', Arial, 'Noto Sans', sans- serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
 }
 
 [data-theme='compact'] .site-navigation-steps,
