@@ -4,6 +4,7 @@ import { Button, Table, Pagination, Form, Row, Col } from 'antd'
 import { PageService } from '~/core/services/page.service'
 import { ColProps } from 'antd/lib/col'
 import { FormLabelAlign } from 'antd/lib/form/interface'
+import DataFormItem from './data-form-item'
 
 const components = {
     Wrapper: styled.section``,
@@ -28,11 +29,29 @@ interface ComponentProp {
     colon?: boolean
 }
 
-export default class DataForm extends React.Component<ComponentProp> {
+interface ComponentState {
+    collapse: boolean
+}
+
+export default class DataForm extends React.Component<
+    ComponentProp,
+    ComponentState
+> {
+    public static Item = DataFormItem
     private default = {
         column: 3,
         gutter: 24,
-        colon: false
+        colon: false,
+        collapseStyle: {
+            display: 'none'
+        }
+    }
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            collapse: false
+        }
     }
 
     public render() {
@@ -45,6 +64,7 @@ export default class DataForm extends React.Component<ComponentProp> {
     }
 
     public renderActionContainer() {
+        console.log(1, this.hasCollapseItem())
         return <components.ActionContainer></components.ActionContainer>
     }
 
@@ -71,18 +91,33 @@ export default class DataForm extends React.Component<ComponentProp> {
     }
 
     private getFormItems() {
-        const children = this.props.children
-            ? this.props.children instanceof Array
-                ? this.props.children
-                : [this.props.children]
-            : []
-
+        const { collapse } = this.state
         const column = this.props.column || this.default.column
 
-        return children.map((item, index) => (
-            <Col span={24 / column} key={index}>
-                {item}
-            </Col>
-        ))
+        return React.Children.map(this.props.children, (child, index) => {
+            if (React.isValidElement(child)) {
+                const style =
+                    collapse === child.props.collapse
+                        ? this.default.collapseStyle
+                        : {}
+                return (
+                    <Col span={24 / column} key={index} style={style}>
+                        <Form.Item {...child.props}>
+                            {child.props.children}
+                        </Form.Item>
+                    </Col>
+                )
+            }
+            return child
+        })
+    }
+
+    private hasCollapseItem() {
+        const count = React.Children.map(
+            this.props.children,
+            (child: any) => child.props.collapse
+        ).filter(x => x).length
+
+        return count > 0
     }
 }

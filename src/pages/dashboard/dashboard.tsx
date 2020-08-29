@@ -12,6 +12,7 @@ import StepItem from '~/shared/components/step-item'
 import Step1 from './components/step-demo/step-1'
 import Step2 from './components/step-demo/step-2'
 import Step3 from './components/step-demo/step-3'
+import { truncate } from 'fs/promises'
 
 const components = {
     PageContainer: styled(PageContainer)``
@@ -32,27 +33,46 @@ export default class Dashboard extends Component<
     public render() {
         return (
             <components.PageContainer title="Dashboard">
-                <CardContainer title="data-from-demo">
+                <CardContainer title="data-from-demo" theme="dark">
                     <DataForm
                         name="demo-form"
                         labelCol={{ span: 5 }}
                         labelAlign="left"
                     >
-                        <Form.Item name="email" label="E-mail1">
+                        <DataForm.Item name="email" label="E-mail1">
                             <Input />
-                        </Form.Item>
-                        <Form.Item name="email" label="E-mail2">
+                        </DataForm.Item>
+                        <DataForm.Item name="email" label="E-mail2">
                             <Input />
-                        </Form.Item>
-                        <Form.Item name="email" label="E-mail3">
+                        </DataForm.Item>
+                        <DataForm.Item name="email" label="E-mail3">
                             <Input />
-                        </Form.Item>
-                        <Form.Item name="email" label="E-mail4">
+                        </DataForm.Item>
+                        <DataForm.Item name="email" label="E-mail4">
                             <Input />
-                        </Form.Item>
-                        <Form.Item name="email" label="E-mail5">
+                        </DataForm.Item>
+                        <DataForm.Item name="email" label="E-mail5">
                             <Input />
-                        </Form.Item>
+                        </DataForm.Item>
+                        <DataForm.Item name="email" label="E-mail1">
+                            <Input />
+                        </DataForm.Item>
+                        <DataForm.Item name="email" label="E-mail2">
+                            <Input />
+                        </DataForm.Item>
+                        <DataForm.Item
+                            name="email"
+                            label="E-mail3"
+                            collapse={true}
+                        >
+                            <Input />
+                        </DataForm.Item>
+                        <DataForm.Item name="email" label="E-mail4">
+                            <Input />
+                        </DataForm.Item>
+                        <DataForm.Item name="email" label="E-mail5">
+                            <Input />
+                        </DataForm.Item>
                     </DataForm>
                 </CardContainer>
                 <CardContainer title="label-container-demo">
