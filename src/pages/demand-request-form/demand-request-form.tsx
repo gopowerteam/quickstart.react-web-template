@@ -28,7 +28,7 @@ export default class DemandRequestForm extends Component<
 
     public render() {
         return (
-            <components.PageContainer title="Demand Request Form">
+            <components.PageContainer width="70%" title="Demand Request Form">
                 <CardContainer title="Demand Request Form">
                     <StepContainer onSubmit={data => this.onSubmit(data)}>
                         <StepItem

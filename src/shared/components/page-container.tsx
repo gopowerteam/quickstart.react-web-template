@@ -26,8 +26,10 @@ const components = {
     ContentContainer: styled.div`
         flex: 1;
         position: relative;
+        overflow: auto;
     `,
-    Content: styled.div`
+    Content: styled.div``,
+    ContentWrapper: styled.div`
         position: absolute;
         top: 0;
         right: 0;
@@ -79,10 +81,12 @@ export default class PageContainer extends React.Component<ComponentProp> {
     public renderContent() {
         const width = this.props.width || this.default.width
         return (
-            <components.ContentContainer className="flex-column flex-nowrap align-items-center">
-                <components.Content style={{ width }}>
-                    {this.props.children}
-                </components.Content>
+            <components.ContentContainer>
+                <components.ContentWrapper className="flex-column flex-nowrap align-items-center">
+                    <components.Content style={{ width }}>
+                        {this.props.children}
+                    </components.Content>
+                </components.ContentWrapper>
             </components.ContentContainer>
         )
     }
