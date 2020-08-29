@@ -278,141 +278,189 @@ export default class APIDemandRequestList extends Component<
                         title="Back-endSystem"
                         dataIndex="BackEndSystem"
                         key="BackEndSystem"
-                        width="135px"
+                        width="180px"
+                        ellipsis={true}
                     />
-                    <Column title="Channel" dataIndex="Channel" key="Channel" />
+                    <Column
+                        title="Channel"
+                        dataIndex="Channel"
+                        key="Channel"
+                        width="180px"
+                        ellipsis={true}
+                    />
                     <Column
                         title="RequestorContact"
                         dataIndex="RequestorContact"
                         key="RequestorContact"
+                        width="180px"
                     />
                     <Column
                         title="OSSOverallContact"
                         dataIndex="OSSOverallContact"
                         key="OSSOverallContact"
+                        ellipsis={true}
                     />
                     <Column
                         title="Core Banking System Contact"
                         dataIndex="CoreBankingSystemContact"
                         key="CoreBankingSystemContact"
+                        ellipsis={true}
                     />
-                    <Column title="GB/GF" dataIndex="GBGF" key="GBGF" />
+                    <Column
+                        title="GB/GF"
+                        dataIndex="GBGF"
+                        key="GBGF"
+                        ellipsis={true}
+                    />
                     <Column
                         title="Multi-Country"
                         dataIndex="MultiCountry"
                         key="MultiCountry"
+                        ellipsis={true}
                     />
                     <Column
                         title="API lifecycle Stage"
                         dataIndex="APIlifecycleStage"
                         key="APIlifecycleStage"
+                        ellipsis={true}
                     />
                     <Column
                         title="Target Live Date"
                         dataIndex="TargetLiveDate"
                         key="TargetLiveDate"
+                        ellipsis={true}
                     />
                     <Column
                         title="Total OSS L0 Estimates"
                         dataIndex="TotalOSSL0Estimates"
                         key="TotalOSSL0Estimates"
+                        ellipsis={true}
                     />
                     <Column
                         title="OSS API L0 Estimates"
                         dataIndex="OSSAPIL0Estimates"
                         key="OSSAPIL0Estimates"
+                        ellipsis={true}
                     />
                     <Column
                         title="CBSystemL0 Estimates"
                         dataIndex="CBSystemL0Estimates"
                         key="CBSystemL0Estimates"
+                        ellipsis={true}
                     />
                     <Column
                         title="GPDM Interlock & BPID"
                         dataIndex="GPDMInterlockBPID"
                         key="GPDMInterlockBPID"
+                        ellipsis={true}
                     />
                     <Column
                         title="Demand Governance"
                         dataIndex="DemandGovernance"
                         key="DemandGovernance"
+                        ellipsis={true}
                     />
                     <Column
                         title="Platfrom"
                         dataIndex="Platfrom"
                         key="Platfrom"
+                        ellipsis={true}
                     />
                     <Column
                         title="API Type"
                         dataIndex="APIType"
                         key="APIType"
+                        ellipsis={true}
                     />
                     <Column
                         title="Functional Domain"
                         dataIndex="FunctionalDomain"
                         key="FunctionalDomain"
+                        ellipsis={true}
                     />
-                    <Column title="Feature" dataIndex="Feature" key="Feature" />
-                    <Column title="Service" dataIndex="Service" key="Service" />
+                    <Column
+                        title="Feature"
+                        dataIndex="Feature"
+                        key="Feature"
+                        ellipsis={true}
+                    />
+                    <Column
+                        title="Service"
+                        dataIndex="Service"
+                        key="Service"
+                        ellipsis={true}
+                    />
                     <Column
                         title="Channel Agnostic"
                         dataIndex="ChannelAgnostic"
                         key="ChannelAgnostic"
+                        ellipsis={true}
                     />
                     <Column
                         title="Demand Classification"
                         dataIndex="DemandClassification"
                         key="DemandClassification"
+                        ellipsis={true}
                     />
                     <Column
                         title="Reusability Score"
                         dataIndex="ReusabilityScore"
                         key="ReusabilityScore"
+                        ellipsis={true}
                     />
                     <Column
                         title="SAPI Ref Number"
                         dataIndex="SAPIRefNumber"
                         key="SAPIRefNumber"
+                        ellipsis={true}
                     />
                     <Column
                         title="Old SAPI Ref Number"
                         dataIndex="OldSAPIRefNumber"
                         key="OldSAPIRefNumber"
+                        ellipsis={true}
                     />
                     <Column
                         title="Design Review Approval"
                         dataIndex="DesignReviewApproval"
                         key="DesignReviewApproval"
+                        ellipsis={true}
                     />
                     <Column
                         title="Design Approval"
                         dataIndex="DesignApproval"
                         key="DesignApproval"
+                        ellipsis={true}
                     />
                     <Column
                         title="Final Approval"
                         dataIndex="FinalApproval"
                         key="FinalApproval"
+                        ellipsis={true}
                     />
                     <Column
                         title="Target Date OF Next Milestone"
                         dataIndex="TargetDateOFNextMilestone"
                         key="TargetDateOFNextMilestone"
+                        ellipsis={true}
                     />
                     <Column
                         title="Next Miletone RAG Status"
                         dataIndex="NextMiletoneRAGStatus"
                         key="NextMiletoneRAGStatus"
+                        ellipsis={true}
                     />
                     <Column
                         title="Target Overall Delivery"
                         dataIndex="TargetOverallDelivery"
                         key="TargetOverallDelivery"
+                        ellipsis={true}
                     />
                     <Column
                         title="OverallDeliveryRAG Status"
                         dataIndex="OverallDeliveryRAGStatus"
                         key="OverallDeliveryRAGStatus"
+                        ellipsis={true}
                     />
                 </DataTable>
             </CardContainer>
