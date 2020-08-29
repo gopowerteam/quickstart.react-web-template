@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Button } from 'antd'
+import { PageStore } from '~/store/page.store'
+import { useStore } from 'reto'
 
 const components = {
     Wrapper: styled.section`
@@ -40,16 +42,30 @@ interface ComponentProp {
     width?: string
 }
 
+function UpdateStoreTitle(props) {
+    const { updateTitle } = useStore(PageStore)
+
+    useEffect(() => {
+        props.title && updateTitle(props.title)
+    }, [])
+
+    return props.children
+}
+
 export default class PageContainer extends React.Component<ComponentProp> {
     private default = {
         width: '100%'
     }
 
+    public componentDidMount() {}
+
     public render() {
         return (
             <components.Wrapper>
-                {this.renderHeader()}
-                {this.renderContent()}
+                <UpdateStoreTitle {...this.props}>
+                    {this.renderHeader()}
+                    {this.renderContent()}
+                </UpdateStoreTitle>
             </components.Wrapper>
         )
     }

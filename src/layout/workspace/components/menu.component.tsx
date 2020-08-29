@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Menu, Popover } from 'antd'
+import { Popover } from 'antd'
 import { RouteComponentProps } from 'react-router-dom'
 import menuDataSource from '~/assets/json/menu.json'
 import { CloseOutlined } from '@ant-design/icons'
+import { Consumer } from 'reto'
+import { PageStore } from '~/store/page.store'
+
 const components = {
     Wrapper: styled.section`
         height: 100%;
         margin-left: 20px;
+        display: flex;
+        flex-direction: row;
     `,
     RootWrapper: styled.div`
         font-size: 14px;
@@ -17,10 +22,15 @@ const components = {
         color: ${props => props.theme.menu.root.color};
         font-size: 18px;
         line-height: 40px;
-        .icon {
-            font-size: 24px;
-            font-weight: bold;
-        }
+    `,
+    TitleWrapper: styled.div`
+        font-size: 14px;
+        height: 100%;
+        font-size: 18px;
+        line-height: 40px;
+        margin: 0 20px;
+        border-bottom: solid 3px #db0011;
+        text-align: center;
     `,
     MenuContainer: styled.section`
         display: flex;
@@ -81,9 +91,23 @@ export default class Navigate extends Component<
     public render() {
         const { current } = this.state
 
-        return <components.Wrapper>{this.renderRootMenu()}</components.Wrapper>
+        return (
+            <components.Wrapper>
+                {this.renderRootMenu()}
+                {this.renderPageTitle()}
+            </components.Wrapper>
+        )
     }
 
+    private renderPageTitle() {
+        return (
+            <components.TitleWrapper>
+                <Consumer of={PageStore}>
+                    {pageStore => pageStore.state.title}
+                </Consumer>
+            </components.TitleWrapper>
+        )
+    }
     private renderRootMenu() {
         return (
             <Popover
@@ -93,9 +117,6 @@ export default class Navigate extends Component<
                 placement="bottomLeft"
             >
                 <components.RootWrapper className="flex-row align-items-center justify-content-center">
-                    {/* <span className="icon">
-                        <CloseOutlined />
-                    </span> */}
                     Menu
                 </components.RootWrapper>
             </Popover>

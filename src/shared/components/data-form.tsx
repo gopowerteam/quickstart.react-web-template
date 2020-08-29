@@ -14,8 +14,11 @@ const components = {
             white-space: pre-wrap;
             height: 35px;
         }
+
+        .ant-picker {
+            width: 100%;
+        }
     `,
-    PageinationContainer: styled.div``,
     ActionContainer: styled.div`
         & > * {
             margin-right: 10px;

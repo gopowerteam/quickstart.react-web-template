@@ -22,10 +22,12 @@ const components = {
         left: 0;
         right: 0;
         bottom: 0;
-        background-size: 100% 100%;
+        background-size: auto 100%;
+        background-position: center;
         background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
+        background-color: #36454e;
     `
 }
 

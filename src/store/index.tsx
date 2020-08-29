@@ -7,11 +7,12 @@ import React, {
 } from 'react'
 
 import { UserStoreProvider, UserStore } from './user.store'
+import { PageStoreProvider, PageStore } from './page.store'
 import { getStoreContext, StoreV, Store } from 'reto/store'
 import { Container } from 'reto/container'
 import { Presist } from './plugins/persist'
 
-const providers: any[] = [UserStoreProvider]
+const providers: any[] = [UserStoreProvider, PageStoreProvider]
 const stores: any[] = [UserStore]
 
 const ProvidersComposer = props =>
