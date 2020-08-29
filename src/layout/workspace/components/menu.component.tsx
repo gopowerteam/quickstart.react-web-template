@@ -22,21 +22,60 @@ const components = {
             font-weight: bold;
         }
     `,
-    MenuContainer: styled.section``
+    MenuContainer: styled.section`
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    `,
+    LeftMenuContainer: styled.div`
+        background-color: ${props => props.theme.menu.submenu.background};
+        color: ${props => props.theme.menu.submenu.color};
+    `,
+    RightMenuContainer: styled.div`
+        padding: 15px 0;
+        background-color: ${props => props.theme.menu.menuitem.background};
+        color: ${props => props.theme.menu.menuitem.color};
+    `,
+    SubMenuItemWrapper: styled.div`
+        padding-left: 30px;
+        color: ${props => props.theme.menu.submenu.color};
+        background: ${props => props.theme.menu.submenu.background};
+        cursor: pointer;
+    `,
+    SubMenuItem: styled.div`
+        font-size: 16px;
+        padding: 20px 40px;
+        color: ${props => props.theme.menu.submenu.color};
+        border-left: solid 3px transparent;
+        &.active {
+            color: ${props => props.theme.menu.submenu.activeColor};
+            background: ${props => props.theme.menu.submenu.activeBackground};
+            border-left-color: ${props =>
+                props.theme.menu.submenu.activeBorderColor};
+        }
+    `,
+    MenuItemWrapper: styled.div`
+        padding: 5px 30px;
+        width: 300px;
+        font-size: 14px;
+        cursor: pointer;
+    `
 }
-interface NavigateProps {}
-interface NavigateState {
+interface MenuProps {}
+interface MenuState {
     current: string
+    activeSubMenu: string
 }
 
 export default class Navigate extends Component<
-    RouteComponentProps<NavigateProps>,
-    NavigateState
+    RouteComponentProps<MenuProps>,
+    MenuState
 > {
     constructor(props) {
         super(props)
         this.state = {
-            current: ''
+            current: '',
+            activeSubMenu: ''
         }
     }
     public render() {
@@ -47,11 +86,16 @@ export default class Navigate extends Component<
 
     private renderRootMenu() {
         return (
-            <Popover content={this.renderMenuContainer()} trigger="click">
+            <Popover
+                overlayClassName="menu-container"
+                content={this.renderMenuContainer()}
+                trigger="click"
+                placement="bottomLeft"
+            >
                 <components.RootWrapper className="flex-row align-items-center justify-content-center">
-                    <span className="icon">
+                    {/* <span className="icon">
                         <CloseOutlined />
-                    </span>
+                    </span> */}
                     Menu
                 </components.RootWrapper>
             </Popover>
@@ -59,29 +103,71 @@ export default class Navigate extends Component<
     }
 
     private renderMenuContainer() {
-        return <components.MenuContainer></components.MenuContainer>
+        return (
+            <components.MenuContainer>
+                {this.renderLeftMenuContainer()}
+                {this.renderRightMenuContainer()}
+            </components.MenuContainer>
+        )
+    }
+
+    private renderLeftMenuContainer() {
+        return (
+            <components.LeftMenuContainer>
+                {menuDataSource.map(subMenu => this.renderSubMenuItem(subMenu))}
+            </components.LeftMenuContainer>
+        )
+    }
+
+    private renderRightMenuContainer() {
+        const { activeSubMenu } = this.state
+
+        const activeMenu = menuDataSource.find(x => x.name === activeSubMenu)
+
+        return (
+            <components.RightMenuContainer>
+                {activeSubMenu &&
+                    activeMenu?.children.map(menu => this.renderMenuItem(menu))}
+            </components.RightMenuContainer>
+        )
+    }
+
+    private renderSubMenuItem(config) {
+        const { activeSubMenu } = this.state
+        return (
+            <components.SubMenuItemWrapper
+                key={config.name}
+                onClick={() => this.onActiveSubMenu(config)}
+            >
+                <components.SubMenuItem
+                    className={activeSubMenu === config.name ? 'active' : ''}
+                >
+                    {config.title}
+                </components.SubMenuItem>
+            </components.SubMenuItemWrapper>
+        )
     }
 
     private renderMenuItem(config) {
-        if (config.children) {
-            return (
-                <Menu.SubMenu
-                    style={{ background: 'red' }}
-                    key={config.name}
-                    title={config.title}
-                    popupClassName="popue-menu-container"
-                >
-                    {config.children.map(item => this.renderMenuItem(item))}
-                </Menu.SubMenu>
-            )
-        }
+        return (
+            <components.MenuItemWrapper
+                key={config.name}
+                onClick={() => this.onNagivate(config)}
+            >
+                {config.title}
+            </components.MenuItemWrapper>
+        )
+    }
+    ƒ
 
-        if (config.path) {
-            return <Menu.Item key={config.path}>{config.title}</Menu.Item>
-        }
+    private onActiveSubMenu(config) {
+        this.setState({
+            activeSubMenu: config.name
+        })
     }
 
-    private onNagivate({ key: path }) {
+    private onNagivate({ path }) {
+        console.log(path, this.props.history)
         this.props.history.push(path)
     }
 }
