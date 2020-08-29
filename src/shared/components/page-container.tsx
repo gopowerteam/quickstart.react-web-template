@@ -56,7 +56,7 @@ function UpdateStoreTitle(props) {
 
 export default class PageContainer extends React.Component<ComponentProp> {
     private default = {
-        width: '100%'
+        width: '70%'
     }
 
     public componentDidMount() {}
