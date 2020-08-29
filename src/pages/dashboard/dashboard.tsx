@@ -4,7 +4,7 @@ import PageContainer from '~/shared/components/page-container'
 import { RouteComponentProps } from 'react-router-dom'
 import CardContainer from '~/shared/components/card-container'
 import DataForm from '~/shared/components/data-form'
-import { Form, Input, message } from 'antd'
+import { Form, Input, message, Button } from 'antd'
 import LabelContainer from '~/shared/components/label-contaoner'
 import LabelItem from '~/shared/components/label-item'
 import StepContainer from '~/shared/components/step-container'
@@ -33,11 +33,15 @@ export default class Dashboard extends Component<
     public render() {
         return (
             <components.PageContainer title="Dashboard">
+                <Button block ghost>
+                    asd
+                </Button>
                 <CardContainer title="data-from-demo" theme="dark">
                     <DataForm
                         name="demo-form"
                         labelCol={{ span: 5 }}
                         labelAlign="left"
+                        actions={this.renderFormAction()}
                     >
                         <DataForm.Item name="email" label="E-mail1">
                             <Input />
@@ -54,23 +58,19 @@ export default class Dashboard extends Component<
                         <DataForm.Item name="email" label="E-mail5">
                             <Input />
                         </DataForm.Item>
-                        <DataForm.Item name="email" label="E-mail1">
+                        <DataForm.Item name="email" label="E-mail6">
                             <Input />
                         </DataForm.Item>
-                        <DataForm.Item name="email" label="E-mail2">
+                        <DataForm.Item name="email" label="E-mail7">
                             <Input />
                         </DataForm.Item>
-                        <DataForm.Item
-                            name="email"
-                            label="E-mail3"
-                            collapse={true}
-                        >
+                        <DataForm.Item name="email" label="E-mail8">
                             <Input />
                         </DataForm.Item>
-                        <DataForm.Item name="email" label="E-mail4">
+                        <DataForm.Item name="email" label="E-mail9" collapse>
                             <Input />
                         </DataForm.Item>
-                        <DataForm.Item name="email" label="E-mail5">
+                        <DataForm.Item name="email" label="E-mail10" collapse>
                             <Input />
                         </DataForm.Item>
                     </DataForm>
@@ -95,6 +95,16 @@ export default class Dashboard extends Component<
                     </StepContainer>
                 </CardContainer>
             </components.PageContainer>
+        )
+    }
+
+    private renderFormAction() {
+        return (
+            <>
+                <Button type="primary" danger>
+                    Search
+                </Button>
+            </>
         )
     }
 

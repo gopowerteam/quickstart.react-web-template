@@ -16,7 +16,12 @@ const components = {
         }
     `,
     PageinationContainer: styled.div``,
-    ActionContainer: styled.div``
+    ActionContainer: styled.div`
+        & > * {
+            margin-right: 10px;
+            min-width: 120px;
+        }
+    `
 }
 
 interface ComponentProp {
@@ -27,6 +32,7 @@ interface ComponentProp {
     wrapperCol?: ColProps
     labelAlign?: FormLabelAlign
     colon?: boolean
+    actions?: React.ReactNode
 }
 
 interface ComponentState {
@@ -50,7 +56,7 @@ export default class DataForm extends React.Component<
     constructor(props) {
         super(props)
         this.state = {
-            collapse: false
+            collapse: true
         }
     }
 
@@ -64,8 +70,24 @@ export default class DataForm extends React.Component<
     }
 
     public renderActionContainer() {
-        console.log(1, this.hasCollapseItem())
-        return <components.ActionContainer></components.ActionContainer>
+        const { collapse } = this.state
+        const collapseMode = this.hasCollapseItem()
+        return (
+            <components.ActionContainer>
+                {this.props.actions}
+                {collapseMode && collapse && (
+                    <Button
+                        onClick={() =>
+                            this.setState({
+                                collapse: !collapse
+                            })
+                        }
+                    >
+                        More Option
+                    </Button>
+                )}
+            </components.ActionContainer>
+        )
     }
 
     public renderFormContainer() {
@@ -97,14 +119,14 @@ export default class DataForm extends React.Component<
         return React.Children.map(this.props.children, (child, index) => {
             if (React.isValidElement(child)) {
                 const style =
-                    collapse === child.props.collapse
+                    collapse && child.props.collapse
                         ? this.default.collapseStyle
                         : {}
+                const props = { ...child.props }
+                delete props.collapse
                 return (
                     <Col span={24 / column} key={index} style={style}>
-                        <Form.Item {...child.props}>
-                            {child.props.children}
-                        </Form.Item>
+                        <Form.Item {...props}>{child.props.children}</Form.Item>
                     </Col>
                 )
             }
@@ -113,11 +135,12 @@ export default class DataForm extends React.Component<
     }
 
     private hasCollapseItem() {
-        const count = React.Children.map(
+        let collapse = false
+        React.Children.forEach(
             this.props.children,
-            (child: any) => child.props.collapse
-        ).filter(x => x).length
+            (child: any) => (collapse = child.props.collapse || collapse)
+        )
 
-        return count > 0
+        return collapse
     }
 }

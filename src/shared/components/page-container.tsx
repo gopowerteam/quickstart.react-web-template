@@ -29,7 +29,7 @@ const components = {
         position: absolute;
         top: 0;
         right: 0;
-        bottom: 100px;
+        bottom: 0;
         left: 0;
         overflow: auto;
     `
@@ -37,9 +37,14 @@ const components = {
 
 interface ComponentProp {
     title?: string
+    width?: string
 }
 
 export default class PageContainer extends React.Component<ComponentProp> {
+    private default = {
+        width: '100%'
+    }
+
     public render() {
         return (
             <components.Wrapper>
@@ -56,9 +61,12 @@ export default class PageContainer extends React.Component<ComponentProp> {
     }
 
     public renderContent() {
+        const width = this.props.width || this.default.width
         return (
-            <components.ContentContainer>
-                <components.Content> {this.props.children}</components.Content>
+            <components.ContentContainer className="flex-column flex-nowrap align-items-center">
+                <components.Content style={{ width }}>
+                    {this.props.children}
+                </components.Content>
             </components.ContentContainer>
         )
     }
