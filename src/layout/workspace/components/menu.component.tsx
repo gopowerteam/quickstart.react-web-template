@@ -37,7 +37,7 @@ const components = {
         color: ${props => props.theme.menu.menuitem.color};
     `,
     SubMenuItemWrapper: styled.div`
-        padding-left: 30px;
+        padding-left: 15px;
         color: ${props => props.theme.menu.submenu.color};
         background: ${props => props.theme.menu.submenu.background};
         cursor: pointer;

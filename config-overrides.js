@@ -7,6 +7,7 @@ const {
 } = require("customize-cra");
 
 const path = require("path");
+
 function setWebpackConfig() {
     // build时设置publicPath
     return config => {
@@ -31,8 +32,9 @@ module.exports = override(
     addLessLoader({
         lessOptions: {
             modifyVars: {
-                'primary-color': '#1DA57A',
-                'link-color': '#1DA57A',
+                'primary-color': '#DB0011',
+                'link-color': '#00847F',
+                'error-color': '#DB0011'
             },
             javascriptEnabled: true,
         },
