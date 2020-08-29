@@ -38,8 +38,8 @@ export default class LabelContainer extends React.Component<ComponentProp> {
 
     private getFieldItems() {
         const column = this.props.column || this.default.column
-        const labelSpan = this.props.labelSpan || this.default.column
-        const labelWidth = this.props.labelWidth || this.default.column
+        const labelSpan = this.props.labelSpan || this.default.labelSpan
+        const labelWidth = this.props.labelWidth
         const colon = this.props.colon || this.default.colon
 
         return React.Children.map(this.props.children, (child, index) => {
