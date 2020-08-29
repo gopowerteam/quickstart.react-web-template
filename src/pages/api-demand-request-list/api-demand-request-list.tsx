@@ -242,57 +242,55 @@ export default class APIDemandRequestList extends Component<
                         title="UniqueOrderRef"
                         dataIndex="UniqueOrderRef"
                         key="UniqueOrderRef"
-                        width="130px"
+                        ellipsis={true}
                     />
                     <Column
                         title="EntryCreationDate"
                         dataIndex="EntryCreationDate"
                         key="EntryCreationDate"
-                        width="135px"
+                        ellipsis={true}
                     />
                     <Column
                         title="OrderRecordDate"
                         dataIndex="OrderRecordDate"
                         key="OrderRecordDate"
-                        width="135px"
+                        ellipsis={true}
                     />
                     <Column
                         title="DemandName"
                         dataIndex="DemandName"
                         key="DemandName"
-                        width="135px"
+                        ellipsis={true}
                     />
                     <Column
                         title="SAPIName"
                         dataIndex="SAPIName"
                         key="SAPIName"
-                        width="135px"
+                        ellipsis={true}
                     />
                     <Column
                         title="Country"
                         dataIndex="Country"
                         key="Country"
-                        width="135px"
+                        ellipsis={true}
                     />
                     <Column
                         title="Back-endSystem"
                         dataIndex="BackEndSystem"
                         key="BackEndSystem"
-                        width="180px"
                         ellipsis={true}
                     />
                     <Column
                         title="Channel"
                         dataIndex="Channel"
                         key="Channel"
-                        width="180px"
                         ellipsis={true}
                     />
                     <Column
                         title="RequestorContact"
                         dataIndex="RequestorContact"
                         key="RequestorContact"
-                        width="180px"
+                        ellipsis={true}
                     />
                     <Column
                         title="OSSOverallContact"
