@@ -2,7 +2,7 @@ import React, { Component, Props } from 'react'
 import styled from 'styled-components'
 import Header from './components/header.component'
 import Footer from './components/footer.component'
-import Navigate from './components/navigate.component'
+import Menu from './components/menu.component'
 import { RouteComponentProps } from 'react-router-dom'
 
 const components = {
@@ -19,14 +19,14 @@ const components = {
         background-color: ${props => props.theme.header.background};
         color: ${props => props.theme.header.color};
     `,
-    NagivateWrap: styled.div`
+    MenuWrap: styled.div`
         flex-basis: 40px;
         height: 40px;
         min-height: 40px;
         overflow: auto;
         position: relative;
-        background-color: ${props => props.theme.nagivate.background};
-        color: ${props => props.theme.nagivate.color};
+        background-color: ${props => props.theme.menu.background};
+        color: ${props => props.theme.menu.color};
     `,
     FooterWrap: styled.div`
         flex-basis: 100px;
@@ -81,9 +81,9 @@ export default class WorkspaceLayout extends Component<
 
     public layoutMenu() {
         return (
-            <components.NagivateWrap>
-                <Navigate {...this.props}></Navigate>
-            </components.NagivateWrap>
+            <components.MenuWrap>
+                <Menu {...this.props}></Menu>
+            </components.MenuWrap>
         )
     }
 

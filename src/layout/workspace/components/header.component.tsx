@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Button } from 'antd'
 import { Avatar } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
+
 const components = {
     Wrapper: styled.section`
         padding: 0 20px;
