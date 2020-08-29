@@ -266,7 +266,7 @@ export default class APIDemandRequestList extends Component<
                     }}
                     actions={this.renderTableAction()}
                 >
-                    <ColumnGroup title="Demand Governance">
+                    <ColumnGroup title="Demand Governance" className="red">
                         <Column
                             title="UniqueOrderRef"
                             dataIndex="UniqueOrderRef"
@@ -451,7 +451,7 @@ export default class APIDemandRequestList extends Component<
                             ellipsis={true}
                         />
                     </ColumnGroup>
-                    <ColumnGroup title="Design Governance">
+                    <ColumnGroup title="Design Governance" className="green">
                         <Column
                             title="Design Review Approval"
                             dataIndex="DesignReviewApproval"
