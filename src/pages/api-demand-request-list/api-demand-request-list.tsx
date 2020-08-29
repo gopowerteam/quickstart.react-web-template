@@ -47,8 +47,9 @@ export default class APIDemandRequestList extends Component<
                     column={4}
                     labelCol={{ span: 8 }}
                     labelAlign="left"
+                    actions={this.renderFormAction()}
                 >
-                    <Form.Item
+                    <DataForm.Item
                         name="DemandClassification"
                         label="Demand Classification"
                         initialValue="New"
@@ -56,8 +57,8 @@ export default class APIDemandRequestList extends Component<
                         <Select>
                             <Select.Option value="New">New</Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="BackendSystem"
                         label="Back-end System"
                         initialValue="HUB"
@@ -65,8 +66,8 @@ export default class APIDemandRequestList extends Component<
                         <Select>
                             <Select.Option value="HUB">HUB</Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="DemandApproveStatus"
                         label="Demand Approve Status"
                         initialValue="Approve"
@@ -76,17 +77,17 @@ export default class APIDemandRequestList extends Component<
                                 Approve
                             </Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="DemandApproveDate"
                         label="Demand Approve Date"
                     >
                         <DatePicker renderExtraFooter={() => 'extra footer'} />
-                    </Form.Item>
-                    <Form.Item name="DemandName" label="Demand Name">
+                    </DataForm.Item>
+                    <DataForm.Item name="DemandName" label="Demand Name">
                         <Input />
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="Channel"
                         label="Channel"
                         initialValue="CMB"
@@ -94,8 +95,8 @@ export default class APIDemandRequestList extends Component<
                         <Select>
                             <Select.Option value="CMB">CMB</Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="DesignReviewApproval"
                         label="Design Review Approval"
                         initialValue="CMB"
@@ -105,123 +106,147 @@ export default class APIDemandRequestList extends Component<
                                 Approve
                             </Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="DesignReviewApprovalDate"
                         label="Design Review Approval Date"
+                        collapse
                     >
                         <DatePicker />
-                    </Form.Item>
-                    <Form.Item name="SAPIName" label="SAPI Name">
+                    </DataForm.Item>
+                    <DataForm.Item name="SAPIName" label="SAPI Name" collapse>
                         <Input />
-                    </Form.Item>
+                    </DataForm.Item>
 
-                    <Form.Item name="GBGF" label="GB/GF" initialValue="RBWM">
+                    <DataForm.Item
+                        name="GBGF"
+                        label="GB/GF"
+                        initialValue="RBWM"
+                        collapse
+                    >
                         <Select>
                             <Select.Option value="RBWM">RBWM</Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="DesignApproval"
                         label="Design Approval"
                         initialValue="Approve"
+                        collapse
                     >
                         <Select>
                             <Select.Option value="Approve">
                                 Approve
                             </Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="DesignApproveDate"
                         label="Design Approve Date"
+                        collapse
                     >
                         <DatePicker />
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="RequestorContact"
                         label="Requestor Contact"
+                        collapse
                     >
                         <Input />
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="APIlifecycleStage"
                         label="API lifecycle Stage"
                         initialValue="Production"
+                        collapse
                     >
                         <Select>
                             <Select.Option value="Production">
                                 Production
                             </Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="Platfrom"
                         label="Platfrom"
                         initialValue="DTP"
+                        collapse
                     >
                         <Select>
                             <Select.Option value="DTP">DTP</Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item name="TargetLiveDate" label="Target Live Date">
+                    </DataForm.Item>
+                    <DataForm.Item
+                        name="TargetLiveDate"
+                        label="Target Live Date"
+                        collapse
+                    >
                         <DatePicker />
-                    </Form.Item>
-                    <Form.Item name="SAPIRefNumber" label="SAPI Ref Number">
+                    </DataForm.Item>
+                    <DataForm.Item
+                        name="SAPIRefNumber"
+                        label="SAPI Ref Number"
+                        collapse
+                    >
                         <Input />
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="CoreBankingSystemContact"
                         label="Core Banking System Contact"
                         initialValue="Cameron Williamson"
+                        collapse
                     >
                         <Select>
                             <Select.Option value="Cameron Williamson">
                                 Cameron Williamson
                             </Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="Contry"
                         label="Contry"
                         initialValue="Georgia"
+                        collapse
                     >
                         <Select>
                             <Select.Option value="Georgia">
                                 Georgia
                             </Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item></Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item collapse></DataForm.Item>
+                    <DataForm.Item
                         name="OldSAPIRefNumber"
                         label="Old SAPI Ref Number"
+                        collapse
                     >
                         <Input />
-                    </Form.Item>
+                    </DataForm.Item>
 
-                    <Form.Item
+                    <DataForm.Item
                         name="OSSOverallContact"
                         label="OSS Overall Contact"
                         initialValue="Cameron Williamson"
+                        collapse
                     >
                         <Select>
                             <Select.Option value="Cameron Williamson">
                                 Cameron Williamson
                             </Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="APIType"
                         label="API Type"
                         initialValue="TRUE SAPI"
+                        collapse
                     >
                         <Select>
                             <Select.Option value="TRUE SAPI">
                                 TRUE SAPI
                             </Select.Option>
                         </Select>
-                    </Form.Item>
+                    </DataForm.Item>
                 </DataForm>
             </CardContainer>
         )
@@ -483,6 +508,16 @@ export default class APIDemandRequestList extends Component<
                     <Button>Reject</Button>
                 </LabelContainer.Item>
             </LabelContainer>
+        )
+    }
+    
+    private renderFormAction() {
+        return (
+            <>
+                <Button type="primary" danger>
+                    Search
+                </Button>
+            </>
         )
     }
 }
