@@ -48,6 +48,7 @@ export default class DataTabke extends React.Component<ComponentProp> {
                     rowSelection={rowSelection}
                     dataSource={dataSource}
                     pagination={false}
+                    size="small"
                 >
                     {this.props.children}
                 </Table>
