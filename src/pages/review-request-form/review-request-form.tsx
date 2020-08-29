@@ -4,7 +4,7 @@ import PageContainer from '~/shared/components/page-container'
 import { RouteComponentProps } from 'react-router-dom'
 import CardContainer from '~/shared/components/card-container'
 import DataForm from '~/shared/components/data-form'
-import { Form, Input, Select, DatePicker, Table } from 'antd'
+import { Form, Input, Select, DatePicker, Table, Divider } from 'antd'
 import LabelContainer from '~/shared/components/label-contaoner'
 import LabelItem from '~/shared/components/label-item'
 const components = {
@@ -30,6 +30,23 @@ export default class ReviewRequestForm extends Component<
     }
 
     public render() {
+        const columns = [
+            {
+                title: 'Documents',
+                dataIndex: 'documents'
+            },
+            {
+                title: 'Modify',
+                dataIndex: 'modify'
+            }
+        ]
+        const data = [
+            {
+                key: '1',
+                documents: 'ADDRCRT-customer_address_creation_v2.1.0.xlsx',
+                modify: '07-07-2020 by Colin Ling'
+            }
+        ]
         return (
             <components.PageContainer title="Review Request Form">
                 {this.renderPageHeader()}
@@ -70,8 +87,9 @@ export default class ReviewRequestForm extends Component<
                         <LabelItem label="Region">China</LabelItem>
                     </LabelContainer>
                 </CardContainer>
+                <Divider />
                 <CardContainer title="Documents">
-                    <Table></Table>
+                    <Table columns={columns} dataSource={data} size="small" />
                 </CardContainer>
             </components.PageContainer>
         )
