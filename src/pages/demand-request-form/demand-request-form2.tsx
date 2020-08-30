@@ -2,28 +2,48 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PageContainer from '~/shared/components/page-container'
 import { RouteComponentProps } from 'react-router-dom'
-import { StepComponent } from '~/core/interfaces/setp.interface'
+import StepContainer from '~/shared/components/step-container'
+import StepItem from '~/shared/components/step-item'
 import CardContainer from '~/shared/components/card-container'
+import { Form, Input, message, Select, Space, DatePicker, Button } from 'antd'
 import DataForm from '~/shared/components/data-form'
-import { Form, Input, Select, DatePicker } from 'antd'
 
 const components = {
-    Wrapper: styled.section``
+    PageContainer: styled(PageContainer)``
 }
-interface AddDetailInformationState {}
 
-interface AddDetailInformationProps {}
+interface DemandRequestForm2State {}
 
-export default class AddDetailInformation
-    extends Component<AddDetailInformationProps, AddDetailInformationState>
-    implements StepComponent {
+interface DemandRequestForm2Props {}
+
+export default class DemandRequestForm2 extends Component<
+    RouteComponentProps<DemandRequestForm2Props>,
+    DemandRequestForm2State
+> {
     constructor(props) {
         super(props)
     }
 
     public render() {
         return (
-            <components.Wrapper>
+            <components.PageContainer width="70%" title="Demand Request Form">
+                <div style={{ height: 15 }}></div>
+
+                <img
+                    width="100%"
+                    src={require('~/assets/images/navigation-bar-2.png')}
+                ></img>
+                <div style={{ height: 15 }}></div>
+
+                <div
+                    style={{
+                        textAlign: 'right',
+                        color: '#333333',
+                        fontSize: '14px'
+                    }}
+                >
+                    *Required information
+                </div>
                 <CardContainer title="Basic Information" theme="dark">
                     <DataForm
                         name="demo-form"
@@ -45,7 +65,7 @@ export default class AddDetailInformation
                         </Form.Item>
                     </DataForm>
                 </CardContainer>
-                <CardContainer title="Detail Information" theme="dark">
+                <CardContainer title="Detail Information">
                     <DataForm
                         name="demo-form"
                         column={1}
@@ -143,30 +163,27 @@ export default class AddDetailInformation
                         </Form.Item>
                     </DataForm>
                 </CardContainer>
-                <CardContainer title="Estimation Information">
-                    <DataForm
-                        name="demo-form"
-                        column={1}
-                        labelCol={{ span: 8 }}
-                        labelAlign="left"
+
+                <div className="flex-row justify-content-between">
+                    <Button size="large" onClick={() => this.openForm()}>
+                        Discharge
+                    </Button>
+                    <Button
+                        type="primary"
+                        size="large"
+                        danger
+                        onClick={() => this.openForm()}
                     >
-                        <Form.Item
-                            name="MuleAPIL0Estimates"
-                            label="Mule API L0 Estimates*"
-                            initialValue="$"
-                        >
-                            <Input />
-                        </Form.Item>
-                        <Form.Item name="APIName" label="API Name*">
-                            <Input />
-                        </Form.Item>
-                    </DataForm>
-                </CardContainer>
-            </components.Wrapper>
+                        Next
+                    </Button>
+                </div>
+            </components.PageContainer>
         )
     }
-
-    public onSubmit() {
-        return true
+    private onSubmit(data) {
+        message.success('SUCCESS')
+    }
+    private openForm() {
+        this.props.history.push('/api/demand-request-form3')
     }
 }
