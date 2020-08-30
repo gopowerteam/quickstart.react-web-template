@@ -55,7 +55,7 @@ export default class Header extends Component<{}, HeaderState> {
                  */}
                 <img
                     src={require('~/assets/images/logo1.png')}
-                    height="55px"
+                    height="30px"
                 ></img>
             </components.LogoContainer>
         )
