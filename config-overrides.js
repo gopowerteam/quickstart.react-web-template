@@ -4,29 +4,31 @@ const {
     addLessLoader,
     addWebpackAlias,
     addDecoratorsLegacy
-} = require("customize-cra");
+} = require('customize-cra')
 
-const path = require("path");
+const path = require('path')
 
 function setWebpackConfig() {
     // build时设置publicPath
     return config => {
-        if (process.env.BROWSER !== "none" && process.env.REACT_APP_BASEHREF) {
-            config.output.publicPath = `${process.env.REACT_APP_BASEHREF || ""}/`;
+        if (process.env.BROWSER !== 'none' && process.env.REACT_APP_BASEHREF) {
+            config.output.publicPath = `${
+                process.env.REACT_APP_BASEHREF || ''
+            }/`
         }
-        return config;
-    };
+        return config
+    }
 }
 
 module.exports = override(
     addDecoratorsLegacy(),
     addWebpackAlias({
-        "~": path.resolve(__dirname, "src"),
-        "@": path.resolve(__dirname, "src")
+        '~': path.resolve(__dirname, 'src'),
+        '@': path.resolve(__dirname, 'src')
     }),
-    fixBabelImports("import", {
-        libraryName: "antd",
-        libraryDirectory: "es",
+    fixBabelImports('import', {
+        libraryName: 'antd',
+        libraryDirectory: 'es',
         style: true
     }),
     addLessLoader({
@@ -35,11 +37,12 @@ module.exports = override(
                 'primary-color': '#DB0011',
                 'link-color': '#00847F',
                 'error-color': '#DB0011',
-                'font-family': "'HSBCIcon-Font', 'HSBCIcon-Font-Extension','Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans- serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol','Noto Color Emoji'"
+                'font-family':
+                    "'HSBCIcon-Font', 'HSBCIcon-Font-Extension','Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans- serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol','Noto Color Emoji'"
             },
-            javascriptEnabled: true,
-        },
-    }),
+            javascriptEnabled: true
+        }
+    })
 
     // setWebpackConfig(),
-);
+)
