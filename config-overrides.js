@@ -33,13 +33,6 @@ module.exports = override(
     }),
     addLessLoader({
         lessOptions: {
-            modifyVars: {
-                'primary-color': '#DB0011',
-                'link-color': '#00847F',
-                'error-color': '#DB0011',
-                'font-family':
-                    "'HSBCIcon-Font', 'HSBCIcon-Font-Extension','Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans- serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol','Noto Color Emoji'"
-            },
             javascriptEnabled: true
         }
     })
