@@ -80,7 +80,7 @@ export default class DataForm extends React.Component<
                 {this.props.actions}
                 {collapseMode && collapse && (
                     <Button
-                        type="primary"
+                        // type="primary"
                         onClick={() =>
                             this.setState({
                                 collapse: !collapse
