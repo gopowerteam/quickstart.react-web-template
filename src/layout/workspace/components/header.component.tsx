@@ -51,7 +51,12 @@ export default class Header extends Component<{}, HeaderState> {
     private renderLogoContainer() {
         return (
             <components.LogoContainer>
-                <Avatar shape="square" size="large" icon={<UserOutlined />} />
+                {/* <Avatar shape="square" size="large" icon={<UserOutlined />} />
+                 */}
+                <img
+                    src={require('~/assets/images/logo1.png')}
+                    height="55px"
+                ></img>
             </components.LogoContainer>
         )
     }
