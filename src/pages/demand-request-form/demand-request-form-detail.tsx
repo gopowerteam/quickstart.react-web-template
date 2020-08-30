@@ -431,7 +431,7 @@ export default class DemandRequestFormDetail extends Component<
                     </div>
                 </CardContainer>
                 <Divider />
-                <CardContainer title="DocuOther Informationments">
+                <CardContainer title="Other Informationments">
                     <DataForm
                         name="demo-form"
                         column={2}
@@ -463,6 +463,32 @@ export default class DemandRequestFormDetail extends Component<
                             <DatePicker />
                         </Form.Item>
                     </DataForm>
+                    <div className="flex-row justify-content-between">
+                        <div
+                            style={{
+                                padding: 20
+                            }}
+                        >
+                            <Button className="submit-button" size="large">
+                                Discharge
+                            </Button>
+                        </div>
+                        <div
+                            style={{
+                                padding: 20
+                            }}
+                        >
+                            <Button
+                                type="primary"
+                                htmlType="submit"
+                                className="submit-button"
+                                danger
+                                size="large"
+                            >
+                                Submit
+                            </Button>
+                        </div>
+                    </div>
                 </CardContainer>
             </components.PageContainer>
         )
