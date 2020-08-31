@@ -7,6 +7,7 @@ const {
 } = require('customize-cra')
 
 const path = require('path')
+const proxyConfig = require('./proxy.config')
 
 function setWebpackConfig() {
     // build时设置publicPath
@@ -14,7 +15,7 @@ function setWebpackConfig() {
         if (process.env.BROWSER !== 'none' && process.env.REACT_APP_BASEHREF) {
             config.output.publicPath = `${
                 process.env.REACT_APP_BASEHREF || ''
-            }/`
+                }/`
         }
         return config
     }
@@ -36,6 +37,9 @@ module.exports = override(
             javascriptEnabled: true
         }
     })
-
-    // setWebpackConfig(),
+    devServer: overrideDevServer(
+        host: '0.0.0.0',
+        proxy: proxyConfig,
+        disableHostCheck: true
+    )
 )
