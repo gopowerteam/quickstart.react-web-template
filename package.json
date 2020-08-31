@@ -28,7 +28,8 @@
         "electron-build": "electron-builder",
         "release": "yarn react-build && electron-builder --publish=always",
         "build": "yarn react-build",
-        "start": "yarn react-start"
+        "start": "yarn react-start",
+        "generate:request-config": "ts-node -P ./tools/request-config-generator/tsconfig.json ./tools/request-config-generator/index.ts"
     },
     "browserslist": {
         "production": [
@@ -62,11 +63,15 @@
         "eslint-config-prettier": "^6.11.0",
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-react": "^7.20.6",
+        "handlebars": "^4.7.6",
         "less": "^3.12.2",
         "less-loader": "^7.0.0",
+        "mkdirp": "^1.0.4",
+        "node-fetch": "^2.6.0",
         "prettier": "^2.1.0",
         "react-app-rewired": "^2.1.6",
         "react-scripts": "3.4.3",
+        "ts-node": "^9.0.0",
         "typescript": "^4.0.2"
     }
 }
