@@ -11,6 +11,7 @@ import DemandRequestForm3 from '~/pages/demand-request-form/demand-request-form3
 import APIReviewRequestList from '~/pages/api-review-request-list/api-review-request-list'
 import ReviewRequestForm from '~/pages/review-request-form/review-request-form'
 import DemandRequestFormDetail from '~/pages/demand-request-form/demand-request-form-detail'
+import APICatalogueList from '~/pages/api-catalogue-list/api-catalogue-list'
 
 export const routes = [
     { path: '/', exact: true, redirect: '/login' },
@@ -81,6 +82,13 @@ export const routes = [
         path: '/api/demand-request-form-detail',
         exact: true,
         component: DemandRequestFormDetail,
+        layout: WorkspaceLayout,
+        auth: true
+    },
+    {
+        path: '/api/api-catalogue',
+        exact: true,
+        component: APICatalogueList,
         layout: WorkspaceLayout,
         auth: true
     }

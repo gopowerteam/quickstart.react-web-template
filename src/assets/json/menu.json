@@ -33,7 +33,7 @@
             {
                 "name": "API List",
                 "title": "API List",
-                "path": "/api/api-list"
+                "path": "/api/api-catalogue"
             }
         ]
     },
