@@ -15,7 +15,20 @@ import Step3 from './components/step-demo/step-3'
 import { truncate } from 'fs/promises'
 
 const components = {
-    PageContainer: styled(PageContainer)``
+    PageContainer: styled.div`
+        background-image: url('/images/home-page.png');
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: auto 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        background-color: #36454e;
+    `
 }
 
 interface DashboardState {}
@@ -32,8 +45,8 @@ export default class Dashboard extends Component<
 
     public render() {
         return (
-            <components.PageContainer title="Dashboard">
-                <Button block ghost>
+            <components.PageContainer>
+                {/* <Button block ghost>
                     asd
                 </Button>
                 <CardContainer title="data-from-demo" theme="dark">
@@ -93,7 +106,7 @@ export default class Dashboard extends Component<
                         <StepItem title="第二步" component={Step2}></StepItem>
                         <StepItem title="第三步" component={Step3}></StepItem>
                     </StepContainer>
-                </CardContainer>
+                </CardContainer> */}
             </components.PageContainer>
         )
     }

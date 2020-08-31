@@ -264,7 +264,16 @@ export default class APIReviewRequestList extends Component<
                             title="TRUE SAPI ID"
                             dataIndex="TRUESAPIID"
                             key="TRUESAPIID"
+                            render={text => (
+                                <Button
+                                    type="link"
+                                    onClick={() => this.openForm()}
+                                >
+                                    {text}
+                                </Button>
+                            )}
                         />
+
                         <Column
                             title="TRUE SAPI Name"
                             dataIndex="TRUESAPIName"
@@ -348,6 +357,9 @@ export default class APIReviewRequestList extends Component<
                 </CardContainer>
             </components.PageContainer>
         )
+    }
+    private openForm() {
+        this.props.history.push('/api/review-request-form')
     }
     private renderFormAction() {
         return (

@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Button } from 'antd'
+import { PageStore } from '~/store/page.store'
+import { useStore } from 'reto'
 
 const components = {
     Wrapper: styled.section`
@@ -24,8 +26,10 @@ const components = {
     ContentContainer: styled.div`
         flex: 1;
         position: relative;
+        overflow: auto;
     `,
-    Content: styled.div`
+    Content: styled.div``,
+    ContentWrapper: styled.div`
         position: absolute;
         top: 0;
         right: 0;
@@ -40,16 +44,30 @@ interface ComponentProp {
     width?: string
 }
 
+function UpdateStoreTitle(props) {
+    const { updateTitle } = useStore(PageStore)
+
+    useEffect(() => {
+        props.title && updateTitle(props.title)
+    }, [])
+
+    return props.children
+}
+
 export default class PageContainer extends React.Component<ComponentProp> {
     private default = {
-        width: '100%'
+        width: '70%'
     }
+
+    public componentDidMount() {}
 
     public render() {
         return (
             <components.Wrapper>
-                {this.renderHeader()}
-                {this.renderContent()}
+                <UpdateStoreTitle {...this.props}>
+                    {this.renderHeader()}
+                    {this.renderContent()}
+                </UpdateStoreTitle>
             </components.Wrapper>
         )
     }
@@ -63,10 +81,12 @@ export default class PageContainer extends React.Component<ComponentProp> {
     public renderContent() {
         const width = this.props.width || this.default.width
         return (
-            <components.ContentContainer className="flex-column flex-nowrap align-items-center">
-                <components.Content style={{ width }}>
-                    {this.props.children}
-                </components.Content>
+            <components.ContentContainer>
+                <components.ContentWrapper className="flex-column flex-nowrap align-items-center">
+                    <components.Content style={{ width }}>
+                        {this.props.children}
+                    </components.Content>
+                </components.ContentWrapper>
             </components.ContentContainer>
         )
     }

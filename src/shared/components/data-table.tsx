@@ -7,7 +7,9 @@ import { TableRowSelection } from 'antd/lib/table/interface'
 const components = {
     Wrapper: styled.section``,
     TabContainer: styled.div``,
-    PageinationContainer: styled.div``,
+    PageinationContainer: styled.div`
+        padding: 10px 0;
+    `,
     ActionContainer: styled.div`
         padding: 10px 0;
         .ant-btn {

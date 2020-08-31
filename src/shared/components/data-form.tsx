@@ -14,8 +14,11 @@ const components = {
             white-space: pre-wrap;
             height: 35px;
         }
+
+        .ant-picker {
+            width: 100%;
+        }
     `,
-    PageinationContainer: styled.div``,
     ActionContainer: styled.div`
         & > * {
             margin-right: 10px;
@@ -77,6 +80,7 @@ export default class DataForm extends React.Component<
                 {this.props.actions}
                 {collapseMode && collapse && (
                     <Button
+                        // type="primary"
                         onClick={() =>
                             this.setState({
                                 collapse: !collapse

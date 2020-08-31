@@ -272,6 +272,14 @@ export default class APIDemandRequestList extends Component<
                             dataIndex="UniqueOrderRef"
                             key="UniqueOrderRef"
                             ellipsis={true}
+                            render={text => (
+                                <Button
+                                    type="link"
+                                    onClick={() => this.openForm()}
+                                >
+                                    {text}
+                                </Button>
+                            )}
                         />
                         <Column
                             title="EntryCreationDate"
@@ -518,7 +526,9 @@ export default class APIDemandRequestList extends Component<
             </LabelContainer>
         )
     }
-
+    private openForm() {
+        this.props.history.push('/api/demand-request-form-detail')
+    }
     private renderFormAction() {
         return (
             <>
