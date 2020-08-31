@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Button } from 'antd'
 import { Avatar } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
+import { Consumer } from 'reto'
+import { UserStore } from '~/store/user.store'
 
 const components = {
     Wrapper: styled.section`
@@ -63,10 +65,14 @@ export default class Header extends Component<{}, HeaderState> {
 
     private renderUserContainer() {
         return (
-            <components.UserContainer>
-                <div>Ash Zeng</div>
-                <div>LastLogin 11/05/2020 12:25</div>
-            </components.UserContainer>
+            <Consumer of={UserStore}>
+                {userStore => (
+                    <components.UserContainer>
+                        <div>{userStore.state.userName}</div>
+                        <div>LastLogin 11/05/2020 12:25</div>
+                    </components.UserContainer>
+                )}
+            </Consumer>
         )
     }
 

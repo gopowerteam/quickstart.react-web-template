@@ -9,8 +9,12 @@ export default function () {
     })
 
     // 状态拦截器
-    RequestService.interceptors.status.use(respone => respone.status === 200)
+    RequestService.interceptors.status.use(respone => {
+        return respone.data.status === 200
+    })
 
     // 添加成功拦截器
-    RequestService.interceptors.success.use(respone => respone.data)
+    RequestService.interceptors.success.use(respone => {
+        return respone.data.resultBody
+    })
 }

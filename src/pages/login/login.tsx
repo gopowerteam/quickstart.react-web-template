@@ -5,6 +5,8 @@ import { RouteComponentProps } from 'react-router-dom'
 import { Row, Col } from 'antd'
 import { Consumer } from 'reto'
 import { UserStore } from '~/store/user.store'
+import { AuthService } from '~/services/auth.service'
+import { RequestParams } from '~/core/http'
 
 const styles = (
     props?: Props<any>
@@ -95,6 +97,7 @@ export default class Login extends Component<
     RouteComponentProps<LoginProps>,
     RouteComponentProps<LoginState>
 > {
+    private authService = new AuthService()
     constructor(props) {
         super(props)
     }
@@ -151,8 +154,8 @@ export default class Login extends Component<
                                 }
                             >
                                 <Form.Item
-                                    label="User ID"
-                                    name="username"
+                                    label="Staff ID"
+                                    name="staffId"
                                     rules={[
                                         {
                                             required: true,
@@ -166,7 +169,7 @@ export default class Login extends Component<
 
                                 <Form.Item
                                     label="Password"
-                                    name="password"
+                                    name="passWord"
                                     rules={[
                                         {
                                             required: true,
@@ -197,12 +200,12 @@ export default class Login extends Component<
         )
     }
 
-    private onSubmit(data, { login }) {
-        // 存储用户的登录信息
-        login({
-            token: Math.random().toString(32)
+    private onSubmit(formModel, { login }) {
+        this.authService.login(new RequestParams(formModel)).subscribe(data => {
+            // 存储用户的登录信息
+            login(data)
+            // 进入系统首页
+            this.props.history.push('/dashboard')
         })
-        // 进入系统首页
-        this.props.history.push('/dashboard')
     }
 }
