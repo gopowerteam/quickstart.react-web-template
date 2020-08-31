@@ -5,6 +5,7 @@ import { Avatar } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import { Consumer } from 'reto'
 import { UserStore } from '~/store/user.store'
+import { RouteComponentProps } from 'react-router-dom'
 
 const components = {
     Wrapper: styled.section`
@@ -26,14 +27,17 @@ const components = {
     `
 }
 
+interface HeaderProps {}
+
 interface HeaderState {
     currentMenu: any
     location: any
 }
 
-export default class Header extends Component<{}, HeaderState> {
-    private history
-
+export default class Header extends Component<
+    RouteComponentProps<HeaderProps>,
+    HeaderState
+> {
     constructor(props) {
         super(props)
     }
@@ -78,9 +82,24 @@ export default class Header extends Component<{}, HeaderState> {
 
     private renderActionContainer() {
         return (
-            <components.ActionContainer>
-                <Button className="action-button">Log Off</Button>
-            </components.ActionContainer>
+            <Consumer of={UserStore}>
+                {userStore => (
+                    <components.ActionContainer>
+                        <Button
+                            onClick={() => this.onLogout(userStore)}
+                            className="action-button"
+                        >
+                            Log Off
+                        </Button>
+                    </components.ActionContainer>
+                )}
+            </Consumer>
         )
+    }
+
+    private onLogout({ logout }) {
+        const { history } = this.props
+        logout()
+        history.push('/dashboard')
     }
 }

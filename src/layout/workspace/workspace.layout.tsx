@@ -74,7 +74,7 @@ export default class WorkspaceLayout extends Component<
     public layoutHeader() {
         return (
             <components.HeaderWrap>
-                <Header></Header>
+                <Header {...this.props}></Header>
             </components.HeaderWrap>
         )
     }
