@@ -24,6 +24,7 @@ import LabelContainer from '~/shared/components/label-contaoner'
 import LabelItem from '~/shared/components/label-item'
 import { ArrowDownOutlined, UploadOutlined } from '@ant-design/icons'
 import moment from 'moment'
+import NotificationContainer from '~/shared/components/notification-container'
 const components = {
     PageContainer: styled(PageContainer)``,
     PageHeaderContainer: styled(PageContainer)`
@@ -154,46 +155,17 @@ export default class ReviewRequestForm extends Component<
                     </div>
                 </CardContainer>
                 <CardContainer title="Approval Status">
-                    <div
-                        style={{
-                            background: '#E5F2F2',
-                            border: '1px solid #00847F',
-                            boxSizing: 'border-box'
-                        }}
+                    <NotificationContainer
+                        className="padding-y"
+                        title="Regional Review Group(RDR)"
+                        theme="approved"
                     >
-                        <div
-                            style={{
-                                fontSize: '18px',
-                                paddingLeft: '30px',
-                                paddingTop: '20px',
-                                fontWeight: 500
-                            }}
-                            className=" flex-row justify-content-between"
-                        >
-                            <div> Regional Review Group(RDR)</div>
-                            <div style={{ color: '#00847F', paddingRight: 20 }}>
-                                <img
-                                    src={require('~/assets/images/approved.png')}
-                                ></img>
-                                Approved
-                            </div>
-                        </div>
-                        <div
-                            style={{
-                                fontSize: '14px',
-                                paddingLeft: '30px',
-                                paddingTop: '20px'
-                            }}
-                        >
-                            <LabelContainer column={1} labelSpan={3}>
-                                <LabelItem label="Reviewer:">
-                                    Tony Stark
-                                </LabelItem>
-                                <LabelItem label="Date in Operation:">
-                                    05/11/2020
-                                </LabelItem>
-                            </LabelContainer>
-                        </div>
+                        <LabelContainer column={1} labelSpan={3}>
+                            <LabelItem label="Reviewer:">Tony Stark</LabelItem>
+                            <LabelItem label="Date in Operation:">
+                                05/11/2020
+                            </LabelItem>
+                        </LabelContainer>
                         <div className="flex-row justify-content-end">
                             <div
                                 style={{
@@ -222,55 +194,25 @@ export default class ReviewRequestForm extends Component<
                                 </Button>
                             </div>
                         </div>
-                    </div>
-                    <div style={{ height: 20 }}></div>
-                    <div
-                        style={{
-                            background: '#F9F2F3',
-                            border: '1px solid #A8000B',
-                            paddingTop: '20px'
-                        }}
+                    </NotificationContainer>
+                    <NotificationContainer
+                        className="padding-y"
+                        title="Global Business Review(GBDR)"
+                        theme="rejected"
                     >
-                        <div
-                            style={{
-                                fontSize: '18px',
-                                paddingLeft: '30px',
-                                paddingTop: '20px',
-                                fontWeight: 500
-                            }}
-                            className=" flex-row justify-content-between"
-                        >
-                            <div> Global Business Review(GBDR)</div>
-                            <div style={{ color: '#A8000B', paddingRight: 20 }}>
-                                <img
-                                    src={require('~/assets/images/rej.png')}
-                                ></img>
-                                Rejected
-                            </div>
-                        </div>
-                        <div
-                            style={{
-                                fontSize: '14px',
-                                paddingLeft: '30px',
-                                paddingTop: '20px',
-                                paddingRight: '150px'
-                            }}
-                        >
-                            <LabelContainer column={1} labelSpan={3}>
-                                <LabelItem label="Reviewer:">VivI Li</LabelItem>
-                                <LabelItem label="Date in Operation:">
-                                    08-10-2020
-                                </LabelItem>
-                                <LabelItem label="Comment:">
-                                    Ask CDCR San Quintin State Prison 2008. We
-                                    installed Purex dispensers throughout the
-                                    prison to combat diseases…and it was a
-                                    Roaring Success (as in Roaring Drunk) I mean
-                                    we had Long lines of prisoners fist fighting
-                                    to use them.
-                                </LabelItem>
-                            </LabelContainer>
-                        </div>
+                        <LabelContainer column={1} labelSpan={3}>
+                            <LabelItem label="Reviewer:">VivI Li</LabelItem>
+                            <LabelItem label="Date in Operation:">
+                                08-10-2020
+                            </LabelItem>
+                            <LabelItem label="Comment:">
+                                Ask CDCR San Quintin State Prison 2008. We
+                                installed Purex dispensers throughout the prison
+                                to combat diseases…and it was a Roaring Success
+                                (as in Roaring Drunk) I mean we had Long lines
+                                of prisoners fist fighting to use them.
+                            </LabelItem>
+                        </LabelContainer>
                         <div className="flex-row justify-content-end">
                             <div
                                 style={{
@@ -299,57 +241,27 @@ export default class ReviewRequestForm extends Component<
                                 </Button>
                             </div>
                         </div>
-                    </div>
-                    <div style={{ height: 20 }}></div>
-                    <div
-                        style={{
-                            background: '#EBEFF4',
-                            border: '1px solid #3E505D',
-                            paddingTop: '20px'
-                        }}
+                    </NotificationContainer>
+                    <NotificationContainer
+                        className="padding-y"
+                        title="Global Business Review(GBDR)"
+                        theme="inProgress"
                     >
-                        <div
-                            style={{
-                                fontSize: '18px',
-                                paddingLeft: '30px',
-                                paddingTop: '20px',
-                                fontWeight: 500
-                            }}
-                            className=" flex-row justify-content-between"
-                        >
-                            <div> Global Business Review(GBDR)</div>
-                            <div style={{ color: '#305A85', paddingRight: 20 }}>
-                                <img
-                                    src={require('~/assets/images/inProgress.png')}
-                                ></img>
-                                In Progress
-                            </div>
-                        </div>
-                        <div
-                            style={{
-                                fontSize: '14px',
-                                paddingLeft: '30px',
-                                paddingTop: '20px',
-                                paddingRight: '150px'
-                            }}
-                        >
-                            <LabelContainer column={1} labelSpan={3}>
-                                <LabelItem label="Reviewer:">
-                                    Martin Flower
-                                </LabelItem>
-                                <LabelItem label="Date in Operation:">
-                                    08-10-2020
-                                </LabelItem>
-                                <LabelItem label="Comment:">
-                                    Ask CDCR San Quintin State Prison 2008. We
-                                    installed Purex dispensers throughout the
-                                    prison to combat diseases…and it was a
-                                    Roaring Success (as in Roaring Drunk) I mean
-                                    we had Long lines of prisoners fist fighting
-                                    to use them.
-                                </LabelItem>
-                            </LabelContainer>
-                        </div>
+                        <LabelContainer column={1} labelSpan={3}>
+                            <LabelItem label="Reviewer:">
+                                Martin Flower
+                            </LabelItem>
+                            <LabelItem label="Date in Operation:">
+                                08-10-2020
+                            </LabelItem>
+                            <LabelItem label="Comment:">
+                                Ask CDCR San Quintin State Prison 2008. We
+                                installed Purex dispensers throughout the prison
+                                to combat diseases…and it was a Roaring Success
+                                (as in Roaring Drunk) I mean we had Long lines
+                                of prisoners fist fighting to use them.
+                            </LabelItem>
+                        </LabelContainer>
                         <div className="flex-row justify-content-end">
                             <div
                                 style={{
@@ -378,42 +290,12 @@ export default class ReviewRequestForm extends Component<
                                 </Button>
                             </div>
                         </div>
-                    </div>
-                    <div style={{ height: 20 }}></div>
-
-                    <div
-                        style={{
-                            background: '#fff',
-                            border: '1px solid #00847F',
-                            boxSizing: 'border-box'
-                        }}
+                    </NotificationContainer>
+                    <NotificationContainer
+                        className="padding-y"
+                        title="Global Business Review(GBDR)"
+                        theme="verify"
                     >
-                        <div
-                            className="flex-row justify-content-between"
-                            style={{
-                                fontSize: '18px',
-                                paddingLeft: '30px',
-                                paddingTop: '20px',
-                                fontWeight: 500
-                            }}
-                        >
-                            <div>Design Approval</div>
-
-                            <div
-                                style={{
-                                    color: '#333333',
-                                    paddingRight: 20,
-                                    fontSize: '18px'
-                                }}
-                            >
-                                <img
-                                    src={require('~/assets/images/plus.png')}
-                                ></img>
-                                Verify
-                            </div>
-                        </div>
-                        <div style={{ height: 20 }}></div>
-
                         <div className="flex-row justify-content-end">
                             <div
                                 style={{
@@ -440,7 +322,8 @@ export default class ReviewRequestForm extends Component<
                                 </Button>
                             </div>
                         </div>
-                    </div>
+                    </NotificationContainer>
+
                     <Divider dashed />
                     <CardContainer title="Comments">
                         <div className="flex-row">

@@ -527,7 +527,7 @@ export default class APIDemandRequestList extends Component<
         )
     }
     private openForm() {
-        this.props.history.push('/api/demand-request-form-detail')
+        this.props.history.push('/pages/demand-request-form-detail')
     }
     private renderFormAction() {
         return (

@@ -221,6 +221,6 @@ export default class DemandRequestForm3 extends Component<
         message.success('SUCCESS')
     }
     private openForm() {
-        this.props.history.push('/api/demand-request-form3')
+        this.props.history.push('/pages/demand-request-form3')
     }
 }

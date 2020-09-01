@@ -359,7 +359,7 @@ export default class APIReviewRequestList extends Component<
         )
     }
     private openForm() {
-        this.props.history.push('/api/review-request-form')
+        this.props.history.push('/pages/review-request-form')
     }
     private renderFormAction() {
         return (

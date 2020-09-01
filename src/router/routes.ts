@@ -11,6 +11,7 @@ import APIReviewRequestList from '~/pages/api-review-request-list/api-review-req
 import ReviewRequestForm from '~/pages/review-request-form/review-request-form'
 import DemandRequestFormDetail from '~/pages/demand-request-form/demand-request-form-detail'
 import APICatalogueList from '~/pages/api-catalogue-list/api-catalogue-list'
+import ApiDetail from '~/pages/api-catalogue-list/api-detail'
 
 export const routes = [
     { path: '/', exact: true, redirect: '/login' },
@@ -29,58 +30,65 @@ export const routes = [
         auth: true
     },
     {
-        path: '/api/api-demand-request-list',
+        path: '/pages/api-demand-request-list',
         exact: true,
         component: APIDemandRequestList,
         layout: WorkspaceLayout,
         auth: true
     },
     {
-        path: '/api/demand-request-form',
+        path: '/pages/demand-request-form',
         exact: true,
         component: DemandRequestForm,
         layout: WorkspaceLayout,
         auth: true
     },
     {
-        path: '/api/demand-request-form2',
+        path: '/pages/demand-request-form2',
         exact: true,
         component: DemandRequestForm2,
         layout: WorkspaceLayout,
         auth: true
     },
     {
-        path: '/api/demand-request-form3',
+        path: '/pages/demand-request-form3',
         exact: true,
         component: DemandRequestForm3,
         layout: WorkspaceLayout,
         auth: true
     },
     {
-        path: '/api/api-review-request-list',
+        path: '/pages/api-review-request-list',
         exact: true,
         component: APIReviewRequestList,
         layout: WorkspaceLayout,
         auth: true
     },
     {
-        path: '/api/review-request-form',
+        path: '/pages/review-request-form',
         exact: true,
         component: ReviewRequestForm,
         layout: WorkspaceLayout,
         auth: true
     },
     {
-        path: '/api/demand-request-form-detail',
+        path: '/pages/demand-request-form-detail',
         exact: true,
         component: DemandRequestFormDetail,
         layout: WorkspaceLayout,
         auth: true
     },
     {
-        path: '/api/api-catalogue',
+        path: '/pages/api-catalogue',
         exact: true,
         component: APICatalogueList,
+        layout: WorkspaceLayout,
+        auth: true
+    },
+    {
+        path: '/pages/api-catalogue/api-detail',
+        exact: true,
+        component: ApiDetail,
         layout: WorkspaceLayout,
         auth: true
     }

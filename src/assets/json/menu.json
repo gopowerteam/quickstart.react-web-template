@@ -6,12 +6,12 @@
             {
                 "name": "API Demand Request List",
                 "title": "API Demand Request List",
-                "path": "/api/api-demand-request-list"
+                "path": "/pages/api-demand-request-list"
             },
             {
                 "name": "Raise API Demand Request",
                 "title": "Raise API Demand Request",
-                "path": "/api/demand-request-form"
+                "path": "/pages/demand-request-form"
             }
         ]
     },
@@ -22,7 +22,7 @@
             {
                 "name": "API Review Request List",
                 "title": "API Review Request List",
-                "path": "/api/api-review-request-list"
+                "path": "/pages/api-review-request-list"
             }
         ]
     },
@@ -33,7 +33,7 @@
             {
                 "name": "API List",
                 "title": "API List",
-                "path": "/api/api-catalogue"
+                "path": "/pages/api-catalogue"
             }
         ]
     },
@@ -44,17 +44,17 @@
             {
                 "name": "IWS Code Generator",
                 "title": "IWS Code Generator",
-                "path": "/api/iws-code-generator"
+                "path": "/pages/iws-code-generator"
             },
             {
                 "name": "Mule Code Generator",
                 "title": "Mule Code Generator",
-                "path": "/api/mule-code-generator"
+                "path": "/pages/mule-code-generator"
             },
             {
                 "name": "raml Generator",
                 "title": "raml Generator",
-                "path": "/api/raml-generator"
+                "path": "/pages/raml-generator"
             }
         ]
     },
@@ -65,12 +65,12 @@
             {
                 "name": "other1",
                 "title": "other1",
-                "path": "/api/page3"
+                "path": "/pages/page3"
             },
             {
                 "name": "other2",
                 "title": "other2",
-                "path": "/api/page4"
+                "path": "/pages/page4"
             }
         ]
     }
