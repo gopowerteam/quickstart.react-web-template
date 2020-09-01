@@ -321,6 +321,7 @@ export default class APIReviewRequestList extends Component<
                         actions={this.renderTableAction()}
                     >
                         <Column
+                            ellipsis={true}
                             title="API ID"
                             dataIndex="TRUESAPIID"
                             key="TRUESAPIID"
@@ -335,105 +336,126 @@ export default class APIReviewRequestList extends Component<
                         />
 
                         <Column
+                            ellipsis={true}
                             title="API Name"
                             dataIndex="TRUESAPIName"
                             key="TRUESAPIName"
                         />
                         <Column
+                            ellipsis={true}
                             title="Requestor"
                             dataIndex="RequestContact"
                             key="RequestContact"
                         />
                         <Column
+                            ellipsis={true}
                             title="Project Name"
                             dataIndex="ConsumerProject"
                             key="ConsumerProject"
                         />
                         <Column
+                            ellipsis={true}
                             title="Demand Classification"
                             dataIndex="DemandClassification"
                             key="DemandClassification"
                         />
                         <Column
+                            ellipsis={true}
                             title="Submit Date"
                             dataIndex="SubmitDate"
                             key="SubmitDate"
                         />
                         <Column
+                            ellipsis={true}
                             title="Regional Review Approval Status" /*新增字段*/
                             dataIndex="RDRReviewStatus"
                             key="RDRReviewStatus"
                         />
                         <Column
+                            ellipsis={true}
                             title="Regional Review Approval Date"
                             dataIndex="RDRReviewDate"
                             key="RDRReviewDate"
                         />
                         <Column
+                            ellipsis={true}
                             title="Regional Reviewer" /*新增字段*/
                             dataIndex="RegionalReviewer"
                             key="RegionalReviewer"
                         />
                         <Column
+                            ellipsis={true}
                             title="Global Business Approval Status" /*新增字段*/
                             dataIndex="GBApprovalStatus"
                             key="GBApprovalStatus"
                         />
                         <Column
+                            ellipsis={true}
                             title="Global Business Approval Date"
                             dataIndex="GBDRReviewDate"
                             key="GBDRReviewDate"
                         />
                         <Column
+                            ellipsis={true}
                             title="Global Business Approver" /*新增字段*/
                             dataIndex="GBApprover"
                             key="GBApprover"
                         />
                         <Column
+                            ellipsis={true}
                             title="Global Technical Approval Status" /*新增字段*/
                             dataIndex="GTApprovalStatus"
                             key="GTApprovalStatus"
                         />
                         <Column
+                            ellipsis={true}
                             title="Global Technical Approval Date"
                             dataIndex="GTDRReviewDate"
                             key="GTDRReviewDate"
                         />
                         <Column
+                            ellipsis={true}
                             title="Global Technical Approver" /*新增字段*/
                             dataIndex="GTApprover"
                             key="GTApprover"
                         />
 
                         {/* 
-                    <Column
+                        <Column
+                            ellipsis={true}
                         title="Unique Order Ref"
                         dataIndex="age"
                         key="age"
                     />
-                    <Column
+                        <Column
+                            ellipsis={true}
                         title="Entry Creation Date"
                         dataIndex="age"
                         key="age"
                     />
-                    <Column
+                        <Column
+                            ellipsis={true}
                         title="Order Record Date"
                         dataIndex="age"
                         key="age"
                     />
-                    <Column
+                        <Column
+                            ellipsis={true}
                         title="Unique Order Ref"
                         dataIndex="age"
                         key="age"
                     />
-                    <Column
+                        <Column
+                            ellipsis={true}
                         title="Unique Order Ref"
                         dataIndex="age"
                         key="age"
                     />
-                    <Column title="Address" dataIndex="address" key="address" />
+                        <Column
+                            ellipsis={true} title="Address" dataIndex="address" key="address" />
 
-                    <Column
+                        <Column
+                            ellipsis={true}
                         title="Action"
                         key="action"
                         render={(text, record: any) => (
