@@ -276,7 +276,7 @@ export default class APICatalogueList extends Component<
                     </DataForm>
                 </CardContainer>
                 <CardContainer title="API Catalogue">
-                    <DataTable rowKey="TRUESAPIID" dataSource={this.dataSource}>
+                    <DataTable rowKey="APIID" dataSource={this.dataSource}>
                         {/* <Column
                             title="API ID"
                             dataIndex="APIID"
