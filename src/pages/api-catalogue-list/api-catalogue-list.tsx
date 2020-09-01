@@ -366,7 +366,7 @@ export default class APICatalogueList extends Component<
         )
     }
     private openForm() {
-        this.props.history.push('/pages/review-request-form')
+        this.props.history.push('/pages/api-catalogue/api-detail')
     }
     private renderFormAction() {
         return (

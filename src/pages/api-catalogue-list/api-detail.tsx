@@ -39,459 +39,149 @@ export default class ApiDetail extends Component<
     }
 
     public render() {
+        const columns = [
+            {
+                title: 'Version',
+                dataIndex: 'version'
+            },
+            {
+                title: 'Date',
+                dataIndex: 'date'
+            },
+            {
+                title: 'Status',
+                dataIndex: 'status'
+            },
+            {
+                title: 'Sites in Used',
+                dataIndex: 'sitesInUsed'
+            },
+            {
+                title: 'Consumer Name',
+                dataIndex: 'consumerName'
+            },
+            {
+                title: 'Consumer EIM ID',
+                dataIndex: 'eim'
+            },
+            {
+                title: 'Consumer ID in HUB ',
+                dataIndex: 'hubId'
+            },
+            {
+                title: 'Channel Code in HUB (Customer/HUB) ',
+                dataIndex: 'inHubCode'
+            }
+        ]
+        const data = [
+            {
+                key: '1',
+                version: 'V1.0.0',
+                date: '11-05-2019',
+                status: 'Production',
+                sitesInUsed: 'Australia',
+                consumerName: 'CARD',
+                eim: '',
+                hubId: 'HUB_DIGITAL_CARD',
+                inHubCode: 'Customer'
+            }
+        ]
         return (
             <components.PageContainer title="API Detail">
-                <div style={{ fontSize: 28 }}>
-                    Customer Credit Card Creation
+                <div
+                    style={{ fontSize: 28 }}
+                    className="flex-row justify-content-between"
+                >
+                    <div>Customer Credit Card Creation</div>
+                    <div>
+                        <Button
+                            type="primary"
+                            size="large"
+                            onClick={() => this.openForm()}
+                        >
+                            Edit
+                        </Button>
+                    </div>
                 </div>
+                <Divider />
                 <CardContainer title="Basic Information">
-                    <LabelContainer column={2} labelSpan={8}>
-                        <LabelItem label="Unique Order Ref">SAPI-001</LabelItem>
-                        <LabelItem label="Entry Creation Date">
-                            05/11/2020
+                    <LabelContainer column={2} labelSpan={3}>
+                        <LabelItem label="API Method">Post</LabelItem>
+                        <LabelItem label="Global/Regional/Local">
+                            China
+                        </LabelItem>
+                        <LabelItem label="API Type">Post</LabelItem>
+                        <LabelItem label="Channels">
+                            Customer Channels Agnostic
+                        </LabelItem>
+                        <LabelItem label="Status">Post</LabelItem>
+                        <LabelItem label="GB/GF"> </LabelItem>
+                        <LabelItem label="Functional Domain">
+                            Customer Address Creation
+                        </LabelItem>
+                        <LabelItem label="HUB API ID">CCCRDCRT</LabelItem>
+                        <LabelItem label="Features">
+                            Customer Address Creation
+                        </LabelItem>
+                        <LabelItem label="Latest Version">V1.0.0</LabelItem>
+                        <LabelItem label="Service">
+                            Customer Address Creation
+                        </LabelItem>
+                        <LabelItem label="Functionality">
+                            Real time to creat
                         </LabelItem>
                     </LabelContainer>
-                    <DataForm
-                        name="demo-form"
-                        column={2}
-                        labelCol={{ span: 8 }}
-                        labelAlign="left"
-                    >
-                        <Form.Item name="DemandName" label="Demand Name">
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="OrderRecordDate"
-                            label="Order Record Date"
-                        >
-                            <DatePicker disabled />
-                        </Form.Item>
-                        <Form.Item name="APIName" label="API Name">
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="MultiCountry"
-                            label="Multi-Country"
-                            initialValue="N"
-                        >
-                            <Select disabled>
-                                <Select.Option value="N">N</Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="RequestorContact"
-                            label="Requestor Contact"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="Country"
-                            label="Country"
-                            initialValue="Georgia"
-                        >
-                            <Select disabled>
-                                <Select.Option value="Georgia">
-                                    Georgia
-                                </Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="CBAPIContact"
-                            label="CB API Contact"
-                            initialValue="Cameron Williamson"
-                        >
-                            <Select disabled>
-                                <Select.Option value="Cameron Williamson">
-                                    Cameron Williamson
-                                </Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="BackendSystem"
-                            label="Back-end System"
-                            initialValue="HUB"
-                        >
-                            <Select disabled>
-                                <Select.Option value="HUB">HUB</Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="CoreBankingSystemContact"
-                            label="Core Banking System Contact"
-                            initialValue="Cameron Williamson"
-                        >
-                            <Select disabled>
-                                <Select.Option value="Cameron Williamson">
-                                    Cameron Williamson
-                                </Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="Channels"
-                            label="Channels"
-                            initialValue="CMB"
-                        >
-                            <Select disabled>
-                                <Select.Option value="CMB">CMB</Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="TotalAPIL0Estimates"
-                            label="Total API L0 Estimates"
-                            initialValue="13.5"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="Consumer"
-                            label="Consumer"
-                            initialValue="Consumer"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="Mule API L0 Estimates"
-                            label="Mule API L0 Estimates"
-                            initialValue="13.5"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="GBGF"
-                            label="GB/GF"
-                            initialValue="RBWM"
-                        >
-                            <Select disabled>
-                                <Select.Option value="RBWM">RBWM</Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="CB System L0 Estimates"
-                            label="CB System L0 Estimates"
-                            initialValue="13.5"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="APIlifecycleStage"
-                            label="API lifecycle Stage"
-                            initialValue="Production"
-                        >
-                            <Select disabled>
-                                <Select.Option value="Production">
-                                    Production
-                                </Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="BPID"
-                            label="BPID"
-                            initialValue="903570"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="TargetLiveDate"
-                            label="Target Live Date"
-                        >
-                            <DatePicker disabled />
-                        </Form.Item>
-                    </DataForm>
-                    <div
-                        style={{
-                            background: '#E5F2F2',
-                            border: '1px solid #00847F',
-                            boxSizing: 'border-box'
-                        }}
-                    >
-                        <div
-                            style={{
-                                fontSize: '18px',
-                                paddingLeft: '30px',
-                                paddingTop: '20px',
-                                fontWeight: 500
-                            }}
-                            className=" flex-row justify-content-between"
-                        >
-                            <div> Demand Approval</div>
-                            <div style={{ color: '#00847F', paddingRight: 20 }}>
-                                <img
-                                    src={require('~/assets/images/approved.png')}
-                                ></img>
-                                Approved
-                            </div>
-                        </div>
-                        <div
-                            style={{
-                                fontSize: '14px',
-                                paddingLeft: '30px',
-                                paddingTop: '20px'
-                            }}
-                        >
-                            <LabelContainer column={1} labelSpan={3}>
-                                <LabelItem label="Reviewer:">
-                                    Tony Stark
-                                </LabelItem>
-                                <LabelItem label="Date in Operation:">
-                                    05/11/2020
-                                </LabelItem>
-                            </LabelContainer>
-                        </div>
-                        <div className="flex-row justify-content-end">
-                            <div
-                                style={{
-                                    padding: 20
-                                }}
-                            >
-                                <Button
-                                    className="submit-button"
-                                    disabled
-                                    size="large"
-                                >
-                                    Approve
-                                </Button>
-                            </div>
-                            <div
-                                style={{
-                                    padding: 20
-                                }}
-                            >
-                                <Button
-                                    className="submit-button"
-                                    size="large"
-                                    disabled
-                                >
-                                    Reject
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
+                    <LabelContainer column={1} labelSpan={2}>
+                        <LabelItem label="Description"></LabelItem>
+                    </LabelContainer>
+                    <Divider />
+                    <Table
+                        columns={columns}
+                        dataSource={data}
+                        size="small"
+                        pagination={false}
+                    />
+                    <Divider />
                 </CardContainer>
-                <CardContainer title=" Design Governance">
-                    <DataForm
-                        name="demo-form"
-                        column={2}
-                        labelCol={{ span: 8 }}
-                        labelAlign="left"
-                    >
-                        <Form.Item
-                            name="FunctionalDomain"
-                            label="Functional Domain"
-                            initialValue="Customer"
-                        >
-                            <Select disabled>
-                                <Select.Option value="Customer">
-                                    Customer
-                                </Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="APIRefNumber"
-                            label="API Ref Number"
-                            initialValue="CBIL-49560"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="Feature"
-                            label="Feature"
-                            initialValue="Customer Maintenance"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="Feature"
-                            label="Old API Ref Number"
-                            initialValue="CBIL-49560"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="Service"
-                            label="Service"
-                            initialValue="Customer Createion and Service"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="FunctionalDomain"
-                            label="Demand Classification"
-                            initialValue="New"
-                        >
-                            <Select disabled>
-                                <Select.Option value="New">New</Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="Platfrom"
-                            label="Platfrom"
-                            initialValue="New"
-                        >
-                            <Select disabled>
-                                <Select.Option value="DTP">DTP</Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="ReusabilityScore"
-                            label="Reusability Score"
-                            initialValue="100"
-                        >
-                            <Select disabled>
-                                <Select.Option value="100">100</Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="Service"
-                            label="Channel Agnostic"
-                            initialValue="Customer & Staff Channel  Agnostic"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="Service"
-                            label="Design Review Approval Status"
-                            initialValue="Approved"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="APIType"
-                            label="API Type"
-                            initialValue="TRUE SAPI"
-                        >
-                            <Select disabled>
-                                <Select.Option value="TRUE SAPI">
-                                    TRUE SAPI
-                                </Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="DesignReviewApprovalDate"
-                            label="Design Review Approval Date"
-                            initialValue="05/11/2020"
-                        >
-                            <Input disabled />
-                        </Form.Item>
-                    </DataForm>
-                    <div
-                        style={{
-                            background: '#fff',
-                            border: '1px solid #00847F',
-                            boxSizing: 'border-box'
-                        }}
-                    >
-                        <div
-                            className="flex-row justify-content-between"
-                            style={{
-                                fontSize: '18px',
-                                paddingLeft: '30px',
-                                paddingTop: '20px',
-                                fontWeight: 500
-                            }}
-                        >
-                            <div>Design Approval</div>
-
-                            <div
-                                style={{
-                                    color: '#333333',
-                                    paddingRight: 20,
-                                    fontSize: '18px'
-                                }}
-                            >
-                                <img
-                                    src={require('~/assets/images/plus.png')}
-                                ></img>
-                                Verify
-                            </div>
-                        </div>
-
-                        <div className="flex-row justify-content-end">
-                            <div
-                                style={{
-                                    padding: 20
-                                }}
-                            >
-                                <Button
-                                    type="primary"
-                                    htmlType="submit"
-                                    className="submit-button"
-                                    danger
-                                    size="large"
-                                >
-                                    Approve
-                                </Button>
-                            </div>
-                            <div
-                                style={{
-                                    padding: 20
-                                }}
-                            >
-                                <Button className="submit-button" size="large">
-                                    Reject
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </CardContainer>
-                <Divider />
-                <CardContainer title="Other Informationments">
-                    <DataForm
-                        name="demo-form"
-                        column={2}
-                        labelCol={{ span: 8 }}
-                        labelAlign="left"
-                    >
-                        <Form.Item
-                            name="TargetLiveDate"
-                            label="Target Date OF Next Milestone"
-                        >
-                            <DatePicker />
-                        </Form.Item>
-                        <Form.Item
-                            name="TargetLiveDate"
-                            label="Target Overall Delivery"
-                        >
-                            <DatePicker />
-                        </Form.Item>
-                        <Form.Item
-                            name="TargetLiveDate"
-                            label="Next Miletone RAG Status"
-                        >
-                            <DatePicker />
-                        </Form.Item>
-                        <Form.Item
-                            name="TargetLiveDate"
-                            label="Overall Delivery RAG Status"
-                        >
-                            <DatePicker />
-                        </Form.Item>
-                    </DataForm>
-                    <div className="flex-row justify-content-between">
-                        <div
-                            style={{
-                                padding: 20
-                            }}
-                        >
-                            <Button className="submit-button" size="large">
-                                Discharge
-                            </Button>
-                        </div>
-                        <div
-                            style={{
-                                padding: 20
-                            }}
-                        >
-                            <Button
-                                type="primary"
-                                htmlType="submit"
-                                className="submit-button"
-                                danger
-                                size="large"
-                            >
-                                Submit
-                            </Button>
-                        </div>
-                    </div>
+                <CardContainer title="Version v1.0.0">
+                    <LabelContainer column={1} labelSpan={4}>
+                        <LabelItem label="API ID">SAPI-001</LabelItem>
+                        <LabelItem label="API Name">
+                            Customer Address Creation
+                        </LabelItem>
+                        <LabelItem label="Status">Development</LabelItem>
+                        <LabelItem label="HUB API ID">Tony Stark</LabelItem>
+                        <LabelItem label="HUB PGM Flow">CCCRDCRT</LabelItem>
+                        <LabelItem label="Enhancement">
+                            Courtney Henry
+                        </LabelItem>
+                        <LabelItem label="API Review Link">
+                            https://www.google.com/
+                        </LabelItem>
+                        <LabelItem label="HUB API Documents">
+                            <li>API Contract:</li>
+                            <li>Error Scenario:</li>
+                            <li>Funtional Design:</li>
+                            <li>IWS postman JSON data:</li>
+                        </LabelItem>
+                        <LabelItem label="Mule API Documents ">
+                            <li>CERT PCF URL:</li>
+                            <li>GIT Repo:</li>
+                            <li>Jenkins URL:</li>
+                            <li>RAML:</li>
+                            <li>Mule Postman JSON Data:</li>
+                        </LabelItem>
+                        <LabelItem label="Certification Result">
+                            <li>URL:</li>
+                            <li>PT Postman JSON Data:</li>
+                        </LabelItem>
+                        <LabelItem label="Simple API Call">
+                            Amet minim mollit non deserunt ullamco est sit
+                            aliqua dolor do amet sint. Velit officia consequat
+                            duis enim velit mollit. Exercitation veniam
+                            consequat sunt nostrud amet.
+                        </LabelItem>
+                    </LabelContainer>
                 </CardContainer>
             </components.PageContainer>
         )
@@ -503,5 +193,8 @@ export default class ApiDetail extends Component<
                 Demand Request Detail
             </components.PageHeaderContainer>
         )
+    }
+    private openForm() {
+        this.props.history.push('/pages/api-catalogue/api-detail-form')
     }
 }

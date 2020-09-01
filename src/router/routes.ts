@@ -12,7 +12,7 @@ import ReviewRequestForm from '~/pages/review-request-form/review-request-form'
 import DemandRequestFormDetail from '~/pages/demand-request-form/demand-request-form-detail'
 import APICatalogueList from '~/pages/api-catalogue-list/api-catalogue-list'
 import ApiDetail from '~/pages/api-catalogue-list/api-detail'
-
+import ApiDetailForm from '~/pages/api-catalogue-list/api-detail-form'
 export const routes = [
     { path: '/', exact: true, redirect: '/login' },
     {
@@ -89,6 +89,13 @@ export const routes = [
         path: '/pages/api-catalogue/api-detail',
         exact: true,
         component: ApiDetail,
+        layout: WorkspaceLayout,
+        auth: true
+    },
+    {
+        path: '/pages/api-catalogue/api-detail-form',
+        exact: true,
+        component: ApiDetailForm,
         layout: WorkspaceLayout,
         auth: true
     }
