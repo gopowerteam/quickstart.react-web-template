@@ -239,7 +239,7 @@ export default class APICatalogueList extends Component<
                         </DataForm.Item>
                         <DataForm.Item
                             name="APIType"
-                            label="APIType"
+                            label="API Type"
                             initialValue="Customer"
                         >
                             <Select>
