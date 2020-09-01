@@ -524,16 +524,16 @@ export default class APIDemandRequestList extends Component<
         return (
             <LabelContainer column={3} colon>
                 <LabelContainer.Item label="Demand Action" labelWidth={120}>
-                    <Button type="primary" danger>
+                    <Button type="primary" style={{ width: 100 }}>
                         Approve
                     </Button>
-                    <Button>Reject</Button>
+                    <Button style={{ width: 100 }}>Reject</Button>
                 </LabelContainer.Item>
                 <LabelContainer.Item label="Design Action" labelWidth={120}>
-                    <Button type="primary" danger>
+                    <Button type="primary" style={{ width: 100 }}>
                         Approve
                     </Button>
-                    <Button>Reject</Button>
+                    <Button style={{ width: 100 }}>Reject</Button>
                 </LabelContainer.Item>
             </LabelContainer>
         )

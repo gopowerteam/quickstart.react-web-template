@@ -476,7 +476,7 @@ export default class APIReviewRequestList extends Component<
     private renderFormAction() {
         return (
             <>
-                <Button type="primary" danger>
+                <Button type="primary" style={{ width: 90 }} danger>
                     Search
                 </Button>
             </>
@@ -486,24 +486,24 @@ export default class APIReviewRequestList extends Component<
         return (
             <LabelContainer column={3} colon>
                 <LabelContainer.Item label="RDR Action" labelWidth={120}>
-                    <Button type="primary" danger>
+                    <Button type="primary" style={{ width: 100 }}>
                         Approve
                     </Button>
-                    <Button>Reject</Button>
+                    <Button style={{ width: 100 }}>Reject</Button>
                 </LabelContainer.Item>
                 <div></div>
                 <div></div>
                 <LabelContainer.Item label="GBDR Action" labelWidth={120}>
-                    <Button type="primary" danger>
+                    <Button type="primary" style={{ width: 100 }}>
                         Approve
                     </Button>
-                    <Button>Reject</Button>
+                    <Button style={{ width: 100 }}>Reject</Button>
                 </LabelContainer.Item>
                 <LabelContainer.Item label="GTDR Action" labelWidth={120}>
-                    <Button type="primary" danger>
+                    <Button type="primary" style={{ width: 100 }}>
                         Approve
                     </Button>
-                    <Button>Reject</Button>
+                    <Button style={{ width: 100 }}>Reject</Button>
                 </LabelContainer.Item>
             </LabelContainer>
         )
