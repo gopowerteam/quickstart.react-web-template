@@ -30,7 +30,6 @@ export default class NotificationContainer extends React.Component<
         rejected: {
             background: '#F9F2F3',
             border: '1px solid #A8000B',
-            paddingTop: '20px',
             titleColor: '#A8000B',
             icon: require('~/assets/images/rej.png'),
             iconText: 'Rejected'
@@ -38,8 +37,7 @@ export default class NotificationContainer extends React.Component<
         inProgress: {
             background: '#EBEFF4',
             border: '1px solid #3E505D',
-            paddingTop: '20px',
-            titleColor: '#333333',
+            titleColor: '#305A85',
             icon: require('~/assets/images/inProgress.png'),
             iconText: 'In Progress'
         },
