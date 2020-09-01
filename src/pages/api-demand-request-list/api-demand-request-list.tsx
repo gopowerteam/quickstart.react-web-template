@@ -50,23 +50,8 @@ export default class APIDemandRequestList extends Component<
                     labelAlign="left"
                     actions={this.renderFormAction()}
                 >
-                    <DataForm.Item
-                        name="DemandClassification"
-                        label="Demand Classification"
-                        initialValue="New"
-                    >
-                        <Select>
-                            <Select.Option value="New">New</Select.Option>
-                        </Select>
-                    </DataForm.Item>
-                    <DataForm.Item
-                        name="BackendSystem"
-                        label="Back-end System"
-                        initialValue="HUB"
-                    >
-                        <Select>
-                            <Select.Option value="HUB">HUB</Select.Option>
-                        </Select>
+                    <DataForm.Item name="DemandName" label="Project Name">
+                        <Input />
                     </DataForm.Item>
                     <DataForm.Item
                         name="DemandApproveStatus"
@@ -80,18 +65,48 @@ export default class APIDemandRequestList extends Component<
                         </Select>
                     </DataForm.Item>
                     <DataForm.Item
+                        name="BackendSystem"
+                        label="Back-end System"
+                        initialValue="HUB"
+                        collapse
+                    >
+                        <Select>
+                            <Select.Option value="HUB">HUB</Select.Option>
+                        </Select>
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="DemandApproveDate"
                         label="Demand Approve Date"
+                        collapse
                     >
                         <DatePicker renderExtraFooter={() => 'extra footer'} />
                     </DataForm.Item>
-                    <DataForm.Item name="DemandName" label="Demand Name">
-                        <Input />
+                    <DataForm.Item
+                        name="OSSOverallContact"
+                        label="CB API Contact"
+                        initialValue="Cameron Williamson"
+                    >
+                        <Select>
+                            <Select.Option value="Cameron Williamson">
+                                Cameron Williamson
+                            </Select.Option>
+                        </Select>
+                    </DataForm.Item>
+                    <DataForm.Item
+                        name="DemandClassification"
+                        label="Demand Classification"
+                        initialValue="New"
+                        collapse
+                    >
+                        <Select>
+                            <Select.Option value="New">New</Select.Option>
+                        </Select>
                     </DataForm.Item>
                     <DataForm.Item
                         name="Channel"
                         label="Channel"
                         initialValue="CMB"
+                        collapse
                     >
                         <Select>
                             <Select.Option value="CMB">CMB</Select.Option>
@@ -99,7 +114,7 @@ export default class APIDemandRequestList extends Component<
                     </DataForm.Item>
                     <DataForm.Item
                         name="DesignReviewApproval"
-                        label="Design Review Approval"
+                        label="Design Approval Status"
                         initialValue="CMB"
                     >
                         <Select>
@@ -115,7 +130,7 @@ export default class APIDemandRequestList extends Component<
                     >
                         <DatePicker />
                     </DataForm.Item>
-                    <DataForm.Item name="SAPIName" label="SAPI Name" collapse>
+                    <DataForm.Item name="SAPIName" label="API Name" collapse>
                         <Input />
                     </DataForm.Item>
 
@@ -180,13 +195,12 @@ export default class APIDemandRequestList extends Component<
                     <DataForm.Item
                         name="TargetLiveDate"
                         label="Target Live Date"
-                        collapse
                     >
                         <DatePicker />
                     </DataForm.Item>
                     <DataForm.Item
                         name="SAPIRefNumber"
-                        label="SAPI Ref Number"
+                        label="API Ref Number"
                         collapse
                     >
                         <Input />
@@ -195,7 +209,6 @@ export default class APIDemandRequestList extends Component<
                         name="CoreBankingSystemContact"
                         label="Core Banking System Contact"
                         initialValue="Cameron Williamson"
-                        collapse
                     >
                         <Select>
                             <Select.Option value="Cameron Williamson">
@@ -215,26 +228,12 @@ export default class APIDemandRequestList extends Component<
                             </Select.Option>
                         </Select>
                     </DataForm.Item>
-                    <DataForm.Item collapse></DataForm.Item>
                     <DataForm.Item
                         name="OldSAPIRefNumber"
-                        label="Old SAPI Ref Number"
+                        label="Old API Ref Number"
                         collapse
                     >
                         <Input />
-                    </DataForm.Item>
-
-                    <DataForm.Item
-                        name="OSSOverallContact"
-                        label="OSS Overall Contact"
-                        initialValue="Cameron Williamson"
-                        collapse
-                    >
-                        <Select>
-                            <Select.Option value="Cameron Williamson">
-                                Cameron Williamson
-                            </Select.Option>
-                        </Select>
                     </DataForm.Item>
                     <DataForm.Item
                         name="APIType"
@@ -294,13 +293,13 @@ export default class APIDemandRequestList extends Component<
                             ellipsis={true}
                         />
                         <Column
-                            title="DemandName"
+                            title="Project Name"
                             dataIndex="DemandName"
                             key="DemandName"
                             ellipsis={true}
                         />
                         <Column
-                            title="SAPIName"
+                            title="API Name"
                             dataIndex="SAPIName"
                             key="SAPIName"
                             ellipsis={true}
@@ -325,15 +324,20 @@ export default class APIDemandRequestList extends Component<
                             key="Channel"
                             ellipsis={true}
                         />
-
+                        <Column /*新加字段*/
+                            title="Consumer"
+                            dataIndex="Channel"
+                            key="Channel"
+                            ellipsis={true}
+                        />
                         <Column
-                            title="RequestorContact"
+                            title="Requestor Contact"
                             dataIndex="RequestorContact"
                             key="RequestorContact"
                             ellipsis={true}
                         />
                         <Column
-                            title="OSSOverallContact"
+                            title="CB API Contact"
                             dataIndex="OSSOverallContact"
                             key="OSSOverallContact"
                             ellipsis={true}
@@ -369,13 +373,13 @@ export default class APIDemandRequestList extends Component<
                             ellipsis={true}
                         />
                         <Column
-                            title="Total OSS L0 Estimates"
+                            title="Total API L0 Estimates"
                             dataIndex="TotalOSSL0Estimates"
                             key="TotalOSSL0Estimates"
                             ellipsis={true}
                         />
                         <Column
-                            title="OSS API L0 Estimates"
+                            title="Mule API L0 Estimates"
                             dataIndex="OSSAPIL0Estimates"
                             key="OSSAPIL0Estimates"
                             ellipsis={true}
@@ -387,29 +391,25 @@ export default class APIDemandRequestList extends Component<
                             ellipsis={true}
                         />
                         <Column
-                            title="GPDM Interlock & BPID"
+                            title="GPDM interlock & BPID"
                             dataIndex="GPDMInterlockBPID"
                             key="GPDMInterlockBPID"
                             ellipsis={true}
                         />
-                        <Column
-                            title="Demand Governance"
+                        <Column /*新加字段*/
+                            title="Demand Approval Status"
                             dataIndex="DemandGovernance"
                             key="DemandGovernance"
                             ellipsis={true}
                         />
                         <Column
-                            title="Platfrom"
-                            dataIndex="Platfrom"
-                            key="Platfrom"
+                            title="Demand Approval Date"
+                            dataIndex="DemandGovernance"
+                            key="DemandGovernance"
                             ellipsis={true}
                         />
-                        <Column
-                            title="API Type"
-                            dataIndex="APIType"
-                            key="APIType"
-                            ellipsis={true}
-                        />
+                    </ColumnGroup>
+                    <ColumnGroup title="Design Governance" className="green">
                         <Column
                             title="Functional Domain"
                             dataIndex="FunctionalDomain"
@@ -426,6 +426,18 @@ export default class APIDemandRequestList extends Component<
                             title="Service"
                             dataIndex="Service"
                             key="Service"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="Platfrom"
+                            dataIndex="Platfrom"
+                            key="Platfrom"
+                            ellipsis={true}
+                        />
+                        <Column
+                            title="API Type"
+                            dataIndex="APIType"
+                            key="APIType"
                             ellipsis={true}
                         />
                         <Column
@@ -447,43 +459,42 @@ export default class APIDemandRequestList extends Component<
                             ellipsis={true}
                         />
                         <Column
-                            title="SAPI Ref Number"
+                            title="API Ref Number"
                             dataIndex="SAPIRefNumber"
                             key="SAPIRefNumber"
                             ellipsis={true}
                         />
                         <Column
-                            title="Old SAPI Ref Number"
+                            title="Old API Ref Number"
                             dataIndex="OldSAPIRefNumber"
                             key="OldSAPIRefNumber"
                             ellipsis={true}
                         />
-                    </ColumnGroup>
-                    <ColumnGroup title="Design Governance" className="green">
-                        <Column
-                            title="Design Review Approval"
-                            dataIndex="DesignReviewApproval"
-                            key="DesignReviewApproval"
-                            ellipsis={true}
-                        />
-                        <Column
-                            title="Design Approval"
-                            dataIndex="DesignApproval"
-                            key="DesignApproval"
-                            ellipsis={true}
-                        />
-                        <Column
-                            title="Final Approval"
+                        <Column /* 新加字段 */
+                            title="Design Review Approval Status"
                             dataIndex="FinalApproval"
                             key="FinalApproval"
                             ellipsis={true}
                         />
                         <Column
-                            title="Target Date OF Next Milestone"
+                            title="Design Review Approval Date"
+                            dataIndex="DesignReviewApproval"
+                            key="DesignReviewApproval"
+                            ellipsis={true}
+                        />
+                        <Column /* 新加字段 */
+                            title="Design Approval Status"
                             dataIndex="TargetDateOFNextMilestone"
                             key="TargetDateOFNextMilestone"
                             ellipsis={true}
                         />
+                        <Column
+                            title="Design Approval Date"
+                            dataIndex="DesignApproval"
+                            key="DesignApproval"
+                            ellipsis={true}
+                        />
+                        {/*}
                         <Column
                             title="Next Miletone RAG Status"
                             dataIndex="NextMiletoneRAGStatus"
@@ -502,6 +513,7 @@ export default class APIDemandRequestList extends Component<
                             key="OverallDeliveryRAGStatus"
                             ellipsis={true}
                         />
+                            */}
                     </ColumnGroup>
                 </DataTable>
             </CardContainer>

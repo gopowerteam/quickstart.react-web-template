@@ -37,9 +37,15 @@ export default class APIReviewRequestList extends Component<
             ConsumerProject: 'Enterprise',
             DemandClassification: 'New',
             SubmitDate: '8/2/19',
+            RDRReviewStatus: 'Approval',
             RDRReviewDate: '8/2/19',
+            RegionalReviewer: 'Joy',
             GBDRReviewDate: '8/2/19',
-            GTDRReviewDate: '8/2/19'
+            GBApprovalStatus: 'Approval',
+            GBApprover: 'Tom',
+            GTApprovalStatus: 'Approval',
+            GTDRReviewDate: '8/2/19',
+            GTApprover: 'm'
         },
         {
             TRUESAPIID: '2',
@@ -48,9 +54,15 @@ export default class APIReviewRequestList extends Component<
             ConsumerProject: 'Enterprise',
             DemandClassification: 'New',
             SubmitDate: '8/2/19',
+            RDRReviewStatus: '1',
             RDRReviewDate: '8/2/19',
+            RegionalReviewer: 'Joy',
             GBDRReviewDate: '8/2/19',
-            GTDRReviewDate: '8/2/19'
+            GBApprovalStatus: '',
+            GBApprover: 'Tom',
+            GTApprovalStatus: '',
+            GTDRReviewDate: '8/2/19',
+            GTApprover: 'm'
         },
         {
             TRUESAPIID: '3',
@@ -59,9 +71,15 @@ export default class APIReviewRequestList extends Component<
             ConsumerProject: 'Enterprise',
             DemandClassification: 'New',
             SubmitDate: '8/2/19',
+            RDRReviewStatus: '1',
             RDRReviewDate: '8/2/19',
+            RegionalReviewer: 'Joy',
             GBDRReviewDate: '8/2/19',
-            GTDRReviewDate: '8/2/19'
+            GBApprovalStatus: '',
+            GBApprover: 'Tom',
+            GTApprovalStatus: '',
+            GTDRReviewDate: '8/2/19',
+            GTApprover: 'm'
         },
         {
             TRUESAPIID: '4',
@@ -70,9 +88,15 @@ export default class APIReviewRequestList extends Component<
             ConsumerProject: 'Enterprise',
             DemandClassification: 'New',
             SubmitDate: '8/2/19',
+            RDRReviewStatus: '1',
             RDRReviewDate: '8/2/19',
+            RegionalReviewer: 'Joy',
             GBDRReviewDate: '8/2/19',
-            GTDRReviewDate: '8/2/19'
+            GBApprovalStatus: '',
+            GBApprover: 'Tom',
+            GTApprovalStatus: '',
+            GTDRReviewDate: '8/2/19',
+            GTApprover: 'm'
         },
         {
             TRUESAPIID: '5',
@@ -81,9 +105,15 @@ export default class APIReviewRequestList extends Component<
             ConsumerProject: 'Enterprise',
             DemandClassification: 'New',
             SubmitDate: '8/2/19',
+            RDRReviewStatus: '1',
             RDRReviewDate: '8/2/19',
+            RegionalReviewer: 'Joy',
             GBDRReviewDate: '8/2/19',
-            GTDRReviewDate: '8/2/19'
+            GBApprovalStatus: '',
+            GBApprover: 'Tom',
+            GTApprovalStatus: '',
+            GTDRReviewDate: '8/2/19',
+            GTApprover: 'm'
         },
         {
             TRUESAPIID: '6',
@@ -92,9 +122,15 @@ export default class APIReviewRequestList extends Component<
             ConsumerProject: 'Enterprise',
             DemandClassification: 'New',
             SubmitDate: '8/2/19',
+            RDRReviewStatus: '1',
             RDRReviewDate: '8/2/19',
+            RegionalReviewer: 'Joy',
             GBDRReviewDate: '8/2/19',
-            GTDRReviewDate: '8/2/19'
+            GBApprovalStatus: '',
+            GBApprover: 'Tom',
+            GTApprovalStatus: '',
+            GTDRReviewDate: '8/2/19',
+            GTApprover: 'm'
         },
         {
             TRUESAPIID: '7',
@@ -103,9 +139,15 @@ export default class APIReviewRequestList extends Component<
             ConsumerProject: 'Enterprise',
             DemandClassification: 'New',
             SubmitDate: '8/2/19',
+            RDRReviewStatus: '1',
             RDRReviewDate: '8/2/19',
+            RegionalReviewer: 'Joy',
             GBDRReviewDate: '8/2/19',
-            GTDRReviewDate: '8/2/19'
+            GBApprovalStatus: '',
+            GBApprover: 'Tom',
+            GTApprovalStatus: '',
+            GTDRReviewDate: '8/2/19',
+            GTApprover: 'm'
         },
         {
             TRUESAPIID: '8',
@@ -114,9 +156,15 @@ export default class APIReviewRequestList extends Component<
             ConsumerProject: 'Enterprise',
             DemandClassification: 'New',
             SubmitDate: '8/2/19',
+            RDRReviewStatus: '1',
             RDRReviewDate: '8/2/19',
+            RegionalReviewer: 'Joy',
             GBDRReviewDate: '8/2/19',
-            GTDRReviewDate: '8/2/19'
+            GBApprovalStatus: '',
+            GBApprover: 'Tom',
+            GTApprovalStatus: '',
+            GTDRReviewDate: '8/2/19',
+            GTApprover: 'm'
         },
         {
             TRUESAPIID: '9',
@@ -125,9 +173,15 @@ export default class APIReviewRequestList extends Component<
             ConsumerProject: 'Enterprise',
             DemandClassification: 'New',
             SubmitDate: '8/2/19',
+            RDRReviewStatus: '1',
             RDRReviewDate: '8/2/19',
+            RegionalReviewer: 'Joy',
             GBDRReviewDate: '8/2/19',
-            GTDRReviewDate: '8/2/19'
+            GBApprovalStatus: '',
+            GBApprover: 'Tom',
+            GTApprovalStatus: '',
+            GTDRReviewDate: '8/2/19',
+            GTApprover: 'm'
         },
         {
             TRUESAPIID: '10',
@@ -136,9 +190,15 @@ export default class APIReviewRequestList extends Component<
             ConsumerProject: 'Enterprise',
             DemandClassification: 'New',
             SubmitDate: '8/2/19',
+            RDRReviewStatus: '1',
             RDRReviewDate: '8/2/19',
+            RegionalReviewer: 'Joy',
             GBDRReviewDate: '8/2/19',
-            GTDRReviewDate: '8/2/19'
+            GBApprovalStatus: '',
+            GBApprover: 'Tom',
+            GTApprovalStatus: '',
+            GTDRReviewDate: '8/2/19',
+            GTApprover: 'm'
         }
     ]
     public render() {
@@ -157,28 +217,28 @@ export default class APIReviewRequestList extends Component<
                     >
                         <DataForm.Item
                             name="TRUESAPIID"
-                            label="TRUE SAPI ID"
+                            label="API ID"
                             initialValue="31981901"
                         >
                             <Input />
                         </DataForm.Item>
                         <DataForm.Item
                             name="RequestContact"
-                            label="Request Contact"
+                            label="Requestor"
                             initialValue="Annette Black"
                         >
                             <Input />
                         </DataForm.Item>
                         <DataForm.Item
                             name="TRUESAPIName"
-                            label="TRUE SAPI Name"
+                            label="API Name"
                             initialValue="Customer Address"
                         >
                             <Input />
                         </DataForm.Item>
                         <DataForm.Item
                             name="ConsumerProject"
-                            label="Consumer Project"
+                            label="Project Name"
                         >
                             <Input />
                         </DataForm.Item>
@@ -261,7 +321,7 @@ export default class APIReviewRequestList extends Component<
                         actions={this.renderTableAction()}
                     >
                         <Column
-                            title="TRUE SAPI ID"
+                            title="API ID"
                             dataIndex="TRUESAPIID"
                             key="TRUESAPIID"
                             render={text => (
@@ -275,17 +335,17 @@ export default class APIReviewRequestList extends Component<
                         />
 
                         <Column
-                            title="TRUE SAPI Name"
+                            title="API Name"
                             dataIndex="TRUESAPIName"
                             key="TRUESAPIName"
                         />
                         <Column
-                            title="Request Contact"
+                            title="Requestor"
                             dataIndex="RequestContact"
                             key="RequestContact"
                         />
                         <Column
-                            title="Consumer Project"
+                            title="Project Name"
                             dataIndex="ConsumerProject"
                             key="ConsumerProject"
                         />
@@ -300,19 +360,49 @@ export default class APIReviewRequestList extends Component<
                             key="SubmitDate"
                         />
                         <Column
-                            title="RDR Review Date"
+                            title="Regional Review Approval Status" /*新增字段*/
+                            dataIndex="RDRReviewStatus"
+                            key="RDRReviewStatus"
+                        />
+                        <Column
+                            title="Regional Review Approval Date"
                             dataIndex="RDRReviewDate"
                             key="RDRReviewDate"
                         />
                         <Column
-                            title="GBDR Review Date"
+                            title="Regional Reviewer" /*新增字段*/
+                            dataIndex="RegionalReviewer"
+                            key="RegionalReviewer"
+                        />
+                        <Column
+                            title="Global Business Approval Status" /*新增字段*/
+                            dataIndex="GBApprovalStatus"
+                            key="GBApprovalStatus"
+                        />
+                        <Column
+                            title="Global Business Approval Date"
                             dataIndex="GBDRReviewDate"
                             key="GBDRReviewDate"
                         />
                         <Column
-                            title="GTDR Review Date"
+                            title="Global Business Approver" /*新增字段*/
+                            dataIndex="GBApprover"
+                            key="GBApprover"
+                        />
+                        <Column
+                            title="Global Technical Approval Status" /*新增字段*/
+                            dataIndex="GTApprovalStatus"
+                            key="GTApprovalStatus"
+                        />
+                        <Column
+                            title="Global Technical Approval Date"
                             dataIndex="GTDRReviewDate"
                             key="GTDRReviewDate"
+                        />
+                        <Column
+                            title="Global Technical Approver" /*新增字段*/
+                            dataIndex="GTApprover"
+                            key="GTApprover"
                         />
 
                         {/* 
