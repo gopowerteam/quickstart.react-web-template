@@ -1,3 +1,5 @@
+const path = require('path')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const {
     override,
     fixBabelImports,
@@ -7,23 +9,28 @@ const {
     overrideDevServer
 } = require('customize-cra')
 
-const path = require('path')
+
 const proxyConfig = require('./proxy.config')
-const { config } = require('process')
 
 function setWebpackConfig() {
-    // build时设置publicPath
     return config => {
-        if (process.env.BROWSER !== 'none' && process.env.REACT_APP_BASEHREF) {
-            config.output.publicPath = `${
-                process.env.REACT_APP_BASEHREF || ''
-                }/`
+        // 生产模式配置
+        if (process.env.NODE_ENV === 'production') {
+            // 关闭sourceMap
+            config.devtool = false;
+            // 部署根路径
+            config.output.publicPath = '/';
+            // 添加代码优化支持
+            config.optimization.splitChunks = {
+                minSize: 2000,
+                maxSize: 500000
+            }
         }
         return config
     }
 }
 
-function devProxyServer(config){
+function devProxyServer(config) {
     return {
         ...config,
         host: '0.0.0.0',
@@ -34,6 +41,7 @@ function devProxyServer(config){
 
 module.exports = {
     webpack: override(
+        setWebpackConfig(),
         addDecoratorsLegacy(),
         addWebpackAlias({
             '~': path.resolve(__dirname, 'src'),
@@ -49,6 +57,7 @@ module.exports = {
                 javascriptEnabled: true
             }
         })
+
     ),
     devServer: overrideDevServer(
         devProxyServer
