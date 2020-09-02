@@ -92,10 +92,11 @@ export default class ApiDetailForm extends Component<
                     style={{ fontSize: 28 }}
                     className="flex-row justify-content-between"
                 >
-                    <div>Customer Credit Card Creation</div>
+                    <div></div>
                     <div>{/* <Button type="primary">Edit</Button> */}</div>
                 </div>
                 <Divider />
+                {/*
                 <CardContainer title="Basic Information">
                     <DataForm
                         name="demo-form"
@@ -182,16 +183,17 @@ export default class ApiDetailForm extends Component<
                         </Form.Item>
                     </DataForm>
                     <Divider />
-                    {/*
                     <Table
                         columns={columns}
                         dataSource={data}
                         size="small"
                         pagination={false}
-                    />
+                    />                  
                     <Divider />
                 </CardContainer>
+                */}
                 <CardContainer title="Version v1.0.0">
+                    {/*
                     <div
                         style={{ width: '100%' }}
                         className="flex-row justify-content-end"
@@ -199,7 +201,7 @@ export default class ApiDetailForm extends Component<
                         <Button type="primary" size="large" danger>
                             Add Version
                         </Button>
-                    </div>
+                    </div>*/}
                     <DataForm
                         name="demo-form"
                         column={1}
@@ -275,7 +277,6 @@ export default class ApiDetailForm extends Component<
                         >
                             <Input />
                         </Form.Item>
-                   
                         <Form.Item name="Certification Result" label=" ">
                             <Input />
                         </Form.Item>
@@ -285,7 +286,7 @@ export default class ApiDetailForm extends Component<
                         >
                             <Input />
                         </Form.Item>
-                    </DataForm> */}
+                    </DataForm>
                     <div
                         style={{ width: '100%' }}
                         className="flex-row justify-content-between"

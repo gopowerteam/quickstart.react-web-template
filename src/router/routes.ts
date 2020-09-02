@@ -13,6 +13,7 @@ import DemandRequestFormDetail from '~/pages/demand-request-form/demand-request-
 import APICatalogueList from '~/pages/api-catalogue-list/api-catalogue-list'
 import ApiDetail from '~/pages/api-catalogue-list/api-detail'
 import ApiDetailForm from '~/pages/api-catalogue-list/api-detail-form'
+import ApiDetailVersionForm from '~/pages/api-catalogue-list/api-detail-version-form'
 export const routes = [
     { path: '/', exact: true, redirect: '/login' },
     {
@@ -96,6 +97,13 @@ export const routes = [
         path: '/pages/api-catalogue/api-detail-form',
         exact: true,
         component: ApiDetailForm,
+        layout: WorkspaceLayout,
+        auth: true
+    },
+    {
+        path: '/pages/api-catalogue/api-detail-version-form',
+        exact: true,
+        component: ApiDetailVersionForm,
         layout: WorkspaceLayout,
         auth: true
     }

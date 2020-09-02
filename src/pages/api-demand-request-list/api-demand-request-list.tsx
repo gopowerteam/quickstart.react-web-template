@@ -45,8 +45,8 @@ export default class APIDemandRequestList extends Component<
             <CardContainer title="Search">
                 <DataForm
                     name="demo-form"
-                    column={4}
-                    labelCol={{ span: 8 }}
+                    column={3}
+                    labelCol={{ span: 10 }}
                     labelAlign="left"
                     actions={this.renderFormAction()}
                 >
