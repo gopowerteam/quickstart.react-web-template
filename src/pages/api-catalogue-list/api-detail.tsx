@@ -135,6 +135,15 @@ export default class ApiDetail extends Component<
                         <LabelItem label="Description"></LabelItem>
                     </LabelContainer>
                     <Divider />
+                    <div>
+                        <Button
+                            type="primary"
+                            size="large"
+                            onClick={() => this.openForm2()}
+                        >
+                            Add version
+                        </Button>
+                    </div>
                     <Table
                         columns={columns}
                         dataSource={data}
@@ -196,5 +205,8 @@ export default class ApiDetail extends Component<
     }
     private openForm() {
         this.props.history.push('/pages/api-catalogue/api-detail-form')
+    }
+    private openForm2() {
+        this.props.history.push('/pages/api-catalogue/api-detail-version-form')
     }
 }
