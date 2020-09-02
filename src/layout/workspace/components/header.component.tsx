@@ -90,7 +90,9 @@ export default class Header extends Component<
     private renderUserContainer() {
         const menu = (
             <components.MenuContainer>
-                <components.MenuItem> User Profile</components.MenuItem>
+                <components.MenuItem onClick={() => this.openUserProfile()}>
+                    User Profile
+                </components.MenuItem>
                 <components.MenuItem>Account Authority</components.MenuItem>
             </components.MenuContainer>
         )
@@ -117,7 +119,9 @@ export default class Header extends Component<
             </Consumer>
         )
     }
-
+    private openUserProfile() {
+        this.props.history.push('/pages/user-profile')
+    }
     private renderActionContainer() {
         return (
             <Consumer of={UserStore}>
