@@ -36,6 +36,7 @@ interface ComponentProp {
     labelAlign?: FormLabelAlign
     colon?: boolean
     actions?: React.ReactNode
+    formWidth?: number
 }
 
 interface ComponentState {
@@ -53,7 +54,8 @@ export default class DataForm extends React.Component<
         colon: false,
         collapseStyle: {
             display: 'none'
-        }
+        },
+        formWidth: '100%'
     }
 
     constructor(props) {
@@ -75,6 +77,7 @@ export default class DataForm extends React.Component<
     public renderActionContainer() {
         const { collapse } = this.state
         const collapseMode = this.hasCollapseItem()
+
         return (
             <components.ActionContainer>
                 {this.props.actions}
@@ -98,9 +101,11 @@ export default class DataForm extends React.Component<
         const { labelCol, wrapperCol, labelAlign } = this.props
         const gutter = this.props.gutter || this.default.gutter
         const colon = this.props.colon || this.default.colon
+        const formWidth = this.props.formWidth || this.default.formWidth
         return (
             <components.FormContainer>
                 <Form
+                    style={{ width: formWidth }}
                     colon={colon}
                     name="advanced_search"
                     className="ant-advanced-search-form"
