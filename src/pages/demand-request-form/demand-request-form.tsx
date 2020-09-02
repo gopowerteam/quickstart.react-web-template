@@ -52,6 +52,7 @@ export default class DemandRequestForm extends Component<
                         column={1}
                         labelCol={{ span: 8 }}
                         labelAlign="left"
+                        formWidth={500}
                     >
                         <Form.Item
                             name="DemandClassification"
