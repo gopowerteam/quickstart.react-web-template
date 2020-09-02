@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Button } from 'antd'
+import { Button, Dropdown, Menu } from 'antd'
 import { Avatar } from 'antd'
-import { UserOutlined } from '@ant-design/icons'
+import { UserOutlined, DownOutlined } from '@ant-design/icons'
 import { Consumer } from 'reto'
 import { UserStore } from '~/store/user.store'
 import { RouteComponentProps } from 'react-router-dom'
@@ -23,6 +23,26 @@ const components = {
             background-color: ${props => props.theme.header.button.background};
             color: ${props => props.theme.header.button.color};
             border: none;
+        }
+    `,
+    MenuContainer: styled(Menu)`
+        padding: 0;
+        .ant-dropdown-menu-item,
+        .ant-dropdown-menu-submenu-title {
+            padding: 0;
+        }
+    `,
+    MenuItem: styled(Menu.Item)`
+        padding: 15px 10px !important;
+        background-color: #1d262c;
+        color: #969696;
+        border-left: solid 5px transparent;
+        font-size: 14px;
+
+        &:hover {
+            background-color: #253038;
+            color: #fff;
+            border-left-color: #db0011;
         }
     `
 }
@@ -68,13 +88,31 @@ export default class Header extends Component<
     }
 
     private renderUserContainer() {
+        const menu = (
+            <components.MenuContainer>
+                <components.MenuItem> User Profile</components.MenuItem>
+                <components.MenuItem>Account Authority</components.MenuItem>
+            </components.MenuContainer>
+        )
+
         return (
             <Consumer of={UserStore}>
                 {userStore => (
-                    <components.UserContainer>
-                        <div>{userStore.state.userName}</div>
-                        <div>LastLogin 11/05/2020 12:25</div>
-                    </components.UserContainer>
+                    <Dropdown
+                        overlay={menu}
+                        trigger={['click']}
+                        overlayStyle={{ background: 'red' }}
+                    >
+                        <components.UserContainer className="flex-row align-items-center">
+                            <div className="padding-right">
+                                <div className="text-right">
+                                    {userStore.state.userName}
+                                </div>
+                                <div>LastLogin 11/05/2020 12:25</div>
+                            </div>
+                            <DownOutlined style={{ fontSize: '16px' }} />
+                        </components.UserContainer>
+                    </Dropdown>
                 )}
             </Consumer>
         )
