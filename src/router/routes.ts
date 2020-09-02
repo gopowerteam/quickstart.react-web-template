@@ -15,7 +15,7 @@ import ApiDetail from '~/pages/api-catalogue-list/api-detail'
 import ApiDetailForm from '~/pages/api-catalogue-list/api-detail-form'
 import ApiDetailVersionForm from '~/pages/api-catalogue-list/api-detail-version-form'
 import UserProfile from '~/pages/user-profile/user-profile'
-
+import AccountAuthority from '~/pages/account-authority/account-authority'
 export const routes = [
     { path: '/', exact: true, redirect: '/login' },
     {
@@ -113,6 +113,13 @@ export const routes = [
         path: '/pages/user-profile',
         exact: true,
         component: UserProfile,
+        layout: WorkspaceLayout,
+        auth: true
+    },
+    {
+        path: '/pages/account-authotiry',
+        exact: true,
+        component: AccountAuthority,
         layout: WorkspaceLayout,
         auth: true
     }

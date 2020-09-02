@@ -93,7 +93,11 @@ export default class Header extends Component<
                 <components.MenuItem onClick={() => this.openUserProfile()}>
                     User Profile
                 </components.MenuItem>
-                <components.MenuItem>Account Authority</components.MenuItem>
+                <components.MenuItem
+                    onClick={() => this.openAccountAuthotiry()}
+                >
+                    Account Authority
+                </components.MenuItem>
             </components.MenuContainer>
         )
 
@@ -121,6 +125,9 @@ export default class Header extends Component<
     }
     private openUserProfile() {
         this.props.history.push('/pages/user-profile')
+    }
+    private openAccountAuthotiry() {
+        this.props.history.push('/pages/account-authotiry')
     }
     private renderActionContainer() {
         return (
