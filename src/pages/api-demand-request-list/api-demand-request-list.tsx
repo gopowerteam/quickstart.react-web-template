@@ -6,16 +6,18 @@ import DataTable from '~/shared/components/data-table'
 import Column from 'antd/lib/table/Column'
 import CardContainer from '~/shared/components/card-container'
 import DataForm from '~/shared/components/data-form'
-import { Form, Input, Select, DatePicker, Button } from 'antd'
+import { Modal, Form, Input, Select, DatePicker, Button, Divider } from 'antd'
 import dataSource from '~/assets/mock/api-data.json'
 import LabelContainer from '~/shared/components/label-contaoner'
 import ColumnGroup from 'antd/lib/table/ColumnGroup'
+import CustomizeModal from '~/shared/components/customize-modal'
 const components = {
     PageContainer: styled(PageContainer)``
 }
 
 interface APIDemandRequestListState {
     selectedRowKeys: any[]
+    successModalVisible: boolean
 }
 
 interface APIDemandRequestListProps {}
@@ -27,7 +29,8 @@ export default class APIDemandRequestList extends Component<
     constructor(props) {
         super(props)
         this.state = {
-            selectedRowKeys: []
+            selectedRowKeys: [],
+            successModalVisible: false
         }
     }
 
@@ -36,7 +39,20 @@ export default class APIDemandRequestList extends Component<
             <components.PageContainer title="API Demand Request List">
                 {this.renderFormContainer()}
                 {this.renderTableContainer()}
+                {this.renderModal()}
             </components.PageContainer>
+        )
+    }
+    public renderModal() {
+        return (
+            <CustomizeModal
+                title="Success!"
+                visible={this.state.successModalVisible}
+                okText="Demand List -->"
+                content="Check Status in Demand List."
+                onOk={() => this.closeSuccessModal()}
+                onCancel={() => this.closeSuccessModal()}
+            ></CustomizeModal>
         )
     }
 
@@ -524,13 +540,21 @@ export default class APIDemandRequestList extends Component<
         return (
             <LabelContainer column={3} colon>
                 <LabelContainer.Item label="Demand Action" labelWidth={120}>
-                    <Button type="primary" style={{ width: 100 }}>
+                    <Button
+                        type="primary"
+                        style={{ width: 100 }}
+                        onClick={() => this.openSuccessModal()}
+                    >
                         Approve
                     </Button>
                     <Button style={{ width: 100 }}>Reject</Button>
                 </LabelContainer.Item>
                 <LabelContainer.Item label="Design Action" labelWidth={120}>
-                    <Button type="primary" style={{ width: 100 }}>
+                    <Button
+                        type="primary"
+                        style={{ width: 100 }}
+                        onClick={() => this.openSuccessModal()}
+                    >
                         Approve
                     </Button>
                     <Button style={{ width: 100 }}>Reject</Button>
@@ -540,6 +564,16 @@ export default class APIDemandRequestList extends Component<
     }
     private openForm() {
         this.props.history.push('/pages/demand-request-form-detail')
+    }
+    private openSuccessModal() {
+        this.setState({
+            successModalVisible: true
+        })
+    }
+    private closeSuccessModal() {
+        this.setState({
+            successModalVisible: false
+        })
     }
     private renderFormAction() {
         return (
