@@ -5,6 +5,7 @@ import { PageService } from '~/core/services/page.service'
 import { ColProps } from 'antd/lib/col'
 import { FormLabelAlign } from 'antd/lib/form/interface'
 import DataFormItem from './data-form-item'
+import { FormInstance } from 'antd/lib/form'
 
 const components = {
     Wrapper: styled.section``,
@@ -37,6 +38,9 @@ interface ComponentProp {
     colon?: boolean
     actions?: React.ReactNode
     formWidth?: number
+    initialValues?: any
+    onFieldsChange?: (changedFields, allFields) => void
+    onValuesChange?: (changedValues, allValues) => void
 }
 
 interface ComponentState {
@@ -48,6 +52,8 @@ export default class DataForm extends React.Component<
     ComponentState
 > {
     public static Item = DataFormItem
+    public formInstance!: FormInstance
+
     private default = {
         column: 3,
         gutter: 24,
@@ -60,9 +66,17 @@ export default class DataForm extends React.Component<
 
     constructor(props) {
         super(props)
+
+        this.generateFormInstance()
+
         this.state = {
             collapse: true
         }
+    }
+
+    private generateFormInstance() {
+        const [form] = Form.useForm()
+        this.formInstance = form
     }
 
     public render() {
@@ -83,7 +97,6 @@ export default class DataForm extends React.Component<
                 {this.props.actions}
                 {collapseMode && collapse && (
                     <Button
-                        // type="primary"
                         onClick={() =>
                             this.setState({
                                 collapse: !collapse
@@ -105,6 +118,10 @@ export default class DataForm extends React.Component<
         return (
             <components.FormContainer>
                 <Form
+                    onFieldsChange={this.props.onFieldsChange}
+                    onValuesChange={this.props.onValuesChange}
+                    initialValues={this.props.initialValues}
+                    form={this.formInstance}
                     style={{ width: formWidth }}
                     colon={colon}
                     name="advanced_search"
