@@ -71,6 +71,10 @@ export default class ApiDetail extends Component<
             {
                 title: 'Channel Code in HUB (Customer/HUB) ',
                 dataIndex: 'inHubCode'
+            },
+            {
+                title: 'Edit ',
+                dataIndex: '<Button> test</Button>'
             }
         ]
         const data = [
@@ -111,7 +115,7 @@ export default class ApiDetail extends Component<
                             China
                         </LabelItem>
                         <LabelItem label="API Type">Post</LabelItem>
-                        <LabelItem label="Channels">
+                        <LabelItem label="Channel">
                             Customer Channels Agnostic
                         </LabelItem>
                         <LabelItem label="Status">Post</LabelItem>
@@ -127,13 +131,17 @@ export default class ApiDetail extends Component<
                         <LabelItem label="Service">
                             Customer Address Creation
                         </LabelItem>
-                        <LabelItem label="Functionality">
-                            Real time to creat
-                        </LabelItem>
                     </LabelContainer>
                     <LabelContainer column={1} labelSpan={2}>
                         <LabelItem label="Description"></LabelItem>
                     </LabelContainer>
+                    <Divider />
+                    <Table
+                        columns={columns}
+                        dataSource={data}
+                        size="small"
+                        pagination={false}
+                    />
                     <Divider />
                     <div>
                         <Button
@@ -144,13 +152,6 @@ export default class ApiDetail extends Component<
                             Add version
                         </Button>
                     </div>
-                    <Table
-                        columns={columns}
-                        dataSource={data}
-                        size="small"
-                        pagination={false}
-                    />
-                    <Divider />
                 </CardContainer>
                 <CardContainer title="Version v1.0.0">
                     <LabelContainer column={1} labelSpan={4}>
@@ -164,8 +165,8 @@ export default class ApiDetail extends Component<
                         <LabelItem label="Enhancement">
                             Courtney Henry
                         </LabelItem>
-                        <LabelItem label="API Review Link">
-                            https://www.google.com/
+                        <LabelItem label="API Review Status">
+                            In process
                         </LabelItem>
                         <LabelItem label="HUB API Documents">
                             <li>API Contract:</li>

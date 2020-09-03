@@ -153,7 +153,7 @@ export default class ApiDetailForm extends Component<
                         </Form.Item>
                         <Form.Item
                             name="Channels"
-                            label="Channels"
+                            label="Channel"
                             initialValue="Default"
                         >
                             <Select>
@@ -177,7 +177,7 @@ export default class ApiDetailForm extends Component<
                             <Input />
                         </Form.Item>
                         <LabelItem label="Latest Version">V1.0.0</LabelItem>
-                        <Form.Item name="Functionality" label="Functionality">
+                        <Form.Item name="Functionality" label="Description">
                             <Input />
                         </Form.Item>
                     </DataForm>

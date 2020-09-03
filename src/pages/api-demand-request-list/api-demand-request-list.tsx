@@ -70,8 +70,20 @@ export default class APIDemandRequestList extends Component<
                         <Input />
                     </DataForm.Item>
                     <DataForm.Item
+                        name="Contry"
+                        label="Country"
+                        initialValue="Georgia"
+                        collapse
+                    >
+                        <Select>
+                            <Select.Option value="Georgia">
+                                Georgia
+                            </Select.Option>
+                        </Select>
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="DemandApproveStatus"
-                        label="Demand Approve Status"
+                        label="Demand Approval Status"
                         initialValue="Approve"
                     >
                         <Select>
@@ -81,21 +93,21 @@ export default class APIDemandRequestList extends Component<
                         </Select>
                     </DataForm.Item>
                     <DataForm.Item
+                        name="DemandApproveDate"
+                        label="Demand Approval Date"
+                        collapse
+                    >
+                        <DatePicker renderExtraFooter={() => 'extra footer'} />
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="BackendSystem"
-                        label="Back-end System"
+                        label="Backend System"
                         initialValue="HUB"
                         collapse
                     >
                         <Select>
                             <Select.Option value="HUB">HUB</Select.Option>
                         </Select>
-                    </DataForm.Item>
-                    <DataForm.Item
-                        name="DemandApproveDate"
-                        label="Demand Approve Date"
-                        collapse
-                    >
-                        <DatePicker renderExtraFooter={() => 'extra footer'} />
                     </DataForm.Item>
                     <DataForm.Item
                         name="OSSOverallContact"
@@ -140,6 +152,25 @@ export default class APIDemandRequestList extends Component<
                         </Select>
                     </DataForm.Item>
                     <DataForm.Item
+                        name="DesignApproveDate"
+                        label="Design Approve Date"
+                        collapse
+                    >
+                        <DatePicker />
+                    </DataForm.Item>
+                    <DataForm.Item
+                        name="DesignApproval"
+                        label="Design Review Approval Status"
+                        initialValue="Approve"
+                        collapse
+                    >
+                        <Select>
+                            <Select.Option value="Approve">
+                                Approve
+                            </Select.Option>
+                        </Select>
+                    </DataForm.Item>
+                    <DataForm.Item
                         name="DesignReviewApprovalDate"
                         label="Design Review Approval Date"
                         collapse
@@ -161,27 +192,8 @@ export default class APIDemandRequestList extends Component<
                         </Select>
                     </DataForm.Item>
                     <DataForm.Item
-                        name="DesignApproval"
-                        label="Design Approval"
-                        initialValue="Approve"
-                        collapse
-                    >
-                        <Select>
-                            <Select.Option value="Approve">
-                                Approve
-                            </Select.Option>
-                        </Select>
-                    </DataForm.Item>
-                    <DataForm.Item
-                        name="DesignApproveDate"
-                        label="Design Approve Date"
-                        collapse
-                    >
-                        <DatePicker />
-                    </DataForm.Item>
-                    <DataForm.Item
                         name="RequestorContact"
-                        label="Requestor Contact"
+                        label="Requester"
                         collapse
                     >
                         <Input />
@@ -214,11 +226,7 @@ export default class APIDemandRequestList extends Component<
                     >
                         <DatePicker />
                     </DataForm.Item>
-                    <DataForm.Item
-                        name="SAPIRefNumber"
-                        label="API Ref Number"
-                        collapse
-                    >
+                    <DataForm.Item name="SAPIRefNumber" label="API ID" collapse>
                         <Input />
                     </DataForm.Item>
                     <DataForm.Item
@@ -232,21 +240,10 @@ export default class APIDemandRequestList extends Component<
                             </Select.Option>
                         </Select>
                     </DataForm.Item>
-                    <DataForm.Item
-                        name="Contry"
-                        label="Contry"
-                        initialValue="Georgia"
-                        collapse
-                    >
-                        <Select>
-                            <Select.Option value="Georgia">
-                                Georgia
-                            </Select.Option>
-                        </Select>
-                    </DataForm.Item>
+
                     <DataForm.Item
                         name="OldSAPIRefNumber"
-                        label="Old API Ref Number"
+                        label="Original API ID"
                         collapse
                     >
                         <Input />
@@ -329,7 +326,7 @@ export default class APIDemandRequestList extends Component<
                             sorter
                         />
                         <Column
-                            title="Back-endSystem"
+                            title="BackendSystem"
                             dataIndex="BackEndSystem"
                             key="BackEndSystem"
                             ellipsis={true}
@@ -347,7 +344,7 @@ export default class APIDemandRequestList extends Component<
                             ellipsis={true}
                         />
                         <Column
-                            title="Requestor Contact"
+                            title="Requester"
                             dataIndex="RequestorContact"
                             key="RequestorContact"
                             ellipsis={true}
@@ -401,13 +398,13 @@ export default class APIDemandRequestList extends Component<
                             ellipsis={true}
                         />
                         <Column
-                            title="CBSystemL0 Estimates"
+                            title="CB System L0 Estimates"
                             dataIndex="CBSystemL0Estimates"
                             key="CBSystemL0Estimates"
                             ellipsis={true}
                         />
                         <Column
-                            title="GPDM interlock & BPID"
+                            title="BPID"
                             dataIndex="GPDMInterlockBPID"
                             key="GPDMInterlockBPID"
                             ellipsis={true}
@@ -475,13 +472,13 @@ export default class APIDemandRequestList extends Component<
                             ellipsis={true}
                         />
                         <Column
-                            title="API Ref Number"
+                            title="API ID"
                             dataIndex="SAPIRefNumber"
                             key="SAPIRefNumber"
                             ellipsis={true}
                         />
                         <Column
-                            title="Old API Ref Number"
+                            title="Original API ID"
                             dataIndex="OldSAPIRefNumber"
                             key="OldSAPIRefNumber"
                             ellipsis={true}

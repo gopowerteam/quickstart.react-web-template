@@ -211,7 +211,7 @@ export default class APIReviewRequestList extends Component<
                     <DataForm
                         name="demo-form"
                         column={2}
-                        labelCol={{ span: 6 }}
+                        labelCol={{ span: 8 }}
                         labelAlign="left"
                         actions={this.renderFormAction()}
                     >
@@ -224,7 +224,7 @@ export default class APIReviewRequestList extends Component<
                         </DataForm.Item>
                         <DataForm.Item
                             name="RequestContact"
-                            label="Requestor"
+                            label="Requester"
                             initialValue="Annette Black"
                         >
                             <Input />
@@ -260,7 +260,7 @@ export default class APIReviewRequestList extends Component<
                         </DataForm.Item>
                         <DataForm.Item
                             name="DemandApproveStatus"
-                            label="Demand Approve Status"
+                            label="Demand Approval Status"
                             initialValue="Approve"
                             collapse
                         >
@@ -270,14 +270,14 @@ export default class APIReviewRequestList extends Component<
                         </DataForm.Item>
                         <DataForm.Item
                             name="DemandApproveDate"
-                            label="Demand Approve Date"
+                            label="Demand Approval Date"
                             collapse
                         >
                             <DatePicker />
                         </DataForm.Item>
                         <DataForm.Item
                             name="DesignReviewApproval"
-                            label="Design Review Approval"
+                            label="Design Review Approval Status"
                             initialValue="Approve"
                             collapse
                         >
@@ -294,7 +294,7 @@ export default class APIReviewRequestList extends Component<
                         </DataForm.Item>
                         <DataForm.Item
                             name="DesignApproval"
-                            label="Design Approval"
+                            label="Design Approval Status"
                             initialValue="Approve"
                             collapse
                         >
@@ -304,7 +304,7 @@ export default class APIReviewRequestList extends Component<
                         </DataForm.Item>
                         <DataForm.Item
                             name="DesignApproveDate"
-                            label="Design Approve Date"
+                            label="Design Approval Date"
                             collapse
                         >
                             <DatePicker />
@@ -343,7 +343,7 @@ export default class APIReviewRequestList extends Component<
                         />
                         <Column
                             ellipsis={true}
-                            title="Requestor"
+                            title="Requester"
                             dataIndex="RequestContact"
                             key="RequestContact"
                         />
@@ -367,13 +367,13 @@ export default class APIReviewRequestList extends Component<
                         />
                         <Column
                             ellipsis={true}
-                            title="Regional Review Approval Status" /*新增字段*/
+                            title="Regional Review Status" /*新增字段*/
                             dataIndex="RDRReviewStatus"
                             key="RDRReviewStatus"
                         />
                         <Column
                             ellipsis={true}
-                            title="Regional Review Approval Date"
+                            title="Regional Review Date"
                             dataIndex="RDRReviewDate"
                             key="RDRReviewDate"
                         />
@@ -385,37 +385,49 @@ export default class APIReviewRequestList extends Component<
                         />
                         <Column
                             ellipsis={true}
-                            title="Global Business Approval Status" /*新增字段*/
+                            title="Global Business Review Status" /*新增字段*/
                             dataIndex="GBApprovalStatus"
                             key="GBApprovalStatus"
                         />
                         <Column
                             ellipsis={true}
-                            title="Global Business Approval Date"
+                            title="Global Business Review Date"
                             dataIndex="GBDRReviewDate"
                             key="GBDRReviewDate"
                         />
                         <Column
                             ellipsis={true}
-                            title="Global Business Approver" /*新增字段*/
+                            title="Global Business CB Reviewer" /*新增字段*/
                             dataIndex="GBApprover"
                             key="GBApprover"
                         />
                         <Column
                             ellipsis={true}
-                            title="Global Technical Approval Status" /*新增字段*/
+                            title="Global Business API Reviewer" /*新增字段*/
+                            dataIndex="GBApprover"
+                            key="GBApprover"
+                        />
+                        <Column
+                            ellipsis={true}
+                            title="Global Technical Review Status" /*新增字段*/
                             dataIndex="GTApprovalStatus"
                             key="GTApprovalStatus"
                         />
                         <Column
                             ellipsis={true}
-                            title="Global Technical Approval Date"
+                            title="Global Technical Review Date"
                             dataIndex="GTDRReviewDate"
                             key="GTDRReviewDate"
                         />
                         <Column
                             ellipsis={true}
-                            title="Global Technical Approver" /*新增字段*/
+                            title="Global Technical CB Reviewer" /*新增字段*/
+                            dataIndex="GTApprover"
+                            key="GTApprover"
+                        />
+                        <Column
+                            ellipsis={true}
+                            title="Global Technical API Reviewer" /*新增字段*/
                             dataIndex="GTApprover"
                             key="GTApprover"
                         />

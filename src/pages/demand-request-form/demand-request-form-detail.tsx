@@ -43,7 +43,7 @@ export default class DemandRequestFormDetail extends Component<
             <components.PageContainer title="Demand Request Detail">
                 <CardContainer title="Demand Governance">
                     <LabelContainer column={2} labelSpan={8}>
-                        <LabelItem label="Unique Order Ref">SAPI-001</LabelItem>
+                        <LabelItem label="APIName">ddddd</LabelItem>
                         <LabelItem label="Entry Creation Date">
                             05/11/2020
                         </LabelItem>
@@ -54,7 +54,7 @@ export default class DemandRequestFormDetail extends Component<
                         labelCol={{ span: 8 }}
                         labelAlign="left"
                     >
-                        <Form.Item name="DemandName" label="Demand Name">
+                        <Form.Item name="DemandName" label="Project Name">
                             <Input disabled />
                         </Form.Item>
                         <Form.Item
@@ -63,22 +63,7 @@ export default class DemandRequestFormDetail extends Component<
                         >
                             <DatePicker disabled />
                         </Form.Item>
-                        <Form.Item name="APIName" label="API Name">
-                            <Input disabled />
-                        </Form.Item>
-                        <Form.Item
-                            name="MultiCountry"
-                            label="Multi-Country"
-                            initialValue="N"
-                        >
-                            <Select disabled>
-                                <Select.Option value="N">N</Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item
-                            name="RequestorContact"
-                            label="Requestor Contact"
-                        >
+                        <Form.Item name="RequestorContact" label="Requester">
                             <Input disabled />
                         </Form.Item>
                         <Form.Item
@@ -105,7 +90,7 @@ export default class DemandRequestFormDetail extends Component<
                         </Form.Item>
                         <Form.Item
                             name="BackendSystem"
-                            label="Back-end System"
+                            label="Backend System"
                             initialValue="HUB"
                         >
                             <Select disabled>
@@ -125,7 +110,7 @@ export default class DemandRequestFormDetail extends Component<
                         </Form.Item>
                         <Form.Item
                             name="Channels"
-                            label="Channels"
+                            label="Channel"
                             initialValue="CMB"
                         >
                             <Select disabled>
@@ -140,11 +125,13 @@ export default class DemandRequestFormDetail extends Component<
                             <Input disabled />
                         </Form.Item>
                         <Form.Item
-                            name="Consumer"
-                            label="Consumer"
-                            initialValue="Consumer"
+                            name="GBGF"
+                            label="GB/GF"
+                            initialValue="RBWM"
                         >
-                            <Input disabled />
+                            <Select disabled>
+                                <Select.Option value="RBWM">RBWM</Select.Option>
+                            </Select>
                         </Form.Item>
                         <Form.Item
                             name="Mule API L0 Estimates"
@@ -154,12 +141,12 @@ export default class DemandRequestFormDetail extends Component<
                             <Input disabled />
                         </Form.Item>
                         <Form.Item
-                            name="GBGF"
-                            label="GB/GF"
-                            initialValue="RBWM"
+                            name="MultiCountry"
+                            label="Multi-Country"
+                            initialValue="N"
                         >
                             <Select disabled>
-                                <Select.Option value="RBWM">RBWM</Select.Option>
+                                <Select.Option value="N">N</Select.Option>
                             </Select>
                         </Form.Item>
                         <Form.Item
@@ -193,6 +180,13 @@ export default class DemandRequestFormDetail extends Component<
                         >
                             <DatePicker disabled />
                         </Form.Item>
+                        {/*  <Form.Item
+                            name="Consumer"
+                            label="Consumer"
+                            initialValue="Consumer"
+                        >
+                            <Input disabled />
+                        </Form.Item>*/}
                     </DataForm>
                     <div
                         style={{
@@ -284,7 +278,7 @@ export default class DemandRequestFormDetail extends Component<
                         </Form.Item>
                         <Form.Item
                             name="APIRefNumber"
-                            label="API Ref Number"
+                            label="API ID"
                             initialValue="CBIL-49560"
                         >
                             <Input disabled />
@@ -298,7 +292,7 @@ export default class DemandRequestFormDetail extends Component<
                         </Form.Item>
                         <Form.Item
                             name="Feature"
-                            label="Old API Ref Number"
+                            label="Original API ID"
                             initialValue="CBIL-49560"
                         >
                             <Input disabled />
