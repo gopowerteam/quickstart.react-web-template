@@ -57,6 +57,7 @@ export default class APIDemandRequestList extends Component<
     }
 
     public renderFormContainer() {
+        const { RangePicker } = DatePicker
         return (
             <CardContainer title="Search">
                 <DataForm
@@ -95,7 +96,7 @@ export default class APIDemandRequestList extends Component<
                         label="Demand Approve Date"
                         collapse
                     >
-                        <DatePicker renderExtraFooter={() => 'extra footer'} />
+                        <RangePicker renderExtraFooter={() => 'extra footer'} />
                     </DataForm.Item>
                     <DataForm.Item
                         name="OSSOverallContact"
@@ -144,7 +145,7 @@ export default class APIDemandRequestList extends Component<
                         label="Design Review Approval Date"
                         collapse
                     >
-                        <DatePicker />
+                        <RangePicker />
                     </DataForm.Item>
                     <DataForm.Item name="SAPIName" label="API Name" collapse>
                         <Input />
@@ -177,7 +178,7 @@ export default class APIDemandRequestList extends Component<
                         label="Design Approve Date"
                         collapse
                     >
-                        <DatePicker />
+                        <RangePicker />
                     </DataForm.Item>
                     <DataForm.Item
                         name="RequestorContact"
@@ -212,7 +213,7 @@ export default class APIDemandRequestList extends Component<
                         name="TargetLiveDate"
                         label="Target Live Date"
                     >
-                        <DatePicker />
+                        <RangePicker />
                     </DataForm.Item>
                     <DataForm.Item
                         name="SAPIRefNumber"

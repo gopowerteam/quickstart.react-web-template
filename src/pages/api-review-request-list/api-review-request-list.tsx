@@ -204,7 +204,7 @@ export default class APIReviewRequestList extends Component<
     public render() {
         const { selectedRowKeys } = this.state
         const { Option } = Select
-
+        const { RangePicker } = DatePicker
         return (
             <components.PageContainer title="API Review Request List">
                 <CardContainer title="Search">
@@ -256,7 +256,7 @@ export default class APIReviewRequestList extends Component<
                             label="Submit Date"
                             collapse
                         >
-                            <DatePicker />
+                            <RangePicker />
                         </DataForm.Item>
                         <DataForm.Item
                             name="DemandApproveStatus"
@@ -273,7 +273,7 @@ export default class APIReviewRequestList extends Component<
                             label="Demand Approve Date"
                             collapse
                         >
-                            <DatePicker />
+                            <RangePicker />
                         </DataForm.Item>
                         <DataForm.Item
                             name="DesignReviewApproval"
@@ -290,7 +290,7 @@ export default class APIReviewRequestList extends Component<
                             label="Design Review Approval Date"
                             collapse
                         >
-                            <DatePicker />
+                            <RangePicker />
                         </DataForm.Item>
                         <DataForm.Item
                             name="DesignApproval"
@@ -307,7 +307,7 @@ export default class APIReviewRequestList extends Component<
                             label="Design Approve Date"
                             collapse
                         >
-                            <DatePicker />
+                            <RangePicker />
                         </DataForm.Item>
                     </DataForm>
                 </CardContainer>
