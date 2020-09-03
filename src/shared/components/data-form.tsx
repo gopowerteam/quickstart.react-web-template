@@ -109,7 +109,6 @@ export default class DataForm extends React.Component<
         const gutter = this.props.gutter || this.default.gutter
         const colon = this.props.colon || this.default.colon
         const formWidth = this.props.formWidth || this.default.formWidth
-        console.log(444, this.props)
         return (
             <components.FormContainer>
                 <GenerateFormInstance
@@ -170,8 +169,6 @@ export default class DataForm extends React.Component<
 export function GenerateFormInstance(props) {
     const [form] = Form.useForm()
     props.onUpdateFormInstance(form)
-
-    console.log(111, props)
 
     return (
         <Form form={form} {...props.options}>
