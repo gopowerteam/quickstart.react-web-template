@@ -2,20 +2,17 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PageContainer from '~/shared/components/page-container'
 import { RouteComponentProps } from 'react-router-dom'
-import StepContainer from '~/shared/components/step-container'
-import StepItem from '~/shared/components/step-item'
-import CardContainer from '~/shared/components/card-container'
 import {
-    Form,
     Input,
     InputNumber,
     message,
     Select,
-    Space,
     DatePicker,
-    Button
+    Button,
+    Form
 } from 'antd'
 import DataForm from '~/shared/components/data-form'
+import CardContainer from '~/shared/components/card-container'
 
 const components = {
     PageContainer: styled(PageContainer)``
@@ -23,9 +20,6 @@ const components = {
 
 interface DemandRequestForm3State {
     discharge: boolean
-    muleApiL0Estimates: number
-    cbSystemL0Estimates: number
-    totalApiL0Estimates: number
 }
 
 interface DemandRequestForm3Props {}
@@ -34,11 +28,12 @@ export default class DemandRequestForm3 extends Component<
     RouteComponentProps<DemandRequestForm3Props>,
     DemandRequestForm3State
 > {
-    private form: any
+    private dataFromRef!: React.RefObject<DataForm>
+
     constructor(props) {
         super(props)
-        const [from] = Form.useForm()
-        this.form = from
+        this.dataFromRef = React.createRef()
+
         this.state = {
             discharge: true
         }
@@ -68,6 +63,7 @@ export default class DemandRequestForm3 extends Component<
                 </div>
                 <CardContainer title="Basic Information" theme="dark">
                     <DataForm
+                        onValuesChange={this.onFormValueChange.bind(this)}
                         name="demo-form"
                         column={1}
                         labelCol={{ span: 8 }}
@@ -187,11 +183,12 @@ export default class DemandRequestForm3 extends Component<
                 </CardContainer>
                 <CardContainer title="Estimation Information">
                     <DataForm
-                        form={this.form}
+                        ref={this.dataFromRef}
                         name="estimateForm"
                         column={1}
                         labelCol={{ span: 8 }}
                         labelAlign="left"
+                        onValuesChange={this.onFormValueChange.bind(this)}
                     >
                         <Form.Item
                             name="MuleAPIL0Estimates"
@@ -205,20 +202,6 @@ export default class DemandRequestForm3 extends Component<
                                         ','
                                     )
                                 }
-                                min={0}
-                                onChange={(value: any) => {
-                                    this.form.setFieldsValue({
-                                        totalApiL0Estimates:
-                                            value +
-                                            this.form.getFieldsValue(
-                                                'cbSystemL0Estimates'
-                                            )
-                                    })
-                                }}
-                                // parser={value =>
-                                //     value.replace(/\$\s?|(,*)/g, '')
-                                // }
-                                // onChange={onChange}
                             />
                         </Form.Item>
                         <Form.Item label="+"></Form.Item>
@@ -235,26 +218,13 @@ export default class DemandRequestForm3 extends Component<
                                         ','
                                     )
                                 }
-                                onChange={(value: any) => {
-                                    this.setState({
-                                        cbSystemL0Estimates: value,
-                                        totalApiL0Estimates:
-                                            value +
-                                            this.state.muleApiL0Estimates
-                                    })
-                                }}
-                                // onChange={this.change}
-
-                                // parser={value =>
-                                //     value.replace(/\$\s?|(,*)/g, '')
-                                // }
-                                // onChange={onChange}
                             />
                         </Form.Item>
                         <Form.Item label="="></Form.Item>
                         <Form.Item
                             name="TotalL0Estimates"
                             label="Total API L0 Estimates*"
+                            initialValue={0}
                         >
                             {/* <div>${totalApiL0Estimates}</div> */}
                             <InputNumber
@@ -265,11 +235,6 @@ export default class DemandRequestForm3 extends Component<
                                     )
                                 }
                                 readOnly={true}
-
-                                // parser={value =>
-                                //     value.replace(/\$\s?|(,*)/g, '')
-                                // }
-                                // onChange={onChange}
                             />
                         </Form.Item>
                     </DataForm>
@@ -290,15 +255,26 @@ export default class DemandRequestForm3 extends Component<
             </components.PageContainer>
         )
     }
-    private onSubmit(data) {
-        message.success('SUCCESS')
+
+    private get dataForm(): DataForm {
+        return this.dataFromRef.current as DataForm
     }
+
     private openForm() {
         this.props.history.push('/pages/demand-request-form3')
     }
+
     private discharge() {
         this.setState({
             discharge: false
+        })
+    }
+
+    private onFormValueChange(changeValue, values) {
+        this.dataForm.formInstance.setFieldsValue({
+            values,
+            TotalL0Estimates:
+                values.CBSystemsL0Estimates + values.MuleAPIL0Estimates
         })
     }
 }

@@ -16,10 +16,7 @@ const components = {
             height: 35px;
         }
 
-        .ant-picker {
-            width: 100%;
-        }
-
+        .ant-picker,
         .ant-input-number {
             width: 100%;
         }
@@ -71,16 +68,9 @@ export default class DataForm extends React.Component<
     constructor(props) {
         super(props)
 
-        this.generateFormInstance()
-
         this.state = {
             collapse: true
         }
-    }
-
-    private generateFormInstance() {
-        const [form] = Form.useForm()
-        this.formInstance = form
     }
 
     public render() {
@@ -119,25 +109,27 @@ export default class DataForm extends React.Component<
         const gutter = this.props.gutter || this.default.gutter
         const colon = this.props.colon || this.default.colon
         const formWidth = this.props.formWidth || this.default.formWidth
+        console.log(444, this.props)
         return (
             <components.FormContainer>
-                <Form
-                    onFieldsChange={this.props.onFieldsChange}
-                    onValuesChange={this.props.onValuesChange}
-                    initialValues={this.props.initialValues}
-                    form={this.formInstance}
-                    style={{ width: formWidth }}
-                    colon={colon}
-                    name="advanced_search"
-                    className="ant-advanced-search-form"
-                    labelCol={labelCol}
-                    wrapperCol={wrapperCol}
-                    labelAlign={labelAlign}
+                <GenerateFormInstance
+                    onUpdateFormInstance={form => (this.formInstance = form)}
+                    options={{
+                        onFieldsChange: this.props.onFieldsChange,
+                        onValuesChange: this.props.onValuesChange,
+                        initialValues: this.props.initialValues,
+                        style: { width: formWidth },
+                        colon: colon,
+                        name: this.props.name,
+                        labelCol: labelCol,
+                        wrapperCol: wrapperCol,
+                        labelAlign: labelAlign
+                    }}
                 >
                     <Row justify="start" gutter={gutter}>
                         {this.getFormItems()}
                     </Row>
-                </Form>
+                </GenerateFormInstance>
             </components.FormContainer>
         )
     }
@@ -173,4 +165,17 @@ export default class DataForm extends React.Component<
 
         return collapse
     }
+}
+
+export function GenerateFormInstance(props) {
+    const [form] = Form.useForm()
+    props.onUpdateFormInstance(form)
+
+    console.log(111, props)
+
+    return (
+        <Form form={form} {...props.options}>
+            {props.children}
+        </Form>
+    )
 }
