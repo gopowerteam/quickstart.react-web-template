@@ -84,6 +84,17 @@ export default class ApiDetailForm extends Component<
                 eim: '',
                 hubId: 'HUB_DIGITAL_CARD',
                 inHubCode: 'Customer'
+            },
+            {
+                key: '2',
+                version: 'V2.0.0',
+                date: '11-08-2019',
+                status: 'Production',
+                sitesInUsed: 'Australia',
+                consumerName: 'CARD',
+                eim: '',
+                hubId: 'HUB_DIGITAL_CARD',
+                inHubCode: 'Customer'
             }
         ]
         return (

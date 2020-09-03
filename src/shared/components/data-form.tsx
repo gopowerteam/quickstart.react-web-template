@@ -18,6 +18,10 @@ const components = {
         .ant-picker {
             width: 100%;
         }
+
+        .ant-input-number {
+            width: 100%;
+        }
     `,
     ActionContainer: styled.div`
         & > * {
