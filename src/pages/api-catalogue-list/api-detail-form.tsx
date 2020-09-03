@@ -84,6 +84,17 @@ export default class ApiDetailForm extends Component<
                 eim: '',
                 hubId: 'HUB_DIGITAL_CARD',
                 inHubCode: 'Customer'
+            },
+            {
+                key: '2',
+                version: 'V2.0.0',
+                date: '11-05-2019',
+                status: 'Production',
+                sitesInUsed: 'Australia',
+                consumerName: 'CARD',
+                eim: '',
+                hubId: 'HUB_DIGITAL_CARD',
+                inHubCode: 'Customer'
             }
         ]
         return (
@@ -182,110 +193,6 @@ export default class ApiDetailForm extends Component<
                         </Form.Item>
                     </DataForm>
                     <Divider />
-                    {/*
-                    <Table
-                        columns={columns}
-                        dataSource={data}
-                        size="small"
-                        pagination={false}
-                    />
-                    <Divider />
-                </CardContainer>
-                <CardContainer title="Version v1.0.0">
-                    <div
-                        style={{ width: '100%' }}
-                        className="flex-row justify-content-end"
-                    >
-                        <Button type="primary" size="large" danger>
-                            Add Version
-                        </Button>
-                    </div>
-                    <DataForm
-                        name="demo-form"
-                        column={1}
-                        labelCol={{ span: 8 }}
-                        labelAlign="left"
-                    >
-                        <LabelItem label="API ID">SAPI-001</LabelItem>
-                        <LabelItem label="API Name">
-                            Customer Address Creation
-                        </LabelItem>
-                        <Form.Item
-                            name="Status"
-                            label="Status"
-                            initialValue="Default"
-                        >
-                            <Select>
-                                <Select.Option value="Default">
-                                    Default
-                                </Select.Option>
-                            </Select>
-                        </Form.Item>
-                        <Form.Item name="HUB API ID" label="HUB API ID">
-                            <Input />
-                        </Form.Item>
-                        <Form.Item name="HUB PGM Flow" label="HUB PGM Flow">
-                            <Input />
-                        </Form.Item>
-                        <Form.Item name="Enhancement" label="Enhancement">
-                            <Input />
-                        </Form.Item>
-                        <Form.Item
-                            name="API Review Link"
-                            label="API Review Link"
-                        >
-                            <Input />
-                        </Form.Item>
-                        <Form.Item
-                            name="HUB API Documents"
-                            label="HUB API Documents"
-                        >
-                            <Input />
-                        </Form.Item>
-                        <Form.Item name="HUB API Documents" label=" ">
-                            <Input />
-                        </Form.Item>
-                        <Form.Item name="HUB API Documents" label=" ">
-                            <Input />
-                        </Form.Item>
-                        <Form.Item name="HUB API Documents" label=" ">
-                            <Input />
-                        </Form.Item>
-                        <Form.Item name="HUB API Documents" label=" ">
-                            <Input />
-                        </Form.Item>
-                        <Form.Item
-                            name="Mul API Documents "
-                            label="Mul API Documents"
-                        >
-                            <Input />
-                        </Form.Item>
-                        <Form.Item name="Mul API Documents " label=" ">
-                            <Input />
-                        </Form.Item>
-                        <Form.Item name="Mul API Documents " label=" ">
-                            <Input />
-                        </Form.Item>
-                        <Form.Item name="Mul API Documents " label=" ">
-                            <Input />
-                        </Form.Item>
-                        <Form.Item
-                            name="Certification Result"
-                            label="Certification Result"
-                        >
-                            <Input />
-                        </Form.Item>
-                   
-                        <Form.Item name="Certification Result" label=" ">
-                            <Input />
-                        </Form.Item>
-                        <Form.Item
-                            name="Simple API Call"
-                            label="Simple API Call"
-                        >
-                            <Input />
-                        </Form.Item>
-                    </DataForm> */}
                     <div
                         style={{ width: '100%' }}
                         className="flex-row justify-content-between"
