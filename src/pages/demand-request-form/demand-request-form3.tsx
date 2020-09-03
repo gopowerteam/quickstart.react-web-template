@@ -5,14 +5,28 @@ import { RouteComponentProps } from 'react-router-dom'
 import StepContainer from '~/shared/components/step-container'
 import StepItem from '~/shared/components/step-item'
 import CardContainer from '~/shared/components/card-container'
-import { Form, Input, message, Select, Space, DatePicker, Button } from 'antd'
+import {
+    Form,
+    Input,
+    InputNumber,
+    message,
+    Select,
+    Space,
+    DatePicker,
+    Button
+} from 'antd'
 import DataForm from '~/shared/components/data-form'
 
 const components = {
     PageContainer: styled(PageContainer)``
 }
 
-interface DemandRequestForm3State {}
+interface DemandRequestForm3State {
+    discharge: boolean
+    muleApiL0Estimates: number
+    cbSystemL0Estimates: number
+    totalApiL0Estimates: number
+}
 
 interface DemandRequestForm3Props {}
 
@@ -20,11 +34,19 @@ export default class DemandRequestForm3 extends Component<
     RouteComponentProps<DemandRequestForm3Props>,
     DemandRequestForm3State
 > {
+    private form: any
     constructor(props) {
         super(props)
+        const [from] = Form.useForm()
+        this.form = from
+        this.state = {
+            discharge: true
+        }
     }
 
     public render() {
+        const { discharge } = this.state
+
         return (
             <components.PageContainer width="70%" title="Demand Request Form">
                 <div style={{ height: 15 }}></div>
@@ -56,12 +78,12 @@ export default class DemandRequestForm3 extends Component<
                             label="Demand Classification*"
                             initialValue="New"
                         >
-                            <Select>
+                            <Select disabled={discharge}>
                                 <Select.Option value="New">New</Select.Option>
                             </Select>
                         </Form.Item>
                         <Form.Item name="APIName" label="API Name*">
-                            <Input />
+                            <Input disabled={discharge} />
                         </Form.Item>
                     </DataForm>
                 </CardContainer>
@@ -73,17 +95,17 @@ export default class DemandRequestForm3 extends Component<
                         labelAlign="left"
                     >
                         <Form.Item name="Requestor" label="Requestor*">
-                            <Input />
+                            <Input disabled={discharge} />
                         </Form.Item>
                         <Form.Item name="ProjectName" label="Project Name*">
-                            <Input />
+                            <Input disabled={discharge} />
                         </Form.Item>
                         <Form.Item
                             name="Country"
                             label="Country*"
                             initialValue="China"
                         >
-                            <Select>
+                            <Select disabled={discharge}>
                                 <Select.Option value="China">
                                     China
                                 </Select.Option>
@@ -94,7 +116,7 @@ export default class DemandRequestForm3 extends Component<
                             label="Region*"
                             initialValue="China"
                         >
-                            <Select>
+                            <Select disabled={discharge}>
                                 <Select.Option value="China">
                                     China
                                 </Select.Option>
@@ -105,7 +127,7 @@ export default class DemandRequestForm3 extends Component<
                             label="Backend System*"
                             initialValue="HUB"
                         >
-                            <Select>
+                            <Select disabled={discharge}>
                                 <Select.Option value="HUB">HUB</Select.Option>
                             </Select>
                         </Form.Item>
@@ -114,19 +136,19 @@ export default class DemandRequestForm3 extends Component<
                             label="Channels*"
                             initialValue="ACD"
                         >
-                            <Select>
+                            <Select disabled={discharge}>
                                 <Select.Option value="ACD">ACD</Select.Option>
                             </Select>
                         </Form.Item>
                         <Form.Item name="Consumer" label="Consumer*">
-                            <Input />
+                            <Input disabled={discharge} />
                         </Form.Item>
                         <Form.Item
                             name="GBGF"
                             label="GB/GF*"
                             initialValue="GFRF"
                         >
-                            <Select>
+                            <Select disabled={discharge}>
                                 <Select.Option value="GFRF">GFRF</Select.Option>
                             </Select>
                         </Form.Item>
@@ -135,7 +157,7 @@ export default class DemandRequestForm3 extends Component<
                             label="CB API Contact*"
                             initialValue="Ash Zeng"
                         >
-                            <Select>
+                            <Select disabled={discharge}>
                                 <Select.Option value="Ash Zeng">
                                     Ash Zeng
                                 </Select.Option>
@@ -146,7 +168,7 @@ export default class DemandRequestForm3 extends Component<
                             label="Core Banking System Contact*"
                             initialValue="Vivian Li"
                         >
-                            <Select>
+                            <Select disabled={discharge}>
                                 <Select.Option value="Vivian Li">
                                     Vivian Li
                                 </Select.Option>
@@ -156,16 +178,17 @@ export default class DemandRequestForm3 extends Component<
                             name="TargetLiveDate"
                             label="Target Live Date*"
                         >
-                            <DatePicker />
+                            <DatePicker disabled={discharge} />
                         </Form.Item>
                         <Form.Item name="BPID" label="BPID*">
-                            <Input />
+                            <Input disabled={discharge} />
                         </Form.Item>
                     </DataForm>
                 </CardContainer>
                 <CardContainer title="Estimation Information">
                     <DataForm
-                        name="demo-form"
+                        form={this.form}
+                        name="estimateForm"
                         column={1}
                         labelCol={{ span: 8 }}
                         labelAlign="left"
@@ -173,36 +196,86 @@ export default class DemandRequestForm3 extends Component<
                         <Form.Item
                             name="MuleAPIL0Estimates"
                             label="Mule API L0 Estimates*"
-                            initialValue="$"
+                            initialValue={0}
                         >
-                            <Input />
+                            <InputNumber
+                                formatter={value =>
+                                    `$ ${value}`.replace(
+                                        /\B(?=(\d{3})+(?!\d))/g,
+                                        ','
+                                    )
+                                }
+                                min={0}
+                                onChange={(value: any) => {
+                                    this.form.setFieldsValue({
+                                        totalApiL0Estimates:
+                                            value +
+                                            this.form.getFieldsValue(
+                                                'cbSystemL0Estimates'
+                                            )
+                                    })
+                                }}
+                                // parser={value =>
+                                //     value.replace(/\$\s?|(,*)/g, '')
+                                // }
+                                // onChange={onChange}
+                            />
                         </Form.Item>
+                        <Form.Item label="+"></Form.Item>
                         <Form.Item
-                            name="MuleAPIL0Estimates"
-                            label="+"
-                        ></Form.Item>
-                        <Form.Item
-                            name="APIName"
+                            name="CBSystemsL0Estimates"
                             label="CB Systems L0 Estimates*"
-                            initialValue="$"
+                            initialValue={0}
                         >
-                            <Input />
+                            <InputNumber
+                                min={0}
+                                formatter={value =>
+                                    `$ ${value}`.replace(
+                                        /\B(?=(\d{3})+(?!\d))/g,
+                                        ','
+                                    )
+                                }
+                                onChange={(value: any) => {
+                                    this.setState({
+                                        cbSystemL0Estimates: value,
+                                        totalApiL0Estimates:
+                                            value +
+                                            this.state.muleApiL0Estimates
+                                    })
+                                }}
+                                // onChange={this.change}
+
+                                // parser={value =>
+                                //     value.replace(/\$\s?|(,*)/g, '')
+                                // }
+                                // onChange={onChange}
+                            />
                         </Form.Item>
+                        <Form.Item label="="></Form.Item>
                         <Form.Item
-                            name="MuleAPIL0Estimates"
-                            label="="
-                        ></Form.Item>
-                        <Form.Item
-                            name="MuleAPIL0Estimates"
+                            name="TotalL0Estimates"
                             label="Total API L0 Estimates*"
-                            initialValue="$"
                         >
-                            <Input />
+                            {/* <div>${totalApiL0Estimates}</div> */}
+                            <InputNumber
+                                formatter={value =>
+                                    `$ ${value}`.replace(
+                                        /\B(?=(\d{3})+(?!\d))/g,
+                                        ','
+                                    )
+                                }
+                                readOnly={true}
+
+                                // parser={value =>
+                                //     value.replace(/\$\s?|(,*)/g, '')
+                                // }
+                                // onChange={onChange}
+                            />
                         </Form.Item>
                     </DataForm>
                 </CardContainer>
                 <div className="flex-row justify-content-between">
-                    <Button size="large" onClick={() => this.openForm()}>
+                    <Button size="large" onClick={() => this.discharge()}>
                         Discharge
                     </Button>
                     <Button
@@ -222,5 +295,10 @@ export default class DemandRequestForm3 extends Component<
     }
     private openForm() {
         this.props.history.push('/pages/demand-request-form3')
+    }
+    private discharge() {
+        this.setState({
+            discharge: false
+        })
     }
 }
