@@ -81,28 +81,21 @@ export default class ReviewRequestForm extends Component<
                         </LabelItem>
                         <LabelItem label="API Method">GET</LabelItem>
                         <LabelItem label="Service">Customer</LabelItem>
-                        <LabelItem label="API Version">1.0.0</LabelItem>
-                        <LabelItem label="Demand Classfication">New</LabelItem>
-                        <LabelItem label="Requestor">Tony Stark</LabelItem>
+                        <LabelItem label="API Type">TRUE SAPI</LabelItem>
                         <LabelItem label="Reusability Score">100</LabelItem>
-                        <LabelItem label="Project Name">Sparrow</LabelItem>
+                        <LabelItem label="API Version">1.0.0</LabelItem>
                         <LabelItem label="Applicable Channels">
                             Customer Service
                         </LabelItem>
-                        <LabelItem label="API Detail URL">
-                            https://www.hsbc.com.hk/
-                        </LabelItem>
-
+                        <LabelItem label="Demand Classfication">New</LabelItem>
                         <LabelItem label="Applicable GB">-</LabelItem>
-
-                        <LabelItem label="Development Lead">Ash Zeng</LabelItem>
-
+                        <LabelItem label="Project Name">Sparrow</LabelItem>
                         <LabelItem label="Applicable Countries">
                             China
                         </LabelItem>
-
-                        <LabelItem label="Submit Date">09-09-2020</LabelItem>
+                        <LabelItem label="Requester">Tony Stark</LabelItem>
                         <LabelItem label="Region">China</LabelItem>
+                        <LabelItem label="Submit Date">09-09-2020</LabelItem>
                     </LabelContainer>
                 </CardContainer>
                 <Divider />
@@ -317,7 +310,11 @@ export default class ReviewRequestForm extends Component<
                                     padding: 20
                                 }}
                             >
-                                <Button className="submit-button" size="large">
+                                <Button
+                                    className="submit-button"
+                                    size="large"
+                                    style={{ width: 100 }}
+                                >
                                     Reject
                                 </Button>
                             </div>

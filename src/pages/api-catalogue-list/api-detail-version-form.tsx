@@ -212,9 +212,12 @@ export default class ApiDetailForm extends Component<
                         <LabelItem label="API Name">
                             Customer Address Creation
                         </LabelItem>
-                        <Form.Item
+                        <LabelItem label="API Review Status">
+                            IN process
+                        </LabelItem>
+                        {/*<Form.Item
                             name="Status"
-                            label="Status"
+                            label="API Review Status"
                             initialValue="Default"
                         >
                             <Select>
@@ -222,7 +225,7 @@ export default class ApiDetailForm extends Component<
                                     Default
                                 </Select.Option>
                             </Select>
-                        </Form.Item>
+                        </Form.Item>*/}
                         <Form.Item name="HUB API ID" label="HUB API ID">
                             <Input />
                         </Form.Item>
@@ -233,51 +236,60 @@ export default class ApiDetailForm extends Component<
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            name="API Review Link"
-                            label="API Review Link"
-                        >
-                            <Input />
-                        </Form.Item>
-                        <Form.Item
                             name="HUB API Documents"
                             label="HUB API Documents"
                         >
+                            API Contract
                             <Input />
                         </Form.Item>
                         <Form.Item name="HUB API Documents" label=" ">
+                            Error Scenario
                             <Input />
                         </Form.Item>
                         <Form.Item name="HUB API Documents" label=" ">
+                            Funtional Design
                             <Input />
                         </Form.Item>
                         <Form.Item name="HUB API Documents" label=" ">
-                            <Input />
-                        </Form.Item>
-                        <Form.Item name="HUB API Documents" label=" ">
+                            IWS postman JSON data
                             <Input />
                         </Form.Item>
                         <Form.Item
                             name="Mul API Documents "
                             label="Mul API Documents"
                         >
+                            Internal Gateway URL
                             <Input />
                         </Form.Item>
                         <Form.Item name="Mul API Documents " label=" ">
+                            CERT PCF URL
                             <Input />
                         </Form.Item>
                         <Form.Item name="Mul API Documents " label=" ">
+                            GIT Repo
                             <Input />
                         </Form.Item>
                         <Form.Item name="Mul API Documents " label=" ">
+                            Jenkins URL
+                            <Input />
+                        </Form.Item>
+                        <Form.Item name="Mul API Documents " label=" ">
+                            RAML
+                            <Input />
+                        </Form.Item>
+                        <Form.Item name="Mul API Documents " label=" ">
+                            Mule Postman JSON Data
                             <Input />
                         </Form.Item>
                         <Form.Item
                             name="Certification Result"
                             label="Certification Result"
                         >
+                            URL
                             <Input />
                         </Form.Item>
                         <Form.Item name="Certification Result" label=" ">
+                            PT Postman JSON Data
                             <Input />
                         </Form.Item>
                         <Form.Item

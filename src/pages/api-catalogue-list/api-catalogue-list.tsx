@@ -213,8 +213,8 @@ export default class APICatalogueList extends Component<
                             <Input />
                         </DataForm.Item>
                         <DataForm.Item
-                            name="Channels"
-                            label="Channels"
+                            name="APIType"
+                            label="API Type"
                             initialValue="Customer"
                         >
                             <Select>
@@ -229,29 +229,13 @@ export default class APICatalogueList extends Component<
                             <Input />
                         </DataForm.Item>
                         <DataForm.Item
-                            name="GBGF"
-                            label="GB/GF"
+                            name="Channels"
+                            label="Channel"
                             initialValue="Customer"
                         >
                             <Select>
                                 <Option value="Customer">Customer</Option>
                             </Select>
-                        </DataForm.Item>
-                        <DataForm.Item
-                            name="APIType"
-                            label="API Type"
-                            initialValue="Customer"
-                        >
-                            <Select>
-                                <Option value="Customer">Customer</Option>
-                            </Select>
-                        </DataForm.Item>
-                        <DataForm.Item
-                            name="HUBAPIID"
-                            label="HUB API ID"
-                            initialValue="0112345"
-                        >
-                            <Input />
                         </DataForm.Item>
                         <DataForm.Item
                             name="FunctionalDomain"
@@ -264,6 +248,41 @@ export default class APICatalogueList extends Component<
                                 </Option>
                             </Select>
                         </DataForm.Item>
+                        <DataForm.Item
+                            name="GBGF"
+                            label="GB/GF"
+                            initialValue="Customer"
+                        >
+                            <Select>
+                                <Option value="Customer">Customer</Option>
+                            </Select>
+                        </DataForm.Item>
+                        <DataForm.Item //新增字段
+                            name="GBGF"
+                            label="Feature"
+                            initialValue="Customer"
+                        >
+                            <Select>
+                                <Option value="Customer">Customer</Option>
+                            </Select>
+                        </DataForm.Item>
+                        <DataForm.Item //新增字段
+                            name="GBGF"
+                            label="Status"
+                            initialValue="Customer"
+                        >
+                            <Select>
+                                <Option value="Customer">Customer</Option>
+                            </Select>
+                        </DataForm.Item>
+                        <DataForm.Item
+                            name="HUBAPIID"
+                            label="Service"
+                            initialValue="0112345"
+                        >
+                            <Input />
+                        </DataForm.Item>
+
                         <DataForm.Item
                             name="GlobalRegionalLocal"
                             label="Global/Regional/Local"
@@ -340,16 +359,12 @@ export default class APICatalogueList extends Component<
                             key="GlobalRegionalLocal"
                         />
                         <Column
-                            title="Channels"
+                            title="Channel"
                             dataIndex="Channels"
                             key="Channels"
                         />
                         <Column title="GB/GF" dataIndex="GBGF" key="GBGF" />
-                        <Column
-                            title="HUB API ID"
-                            dataIndex="HUBAPIID"
-                            key="HUBAPIID"
-                        />
+
                         <Column
                             title="Lastest Version"
                             dataIndex="LatestVersion"
