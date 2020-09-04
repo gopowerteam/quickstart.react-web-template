@@ -26,7 +26,9 @@ const components = {
     `
 }
 
-interface ApiDetailState {}
+interface ApiDetailState {
+    selectVersion: string
+}
 
 interface ApiDetailProps {}
 
@@ -36,9 +38,14 @@ export default class ApiDetail extends Component<
 > {
     constructor(props) {
         super(props)
+        this.state = {
+            selectVersion: 'Version v1.0.0'
+        }
     }
 
     public render() {
+        const { selectVersion } = this.state
+
         const columns = [
             {
                 title: 'Version',
@@ -74,13 +81,24 @@ export default class ApiDetail extends Component<
             },
             {
                 title: 'Edit ',
-                dataIndex: '<Button> test</Button>'
+                render: text => <Button type="primary">Edit</Button>
             }
         ]
         const data = [
             {
                 key: '1',
                 version: 'V1.0.0',
+                date: '11-05-2019',
+                status: 'Production',
+                sitesInUsed: 'Australia',
+                consumerName: 'CARD',
+                eim: '',
+                hubId: 'HUB_DIGITAL_CARD',
+                inHubCode: 'Customer'
+            },
+            {
+                key: '2',
+                version: 'V2.0.0',
                 date: '11-05-2019',
                 status: 'Production',
                 sitesInUsed: 'Australia',
@@ -137,6 +155,16 @@ export default class ApiDetail extends Component<
                     </LabelContainer>
                     <Divider />
                     <Table
+                        onRow={record => {
+                            return {
+                                onClick: event => {
+                                    this.setState({
+                                        selectVersion:
+                                            'Version ' + record.version
+                                    })
+                                }
+                            }
+                        }}
                         columns={columns}
                         dataSource={data}
                         size="small"
@@ -153,7 +181,7 @@ export default class ApiDetail extends Component<
                         </Button>
                     </div>
                 </CardContainer>
-                <CardContainer title="Version v1.0.0">
+                <CardContainer title={selectVersion}>
                     <LabelContainer column={1} labelSpan={4}>
                         <LabelItem label="API ID">SAPI-001</LabelItem>
                         <LabelItem label="API Name">

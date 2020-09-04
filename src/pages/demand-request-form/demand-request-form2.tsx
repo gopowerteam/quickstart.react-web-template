@@ -12,7 +12,9 @@ const components = {
     PageContainer: styled(PageContainer)``
 }
 
-interface DemandRequestForm2State {}
+interface DemandRequestForm2State {
+    discharge: boolean
+}
 
 interface DemandRequestForm2Props {}
 
@@ -22,9 +24,14 @@ export default class DemandRequestForm2 extends Component<
 > {
     constructor(props) {
         super(props)
+        this.state = {
+            discharge: true
+        }
     }
 
     public render() {
+        const { discharge } = this.state
+
         return (
             <components.PageContainer width="70%" title="Demand Request Form">
                 <div style={{ height: 15 }}></div>
@@ -56,12 +63,12 @@ export default class DemandRequestForm2 extends Component<
                             label="Demand Classification*"
                             initialValue="New"
                         >
-                            <Select>
+                            <Select disabled={discharge}>
                                 <Select.Option value="New">New</Select.Option>
                             </Select>
                         </Form.Item>
                         <Form.Item name="APIName" label="API Name*">
-                            <Input />
+                            <Input disabled={discharge} />
                         </Form.Item>
                     </DataForm>
                 </CardContainer>
@@ -165,7 +172,7 @@ export default class DemandRequestForm2 extends Component<
                 </CardContainer>
 
                 <div className="flex-row justify-content-between">
-                    <Button size="large" onClick={() => this.openForm()}>
+                    <Button size="large" onClick={() => this.discharge()}>
                         Discharge
                     </Button>
                     <Button
@@ -179,6 +186,12 @@ export default class DemandRequestForm2 extends Component<
                 </div>
             </components.PageContainer>
         )
+    }
+
+    private discharge() {
+        this.setState({
+            discharge: false
+        })
     }
     private onSubmit(data) {
         message.success('SUCCESS')
