@@ -29,7 +29,7 @@
         "release": "yarn react-build && electron-builder --publish=always",
         "build": "yarn react-build",
         "start": "yarn react-start",
-        "generate:request-config": "ts-node -P ./tools/request-config-generator/tsconfig.json ./tools/request-config-generator/index.ts"
+        "generate:request-config": "ts-node -P ./tools/request-config-generator/tsconfig.json ./tools/request-config-generator/index.ts -c=$CONTROLLER"
     },
     "browserslist": {
         "production": [
@@ -73,6 +73,7 @@
         "react-app-rewired": "^2.1.6",
         "react-scripts": "3.4.3",
         "ts-node": "^9.0.0",
-        "typescript": "^4.0.2"
+        "typescript": "^4.0.2",
+        "yargs": "^15.4.1"
     }
 }

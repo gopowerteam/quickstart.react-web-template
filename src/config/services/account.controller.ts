@@ -8,10 +8,22 @@ import { RequestMethod } from '~/core/http'
 const controller = 'account'
 
 export const AccountController = {
+    // all
+    all: {
+        controller,
+        action: 'all',
+        type: RequestMethod.Get
+    },
     // 修改账号角色
     role: {
         controller,
         action: 'role',
         type: RequestMethod.Put
+    },
+    // getAccountInfoByStaffId
+    userId: {
+        controller,
+        action: 'userId',
+        type: RequestMethod.Get
     }
 }

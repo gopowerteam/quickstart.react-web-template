@@ -1,5 +1,5 @@
-import { RequestService } from '../core/http'
-import appConfig from '../config/app.config'
+import { RequestService } from '~/core/http'
+import appConfig from '~/config/app.config'
 
 export default function () {
     // 配置服务端信息

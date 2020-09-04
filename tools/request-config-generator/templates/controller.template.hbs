@@ -12,7 +12,9 @@ export const {{controllerClass}} = {
     // {{summary}}
     {{action}}: {
         controller,
+        {{#unless defaultAction}}
         action: '{{action}}',
+        {{/unless}}
         type: RequestMethod.{{method}}
     }{{#unless @last}},{{/unless}}
 {{/each}}

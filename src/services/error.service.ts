@@ -7,4 +7,67 @@ import { Observable } from 'rxjs'
 import { ErrorController } from '~/config/services/error.controller'
 
 export class ErrorService {
+    /**
+     * error
+     */
+    @Request({
+        server: ErrorController.get
+    })
+    public get(requestParams: RequestParams): Observable<any> {
+        return requestParams.request()
+    }
+    /**
+     * error
+     */
+    @Request({
+        server: ErrorController.head
+    })
+    public head(requestParams: RequestParams): Observable<any> {
+        return requestParams.request()
+    }
+    /**
+     * error
+     */
+    @Request({
+        server: ErrorController.post
+    })
+    public post(requestParams: RequestParams): Observable<any> {
+        return requestParams.request()
+    }
+    /**
+     * error
+     */
+    @Request({
+        server: ErrorController.put
+    })
+    public put(requestParams: RequestParams): Observable<any> {
+        return requestParams.request()
+    }
+    /**
+     * error
+     */
+    @Request({
+        server: ErrorController.delete
+    })
+    public delete(requestParams: RequestParams): Observable<any> {
+        return requestParams.request()
+    }
+    /**
+     * error
+     */
+    @Request({
+        server: ErrorController.options
+    })
+    public options(requestParams: RequestParams): Observable<any> {
+        return requestParams.request()
+    }
+    /**
+     * error
+     */
+    @Request({
+        server: ErrorController.patch
+    })
+    public patch(requestParams: RequestParams): Observable<any> {
+        return requestParams.request()
+    }
 }

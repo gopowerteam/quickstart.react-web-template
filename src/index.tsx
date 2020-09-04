@@ -4,7 +4,7 @@ import * as serviceWorker from './serviceWorker'
 import App from './App'
 
 import './assets/styles/style.less'
-import bootstrap from './bootstrap'
+import bootstrap from './bootstrap/boots'
 
 function launcher() {
     bootstrap()

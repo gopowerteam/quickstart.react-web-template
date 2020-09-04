@@ -8,12 +8,30 @@ import { AccountController } from '~/config/services/account.controller'
 
 export class AccountService {
     /**
+     * all
+     */
+    @Request({
+        server: AccountController.all
+    })
+    public all(requestParams: RequestParams): Observable<any> {
+        return requestParams.request()
+    }
+    /**
      * 修改账号角色
      */
     @Request({
         server: AccountController.role
     })
     public role(requestParams: RequestParams): Observable<any> {
+        return requestParams.request()
+    }
+    /**
+     * getAccountInfoByStaffId
+     */
+    @Request({
+        server: AccountController.userId
+    })
+    public userId(requestParams: RequestParams): Observable<any> {
         return requestParams.request()
     }
 }

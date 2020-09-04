@@ -8,6 +8,12 @@ import { RequestMethod } from '~/core/http'
 const controller = 'directory'
 
 export const DirectoryController = {
+    // 获取全部数据字典
+    directories: {
+        controller,
+        action: 'directories',
+        type: RequestMethod.Get
+    },
     // 获取数据字典
     getDirectoryByType: {
         controller,

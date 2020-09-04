@@ -7,6 +7,8 @@ import { Consumer } from 'reto'
 import { UserStore } from '~/store/user.store'
 import { AuthService } from '~/services/auth.service'
 import { RequestParams } from '~/core/http'
+import { PageService } from '~/bootstrap/services/page.service'
+import { AccountService } from '~/services/account.service'
 
 const styles = (
     props?: Props<any>
@@ -97,9 +99,27 @@ export default class Login extends Component<
     RouteComponentProps<LoginProps>,
     RouteComponentProps<LoginState>
 > {
+    private pageService = new PageService()
+    private aountService = new AccountService()
     private authService = new AuthService()
+
     constructor(props) {
         super(props)
+    }
+
+    public componentDidMount() {
+        this.aountService
+            .all(
+                new RequestParams(
+                    {},
+                    {
+                        page: this.pageService
+                    }
+                )
+            )
+            .subscribe(data => {
+                console.log(data)
+            })
     }
 
     public render() {

@@ -1,9 +1,12 @@
+#!/usr/bin/env node
+
 import fetch from 'node-fetch'
-import { compile } from 'handlebars'
+import { compile, registerHelper } from 'handlebars'
 import { readFileSync, writeFileSync } from 'fs'
 import { resolve, dirname } from 'path'
 import mkdirp from 'mkdirp'
 import * as config from './config.json'
+import yargs from 'yargs'
 const TEMPLATE_FOLDER = resolve(__dirname, 'templates')
 const PROJECT_FOLDER = resolve(__dirname, '..', '..', 'src')
 
@@ -12,6 +15,14 @@ export const controllerTemplatePath = `${TEMPLATE_FOLDER}/controller.template.hb
 export const serviceTemplatePath = `${TEMPLATE_FOLDER}/service.template.hbs`
 export const controllerDirectionPath = `${PROJECT_FOLDER}/config/services/`
 export const serviceDirectionPath = `${PROJECT_FOLDER}/services/`
+
+registerHelper('toUpperCase', function (str) {
+    return str.toUpperCase()
+})
+
+registerHelper('toLowerCase', function (str) {
+    return str.toLowerCase()
+})
 
 export function generateServiceFiles(controllers) {
     controllers.forEach(generateServiceFile)
@@ -53,7 +64,7 @@ export async function writeControllerFile({ controller, filename }, content) {
     return path
 }
 
-export function generate() {
+export function generate(includes: string[]) {
     fetch(config.swagger, { method: 'GET' })
         .then(res => res.json()) // expecting a json response
         .then(data => data.paths)
@@ -63,9 +74,13 @@ export function generate() {
             Object.entries(paths).forEach(
                 ([key, config]: [string, { [keys: string]: any }]) => {
                     const [controller, action] = key.split('/').filter(x => x)
-                    const className = controller.replace(/^\S/, s =>
-                        s.toUpperCase()
-                    )
+                    const className = controller
+                        .replace(/^\S/, $ => $.toUpperCase())
+                        .replace(/-(\w)/g, ($, $1) => $1.toUpperCase())
+
+                    if (includes.length && !includes.includes(controller)) {
+                        return
+                    }
 
                     let target = controllers.find(
                         x => x.controller === controller
@@ -85,13 +100,13 @@ export function generate() {
                     }
 
                     Object.entries(config).forEach(([method, { summary }]) => {
-                        if (!action) {
-                            return
-                        }
-
                         target.actions.push({
                             controller,
-                            action,
+                            action: (action || method).replace(
+                                /-(\w)/g,
+                                ($, $1) => $1.toUpperCase()
+                            ),
+                            defaultAction: !action,
                             method: method.replace(/^\S/, s => s.toUpperCase()),
                             summary
                         })
@@ -104,4 +119,11 @@ export function generate() {
         })
 }
 
-generate()
+const argv = yargs
+    .option('controller', {
+        alias: 'c',
+        describe: '指定生成的控制器'
+    })
+    .default('controller', [], 'empty list').argv
+
+generate(argv.controller)

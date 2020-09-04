@@ -8,4 +8,39 @@ import { RequestMethod } from '~/core/http'
 const controller = 'error'
 
 export const ErrorController = {
+    // error
+    get: {
+        controller,
+        type: RequestMethod.Get
+    },
+    // error
+    head: {
+        controller,
+        type: RequestMethod.Head
+    },
+    // error
+    post: {
+        controller,
+        type: RequestMethod.Post
+    },
+    // error
+    put: {
+        controller,
+        type: RequestMethod.Put
+    },
+    // error
+    delete: {
+        controller,
+        type: RequestMethod.Delete
+    },
+    // error
+    options: {
+        controller,
+        type: RequestMethod.Options
+    },
+    // error
+    patch: {
+        controller,
+        type: RequestMethod.Patch
+    }
 }
