@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button, Table, Pagination } from 'antd'
-import { PageService } from '~/core/services/page.service'
 import { TableRowSelection } from 'antd/lib/table/interface'
+import { PageService } from '~/bootstrap/services/page.service'
 
 const components = {
     Wrapper: styled.section``,

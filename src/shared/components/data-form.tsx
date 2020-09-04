@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Table, Pagination, Form, Row, Col } from 'antd'
-import { PageService } from '~/core/services/page.service'
-import { ColProps } from 'antd/lib/col'
-import { FormLabelAlign } from 'antd/lib/form/interface'
+import { Button, Form, Row, Col } from 'antd'
 import DataFormItem from './data-form-item'
 import { FormInstance } from 'antd/lib/form'
+import { ColProps } from 'antd/lib/col'
+import { FormLabelAlign } from 'antd/lib/form/interface'
 
 const components = {
     Wrapper: styled.section``,

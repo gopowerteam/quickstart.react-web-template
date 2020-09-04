@@ -33,7 +33,7 @@ export class RequestParams {
     /**
      * 获取扩展服务
      */
-    public getExtendService() {
+    public getExtendService(): ExtendService[] {
         const extendServices = this.options
             ? Object.values(this.options).filter(
                   service => service instanceof ExtendService

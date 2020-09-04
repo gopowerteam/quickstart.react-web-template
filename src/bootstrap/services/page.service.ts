@@ -51,8 +51,13 @@ export class PageService extends ExtendService {
     /**
      * 分页后置操作
      */
-    public after = (response: any, params) => {
-        this.total = response.totalElements
+    public after = (data: any, params) => {
+        this.total = data.totalElements
+        console.log(this)
+        return {
+            override: true,
+            data: data.content
+        }
     }
 
     /**

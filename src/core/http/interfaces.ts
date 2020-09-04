@@ -1,7 +1,4 @@
 import { RequestMethod } from './enums'
-import { PageService } from '../services/page.service'
-import { LoadingService } from '../services/loading.service'
-// import { PageService } from '../common'
 
 /**
  * 服务配置接口
@@ -19,7 +16,10 @@ export interface IRequestServerConfig {
 export interface IRequestParamsOption {
     append?: any[]
     header?: any
-    page?: PageService
-    loading?: LoadingService
     [propName: string]: any
+}
+
+export interface IExtendServiceResult {
+    override: boolean
+    data: any
 }

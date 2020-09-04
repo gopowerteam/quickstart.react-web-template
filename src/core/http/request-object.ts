@@ -79,7 +79,12 @@ export class RequestObject {
 
                     // 应用扩展
                     for (const service of requestParams.getExtendService()) {
-                        service.after && service.after(data, requestParams)
+                        const result =
+                            service.after && service.after(data, requestParams)
+
+                        if (result && result.override) {
+                            data = result.data
+                        }
                     }
 
                     // 通讯结果正常
